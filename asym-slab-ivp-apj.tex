@@ -322,14 +322,14 @@ P|_{t=0} = P_0, \quad \frac{\partial{}P}{\partial{t}}\biggr\rvert_{t=0} = \dot{P
 
 
 \subsection{Solution within the slab}
-Consider an asymmetric magnetic slab as defined in Section 2. For the solution inside the slab, $|x| < x_0$, let $Q_0(x) = \hat{P} - \hat{A}\cosh{kx} / \cosh{kx_0}$, where $\hat{A} = \hat{P}(-x_0) = \hat{P}(x_0)$ then $Q_0$ satisfies
+Consider an asymmetric magnetic slab as defined in Section 2. For the solution inside the slab, $|x| < x_0$, $\hat{P}(x)$ satisfies
 \begin{equation}
-\frac{d^2Q_0}{dx^2} + \Lambda_0^2 Q_0 = F_{P_0} - \hat{A}\frac{\omega^2\cosh{kx}}{v_A^2\cosh{kx_0}},
+\frac{d^2\hat{P}}{dx^2} + \Lambda_0^2 \hat{P} = F_{P_0},
 \end{equation}
-under the homogeneous boundary conditions $Q_0(x_0) = Q_0(-x_0) = 0$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
+under the boundary conditions $\hat{P}(x_0) = \hat{P}(-x_0) = \hat{A}$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
 \begin{equation}
 \frac{d^2G_0}{dx^2} + \Lambda_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0,
-\label{Q eq inside}
+\label{P eq inside}
 \end{equation}
 where $\delta$ denotes the Dirac Delta function. The general solution of this equation is
 \begin{equation}
@@ -343,20 +343,20 @@ G_0(x;s) = \frac{1}{\Lambda_0\sin(2\Lambda_0 x_0)}
 \sin(\Lambda_0(x - x_0))\sin(\Lambda_0(s + x_0)), & \text{if } s<x<x_0,
 \end{cases}
 \end{equation}
-and the solution of system of Equations~\eqref{Q eq inside} is
+and the solution of system of Equations~\eqref{P eq inside} is
 \begin{equation}
-Q_0(x) = \int_{-x_0}^{x_0} G_0(x;s) \left\{ F_{P_0} - \hat{A}\frac{\omega^2\cosh{ks}}{v_A^2\cosh{kx_0}} \right\} ds.
+\hat{P}(x) = \hat{A}\frac{\cos{\Lambda_0x}}{\cos{\Lambda_0x_0}} + \int_{-x_0}^{x_0} G_0(x;s) F_{P_0}(s) ds.
 \end{equation}
 
 
 \subsection{Solution outside the slab}
-For the solution outside and to the left of the slab, $x < -x_0$, let $Q_1(x) = \hat{P} - \hat{A}e^{k(x+x_0)}$, where $\hat{A} = \hat{P}(-x_0)$, then $Q_1$ satisfies
+For the solution outside and to the left of the slab, $x < -x_0$, $\hat{P}(x)$ satisfies
 \begin{equation}
-\frac{d^2Q_1}{dx^2} + \Lambda_1^2 Q_1 = F_{P_1} - \hat{A}\frac{\omega^2}{v_A^2}e^{k(x+x_0)},
+\frac{d^2\hat{P}}{dx^2} + \Lambda_1^2 \hat{P} = F_{P_1},
 \end{equation}
-and the homogeneous boundary conditions $Q_1(-\infty) = Q_1(-x_0) = 0$. By following a Green's function method, the solution of the aforementioned Sturm-Liouville system is
+and the boundary conditions $\hat{P}(-\infty) = 0$, $\hat{P}(-x_0) = \hat{A}$. By following a Green's function method, the solution of the aforementioned Sturm-Liouville system is
 \begin{equation}
-Q_1(x) = \int_{-\infty}^{-x_0} G_1(x;s) \left\{ F_{P_1} - \hat{A}\frac{\omega^2}{v_A^2}e^{k(x+x_0)} \right\} ds,
+\hat{P}(x) = \hat{A}e^{i\Lambda_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x;s) F_{P_1}(s) ds,
 \end{equation}
 where the Green's function, $G_1$, is defined by
 \begin{equation}
@@ -367,9 +367,9 @@ e^{\Lambda_1(x+s+2x_0)} - e^{\Lambda_1(s-x)}, & \text{if } s<x<-x_0.
 \end{cases}
 \end{equation}
 
-Similarly, for the solution outside and to the right of the slab, $x > x_0$, let $Q_2(x) = \hat{P} - \hat{A}e^{-k(x-x_0)}$, where $\hat{A} = \hat{P}(x_0)$, then $Q_2$ satisfies
+Similarly, for the solution outside and to the right of the slab, $x > x_0$, $\hat{P}(x)$ satisfies
 \begin{equation}
-Q_2(x) = \int_{x_0}^{\infty} G_2(x;s) \left\{ F_{P_2} - \hat{A}\frac{\omega^2}{v_A^2}e^{k(x_0-x)} \right\} ds,
+\hat{P}(x) = \hat{A}e^{i\Lambda_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x;s) F_{P_2}(s) ds,
 \end{equation}
 where the Green's function, $G_2$, is defined by
 \begin{equation}
