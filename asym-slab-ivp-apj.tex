@@ -305,17 +305,34 @@ D_R = (\e_0 + \e_1)(\e_0 + \e_2)e^{4kx_0} - (\e_0 - \e_1)(\e_0 - \e_2).
 \end{equation}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{initial value problem - cold magnetic slab}
 
 Employing the same procedure as \cite{rud_etal06} to reduce the linearised MHD equations governing cold (zero-beta) plasma leads us to the following equations for the perturbations in magnetic pressure, $P = B_0b_z/\mu$, and transverse velocity, $v_x$:
 \begin{equation}
 \frac{\partial^2P}{\partial{}t^2} = v_A^2 \nabla^2P, \quad \frac{\partial^2v_x}{\partial{}t^2} = v_A^2 \nabla^2v_x.
 \end{equation}
-Taking Fourier components in $z$ and Laplace transform in $t$, such that $\hat{P}(x) = \int_0^\infty P(x,z,t)e^{i(\omega{}t-kz)} dt$, and introducing transverse wavenumber $\Lambda$, such that $\Lambda^2 = (v_A^2k^2 - \omega^2) / v_A^2$, reduces these equations to
+Taking Fourier components in $z$ and Laplace transform (non-standard, see Appendix~\ref{app: laplace trans}) in $t$, such that $\hat{P}(x) = \int_0^\infty P(x,z,t)e^{i(\omega{}t-kz)} dt$, and introducing transverse wavenumber $\Lambda$, such that $\Lambda^2 = (v_A^2k^2 - \omega^2) / v_A^2$, reduces these equations to
 \begin{equation}
 \frac{d^2\hat{P}}{dx^2} - \Lambda^2 \hat{P} = F_P, \quad \frac{d^2\hat{v}_x}{dx^2} - \Lambda^2 \hat{v}_x = F_v,
 \end{equation}
-where $F_{P_0} = (i\omega P_0 - \dot{P}_0) / v_A^2$ and $F_v = (i\omega u_0 - \dot{u}_0) / v_A^2$, where we have defined the initial values by
+where $F_P(x) = (i\omega P_0 - \dot{P}_0) / v_A^2$ and $F_v(x) = (i\omega u_0 - \dot{u}_0) / v_A^2$, where we have defined the initial values by
 \begin{equation}
 P|_{t=0} = P_0, \quad \frac{\partial{}P}{\partial{t}}\biggr\rvert_{t=0} = \dot{P}_0, \quad v_x|_{t=0} = u_0, \quad \frac{\partial{}v_x}{\partial{t}}\biggr\rvert_{t=0} = \dot{u}_0.
 \end{equation}
@@ -324,12 +341,12 @@ P|_{t=0} = P_0, \quad \frac{\partial{}P}{\partial{t}}\biggr\rvert_{t=0} = \dot{P
 \subsection{Solution within the slab}
 Consider an asymmetric magnetic slab as defined in Section 2. For the solution inside the slab, $|x| < x_0$, $\hat{P}(x)$ satisfies
 \begin{equation}
-\frac{d^2\hat{P}}{dx^2} - \Lambda_0^2 \hat{P} = F_{P_0},
+\frac{d^2\hat{P}}{dx^2} - \Lambda_0^2 \hat{P} = F_P,
+\label{P eq inside}
 \end{equation}
-under the boundary conditions $\hat{P}(x_0) = \hat{P}(-x_0) = \hat{A}$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
+under the boundary conditions $\hat{P}(-x_0) = \hat{A}_1$ and $\hat{P}(-x_0) = \hat{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
 \begin{equation}
 \frac{d^2G_0}{dx^2} - \Lambda_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0,
-\label{P eq inside}
 \end{equation}
 where $\delta$ denotes the Dirac Delta function. The general solution of this equation is
 \begin{equation}
@@ -340,24 +357,25 @@ where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\part
 G_0(x;s) = \frac{1}{\Lambda_0\sinh(2\Lambda_0 x_0)}
 \begin{cases}
 \sinh(\Lambda_0(s - x_0))\sinh(\Lambda_0(x + x_0)), & \text{if } -x_0<x<s, \\
-\sinh(\Lambda_0(x - x_0))\sinh(\Lambda_0(s + x_0)), & \text{if } s<x<x_0,
+\sinh(\Lambda_0(x - x_0))\sinh(\Lambda_0(s + x_0)), & \text{if } s<x<x_0.
 \end{cases}
 \end{equation}
-and the solution of system of Equations~\eqref{P eq inside} is
+Then the solution of system of Equations~\eqref{P eq inside} is
 \begin{equation}
-\hat{P}(x) = \textcolor{red}{\hat{A}\frac{\cosh{\Lambda_0x}}{\cosh{\Lambda_0x_0}}} + \int_{-x_0}^{x_0} G_0(x;s) F_{P_0}(s) ds.
+\hat{P}(x) = \frac{1}{2\sinh{2\Lambda_0x_0}} \left[ \hat{A}_1\sinh(\Lambda_0(x_0 - x)) + \hat{A}_2\sinh(\Lambda_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) F_P(s) ds.
 \label{P sol 0}
 \end{equation}
+This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside}that ensure that the inhomogeneous boundary conditions are satisfied.
 
 
 \subsection{Solution outside the slab}
 For the solution outside and to the left of the slab, $x < -x_0$, $\hat{P}(x)$ satisfies
 \begin{equation}
-\frac{d^2\hat{P}}{dx^2} - \Lambda_1^2 \hat{P} = F_{P_1},
+\frac{d^2\hat{P}}{dx^2} - \Lambda_1^2 \hat{P} = F_P,
 \end{equation}
-and the boundary conditions $\hat{P}(-\infty) = 0$, $\hat{P}(-x_0) = \hat{A}$. By following a Green's function method, the solution of the aforementioned Sturm-Liouville system is
+and the boundary conditions $\hat{P}(-\infty) = 0$, $\hat{P}(-x_0) = \hat{A}_1$. By following a Green's function method, the solution of the aforementioned Sturm-Liouville system is
 \begin{equation}
-\hat{P}(x) = \hat{A}e^{\Lambda_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x;s) F_{P_1}(s) ds,
+\hat{P}(x) = \hat{A}_1e^{\Lambda_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x;s) F_P(s) ds,
 \label{P sol 1}
 \end{equation}
 where the Green's function, $G_1$, is defined by
@@ -371,7 +389,7 @@ e^{\Lambda_1(x+s+2x_0)} - e^{\Lambda_1(s-x)}, & \text{if } s<x<-x_0.
 
 Similarly, for the solution outside and to the right of the slab, $x > x_0$, $\hat{P}(x)$ satisfies
 \begin{equation}
-\hat{P}(x) = \hat{A}e^{\Lambda_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x;s) F_{P_2}(s) ds,
+\hat{P}(x) = \hat{A}_2e^{\Lambda_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x;s) F_P(s) ds,
 \label{P sol 2}
 \end{equation}
 where the Green's function, $G_2$, is defined by
@@ -387,44 +405,91 @@ e^{-\Lambda_2(x+s+2x_0)} - e^{\Lambda_2(s-x)}, & \text{if } s<x<\infty.
 \subsection{Matching solutions}
 For physically relevant solutions, we require that the transverse displacement (equivalently, the perturbation in transverse velocity) and the total pressure (equivalently, the magnetic pressure, since we are assuming that the plasma is cold) be continuous across the interfaces at $x = \pm x_0$.
 
-Continuity in magnetic pressure, $P$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2}, respectively, and our definition of $\hat{A} = \hat{P}(x=\pm x_0)$.
+Continuity in magnetic pressure, $P$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2}, respectively, and our definition of $\hat{A}_1 = \hat{P}(x=-x_0)$ and $\hat{A}_2 = \hat{P}(x=x_0)$.
 
-Continuity in transverse velocity, $v_x$ can be dealt with as follows. If we make the simplification to the prescribed initial conditions such at $u_0 = 0$ and $\dot{u}_0 + \frac{1}{\rho_0}\frac{dP_0}{dx} = 0$, so that the initial plasma is at rest and it's initial acceleration transverse to the slab is due to the initial pressure gradient, then this boundary condition is equivalent to
+Continuity in transverse velocity, $v_x$ can be dealt with as follows. If we make the simplification to the prescribed initial conditions such at $u_0 = 0$ and $\dot{u}_0 + \frac{1}{\rho_0}\frac{dP_0}{dx} = 0$, so that the initial plasma is at rest and its initial acceleration transverse to the slab is due to the initial pressure gradient, then this boundary condition is equivalent to
 \begin{equation}
 \left[ \left[ \frac{1}{\rho_0(\omega^2 - k^2v_A^2)} \frac{\partial \hat{P}}{\partial x} \right] \right]_{x=\pm x_0} = 0.
 \end{equation}
-Substituting the solutions given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2} into this boundary condition at $x=-x_0$ gives
+Substituting the solutions given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2} into these boundary conditions gives
 \begin{equation}
-\hat{A}(\omega) = \frac{T_1(\omega)}{D_1(\omega)},
+\hat{A}_1(\omega) = \frac{T_1(\omega)}{D(\omega)}, \quad \hat{A}_2(\omega) = \frac{T_2(\omega)}{D(\omega)},
 \end{equation}
 where
 \begin{align}
-T_1(\omega) & = \frac{\Lambda_1^2}{\sin{2\Lambda_0x_0}} \int_{-x_0}^{x_0} \sin(\Lambda_0(s - x_0)) F_{p_0}(s) ds - \Lambda_0^2 \int_{-x_0}^{x_0} e^{\Lambda_1(s+x_0)} F_{p_1}(s) ds, \\
-D_1(\omega) & = i\Lambda_0^2\Lambda_1 - \Lambda_1^2\Lambda_0\tan(\Lambda_0x_0).
+T_1(\omega) & = (\Lambda_1^2 I_{s1} - \Lambda_0^2I_{e1})[\Lambda_0\Lambda_2\sinh(2\Lambda_0x_0) + \Lambda_2^2\cosh(2\Lambda_0x_0)] - \Lambda_1^2(\Lambda_0^2 I_{e2} + \Lambda_2^2 I_{s2}), \\
+T_2(\omega) & = \Lambda_2^2(\Lambda_1^2 I_{s1} - \Lambda_0^2I_{e1}) - (\Lambda_0^2 I_{e2} + \Lambda_2^2 I_{s2})[\Lambda_0\Lambda_1\sinh(2\Lambda_0x_0) + \Lambda_1^2\cosh(2\Lambda_0x_0)], \\
+D(\omega) & = \Lambda_0\Lambda_1\Lambda_2[\Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2\Lambda_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2\Lambda_0x_0)],
+\label{D}
 \end{align}
-Substitution into this boundary condition at $x=x_0$ gives
+and
 \begin{equation}
-\hat{A}(\omega) = \frac{T_2(\omega)}{D_2(\omega)},
+\begin{aligned}[t]
+I_{e1} & = \int_{-\infty}^{-x_0} e^{\Lambda_1(s + x_0)} F_p(s) ds, \\
+I_{s1} & = \int_{-x_0}^{x_0} \frac{\sinh(\Lambda_0(s - x_0))}{\sinh(2\Lambda_0x_0)} F_p(s) ds,
+\end{aligned}
+\quad
+\begin{aligned}[t]
+I_{e2} & = \int_{x_0}^\infty e^{\Lambda_2(x_0 - s)} F_p(s) ds, \\
+I_{s2} & = \int_{-x_0}^{x_0} \frac{\sinh(\Lambda_0(s + x_0))}{\sinh(2\Lambda_0x_0)} F_p(s) ds.
+\end{aligned}
 \end{equation}
-where
-\begin{align}
-T_2(\omega) & = - \frac{\Lambda_2^2}{\sin{2\Lambda_0x_0}} \int_{-x_0}^{x_0} \sin(\Lambda_0(s + x_0)) F_{p_0}(s) ds - \Lambda_0^2 \int_{-x_0}^{x_0} e^{\Lambda_2(s - x_0)} F_{p_2}(s) ds, \\
-D_2(\omega) & = i\Lambda_0^2\Lambda_2 - \Lambda_2^2\Lambda_0\tan(\Lambda_0x_0).
-\end{align}
 
 
-%Consider an equilibrium plasma with magnetic field $B_0(x)\mathbf{\hat{z}}$, density $\rho_0(x)$, and pressure $p_0(x)$, without gravity. In the absence of structuring in the $z$-direction and considering perturbations in the $(x,z)$-plane only, we can take Fourier components for velocity and other parameters like $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x)e^{i(kz + ly - \omega t)}$. The velocity perturbation amplitude in the inhomogeneous direction of an ideal plasma is given by
+\section{Solution in time}
+We aim to study the asymptotic behaviour of the magnetic pressure perturbation for various regimes in time.
+
+\subsection{Asymptotic solution for large time}
+To study the asymptotic behaviours of the magnetic pressure perturbation, we start with the asymptotic behaviours of $A_1(t) = P(t, -x_0)$ and $A_2(t) = P(t, x_0)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
+\begin{equation}
+A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega, \quad A_2(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+\label{A inv laplace}
+\end{equation}
+where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
+
+Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities of $T_1$, $T_2$, and $D$ (so that we can construct the Bromwich contour such that it doesn't enclose any singularities) and the zeros of $D$ (whose residues determine the value of the contour integral).
+
+Firstly, we note that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. To see this, observe that for a low-beta plasma, the parameters $\Lambda_i^z = -i\rho_i\omega\sqrt{k^2v_{Ai}^2 - \omega^2}$, for $i = 0,1,2$, where we have added the superscript label $z$ to differentiate it from $\Lambda_i$ in the present text. Trivially,
+\begin{equation}
+\Lambda_i = \frac{i\mu\omega}{B_i^2} \Lambda_i^z.
+\end{equation}
+Due to equilibrium total pressure balance (the total pressure in a cold plasma is merely the magnetic pressure), the strength of the magnetic field is uniform across the structure, \textit{i.e.} $B_0^2 = B_1^2 = B_2^2$. Therefore, $D=0$ is equivalent to
+\begin{equation}
+\Lambda_0^z(\Lambda_1^z + \Lambda_2^z) + (\Lambda_0^{z2} + \Lambda_1^z \Lambda_2^z)\tanh(2m_0x_0) = 0,
+\end{equation}
+where $m_0^2 = k^2 - \omega^2 / v_{A0}^2$, which is the dispersion relation of a low-beta asymmetric magnetic slab \citep{zsa_etal18}. Therefore, the zeros of $D$ are precisely the eigenvalues of the asymmetric magnetic slab.
+
 
 
 \acknowledgments
-M. Allcock thanks the University Prize Scholarship at the University of Sheffield. R. Erd\'{e}lyi acknowledges the support from the UK Science and Technology Facilities Council (STFC) and the Royal Society. 
+M. Allcock acknowledges the support from the University Prize Scholarship at the University of Sheffield. R. Erd\'{e}lyi acknowledges the support from the UK Science and Technology Facilities Council (STFC) and the Royal Society. 
 
 % inlude mayavi visualisations and link to the website?
 \software{Mayavi}
 
 \appendix
 
-\section{Appendix information}
+\section{Non-standard Laplace transform}\label{app: laplace trans}
+Consider a function $f(t)$, whose standard Laplace transform, $F_1(s)$, and non-standard Laplace transform, $F_2(s)$, are
+\begin{equation}
+F_1(s) = \int_0^\infty f(t) e^{-s t} dt,
+\label{LT1}
+\end{equation}
+and
+\begin{equation}
+F_2(s) = \int_0^\infty f(t) e^{is t} dt.
+\label{LT2}
+\end{equation}
+Trivially, $F_1(-is) = F_2(s)$. Using the standard inverse Laplace transform, and letting $\gamma$ be real and greater than the real part of all the singularities of $F_1(s)$, the original function $f(t)$ can be written
+\begin{align}
+f(t) & = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{\gamma - iT}^{\gamma + iT} F_1(s)e^{st} ds, \\
+& = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_1(-is)e^{-is t} (-ids), \\
+& = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(s)e^{-is t} ds.
+\end{align}
+Therefore, the inverse transform of the non-standard Laplace transform, Equation~\eqref{LT2}, is
+\begin{equation}
+f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(s)e^{-is t} ds.
+\end{equation}
 
 
 
