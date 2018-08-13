@@ -419,7 +419,7 @@ where
 \begin{align}
 T_1(\omega) & = (I_0^- - I_1)[\epsilon_0\cosh(2kx_0) + \epsilon_2\sinh(2kx_0)] - \epsilon_0(I_0^+ + I_2), \\
 T_2(\omega) & = \epsilon_0(I_0^- - I_1) - (I_0^+ + I_2)[\epsilon_0\cosh(2kx_0) + \epsilon_1\sinh(2kx_0)], \\
-D(\omega) & = \epsilon_0(\epsilon_1 + \epsilon_2)\cosh(2\epsilon_0x_0) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\sinh(2\epsilon_0x_0),
+D(\omega) & = \epsilon_0(\epsilon_1 + \epsilon_2)\cosh(2kx_0) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\sinh(2kx_0),
 \label{D incomp}
 \end{align}
 and
@@ -432,8 +432,28 @@ I_2 = \int_{x_0}^\infty e^{k(x_0 - s)} f(s) ds.
 \end{equation}
 
 
-\subsubsection{Solution in time}
-The aim is to apply the inverse Laplace transform 
+\subsubsection{Asymptotic solution for large time}
+To study the asymptotic behaviours of the velocity perturbation, we begin with the asymptotic behaviour of the boundary velocities, $A_1(t) = v_x(t, -x_0)$ and $A_2(t) = v_x(t, x_0)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
+\begin{equation}
+A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega, \quad A_2(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+\label{A inv laplace}
+\end{equation}
+where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
+
+Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ (so that we can construct the Bromwich contour such that it is contained to a single-valued branch) and the zeros of $D$ (whose residues determine the value of the contour integral).
+
+The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore $T_1$ and $T_2$ are entire functions.
+
+The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. To see this, observe that for an incompressible plasma, the parameters $\Lambda_i^z = -i\rho_i\omega\sqrt{k^2v_{Ai}^2 - \omega^2}$, for $i = 0,1,2$, where we have added the superscript label $z$ to differentiate it from $\Lambda_i$ in the present text. Trivially,
+\begin{equation}
+\Lambda_i = \frac{i\mu\omega}{B_i^2} \Lambda_i^z.
+\end{equation}
+Due to equilibrium total pressure balance (the total pressure in a cold plasma is merely the magnetic pressure), the strength of the magnetic field is uniform across the structure, \textit{i.e.} $B_0^2 = B_1^2 = B_2^2$. Therefore, $D=0$ is equivalent to
+\begin{equation}
+\Lambda_0^z(\Lambda_1^z + \Lambda_2^z) + (\Lambda_0^{z2} + \Lambda_1^z \Lambda_2^z)\tanh(2m_0x_0) = 0,
+\end{equation}
+where $m_0^2 = k^2 - \omega^2 / v_{A0}^2$, which is the dispersion relation of a zero-beta asymmetric magnetic slab \citep{zsa_etal18}. It follows that the zeros of $D$ are precisely the eigenvalues of the asymmetric magnetic slab.
+
 
 
 
@@ -593,7 +613,7 @@ A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \fr
 \end{equation}
 where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
 
-Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ (so that we can construct the Bromwich contour such that it doesn't enclose any singularities) and the zeros of $D$ (whose residues determine the value of the contour integral).
+Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ (so that we can construct the Bromwich contour such that it is contained to a single-valued branch) and the zeros of $D$ (whose residues determine the value of the contour integral).
 
 To determine the singularities of these functions, we determine the singularities of the constituent functions, as follows.
 \begin{itemize}
@@ -658,25 +678,21 @@ M. Allcock acknowledges the support from the University Prize Scholarship at the
 \appendix
 
 \section{Non-standard Laplace transform}\label{app: laplace trans}
-Consider a function $f(t)$, whose standard Laplace transform, $F_1(s)$, and non-standard Laplace transform, $F_2(s)$, are
+Consider a function $f(t)$, whose standard Laplace transform, $F_1(\omega)$, and non-standard Laplace transform, $F_2(\omega)$, are
 \begin{equation}
-F_1(s) = \int_0^\infty f(t) e^{-s t} dt,
-\label{LT1}
+F_1(\omega) = \int_0^\infty f(t) e^{-\omega t} dt,
+\quad \text{and} \quad
+F_2(\omega) = \int_0^\infty f(t) e^{i\omega t} dt.
 \end{equation}
-and
-\begin{equation}
-F_2(s) = \int_0^\infty f(t) e^{is t} dt.
-\label{LT2}
-\end{equation}
-Trivially, $F_1(-is) = F_2(s)$. Using the standard inverse Laplace transform, and letting $\gamma$ be real and greater than the real part of all the singularities of $F_1(s)$, the original function $f(t)$ can be written
+Trivially, $F_1(-i\omega) = F_2(\omega)$. Using the standard inverse Laplace transform, and letting $\gamma$ be real and greater than the real part of all the singularities of $F_1(\omega)$, the original function $f(t)$ can be written
 \begin{align}
-f(t) & = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{\gamma - iT}^{\gamma + iT} F_1(s)e^{st} ds, \\
-& = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_1(-is)e^{-is t} (-ids), \\
-& = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(s)e^{-is t} ds.
+f(t) & = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{\gamma - iT}^{\gamma + iT} F_1(\omega)e^{\omega t} d\omega, \\
+& = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_1(-i\omega)e^{-i\omega t} (-id\omega), \\
+& = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\omega)e^{-i\omega t} d\omega.
 \end{align}
-Therefore, the inverse transform of the non-standard Laplace transform, Equation~\eqref{LT2}, is
+Therefore, the inverse transform of the non-standard Laplace transform is
 \begin{equation}
-f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(s)e^{-is t} ds.
+f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\omega)e^{-i\omega t} d\omega.
 \end{equation}
 
 
