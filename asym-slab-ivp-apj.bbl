@@ -2,6 +2,9 @@
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\href{#1}{#1}}
 
+\bibitem[{{Allcock} \& {Erd{\'e}lyi}(2017)}]{all_etal17}
+{Allcock}, M., \& {Erd{\'e}lyi}, R. 2017, \solphys, 292, 35
+
 \bibitem[{{Andries} \& {Goossens}(2007)}]{and_etal07}
 {Andries}, J., \& {Goossens}, M. 2007, Physics of Plasmas, 14, 052101
 
