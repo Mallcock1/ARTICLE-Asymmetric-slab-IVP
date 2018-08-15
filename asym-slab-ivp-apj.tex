@@ -43,6 +43,9 @@
 \let\captionbox\relax
 \usepackage[caption=false]{subfig}
 
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+
 
 %% Definitions for the journal names
 %\newcommand{\adv}{    {\it Adv. Space Res.}} 
@@ -87,7 +90,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Temporal Evolution of Asymmetric Slab Magnetohydrodynamic Waves}
+\title{Evolution of Asymmetric Slab Magnetohydrodynamic Waves}
 
 %% LaTeX will automatically break titles if they run longer than
 %% one line. However, you may use \\ to force a line break if
@@ -148,7 +151,7 @@
 
 \begin{abstract}
 
-Abstract (250 word limit)
+Abstract (250 word limit for ApJ)
 
 \end{abstract}
 
@@ -435,7 +438,9 @@ I_2 = \int_{x_0}^\infty e^{k(x_0 - s)} f(s) ds.
 \subsubsection{Asymptotic solution for large time}
 To study the asymptotic behaviours of the velocity perturbation, we begin with the asymptotic behaviour of the boundary velocities, $A_1(t) = v_x(t, -x_0)$ and $A_2(t) = v_x(t, x_0)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
 \begin{equation}
-A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega, \quad A_2(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+A_1(t) = \frac{1}{2\pi k} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+\quad
+A_2(t) = \frac{1}{2\pi k} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
 \label{A inv laplace}
 \end{equation}
 where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
@@ -444,15 +449,89 @@ Since the problem of finding the solution is now reduced to solving a complex in
 
 The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore $T_1$ and $T_2$ are entire functions.
 
-The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. To see this, observe that for an incompressible plasma, the parameters $\Lambda_i^z = -i\rho_i\omega\sqrt{k^2v_{Ai}^2 - \omega^2}$, for $i = 0,1,2$, where we have added the superscript label $z$ to differentiate it from $\Lambda_i$ in the present text. Trivially,
+The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. They show that the dispersion relation governing transverse wave propagation parallel to the magnetic field in an asymmetric slab of compressible plasma is given by
 \begin{equation}
-\Lambda_i = \frac{i\mu\omega}{B_i^2} \Lambda_i^z.
+2(\Lambda_0^2 + \Lambda_1 \Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0,
+\label{DR}
 \end{equation}
-Due to equilibrium total pressure balance (the total pressure in a cold plasma is merely the magnetic pressure), the strength of the magnetic field is uniform across the structure, \textit{i.e.} $B_0^2 = B_1^2 = B_2^2$. Therefore, $D=0$ is equivalent to
+where
 \begin{equation}
-\Lambda_0^z(\Lambda_1^z + \Lambda_2^z) + (\Lambda_0^{z2} + \Lambda_1^z \Lambda_2^z)\tanh(2m_0x_0) = 0,
+\Lambda_j = -\frac{i\rho_j(k^2v_{Aj}^2 - \omega^2)}{\omega m_j},
+\quad
+m_j^2 = \frac{(k^2c_j^2 - \omega^2)(k^2v_{Aj}^2 - \omega^2)}{(c_j^2 + v_{Aj}^2)(k^2c_{Tj}^2 - \omega^2)},
+\quad
+\text{and}
+\quad
+c_{Tj}^2 = \frac{c_j^2v_{Aj}^2}{c_j^2 + v_{Aj}^2},
 \end{equation}
-where $m_0^2 = k^2 - \omega^2 / v_{A0}^2$, which is the dispersion relation of a zero-beta asymmetric magnetic slab \citep{zsa_etal18}. It follows that the zeros of $D$ are precisely the eigenvalues of the asymmetric magnetic slab.
+for $j = 0, 1, 2$. When compressibility is neglected, such that the sound speeds, $c_j$, approach infinity, we have $c_{Tj}^2 \to v_{Aj}^2$, $m_j^2 \to k^2$, and therefore $\Lambda_j = -i\rho_j(k^2v_{Aj}^2 - \omega^2)/\omega k = -i\epsilon_j / \omega k$.Therefore, Equation~\eqref{DR} can be reduced to the dispersion relation for an incompressible magnetic slab, which is
+\begin{equation}
+2(\epsilon_0^2 + \epsilon_1 \epsilon_2) + \epsilon_0(\epsilon_1 + \epsilon_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0,
+\end{equation}
+which can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$ is given by Equation~\eqref{D incomp}. It follows that the zeros of $D(\omega)$ are precisely the eigenvalues of the asymmetric incompressible magnetic slab.
+
+The zeros of $D(\omega) = 0$ are found by writing this equation as
+\begin{equation}
+\epsilon_0(\epsilon_1 + \epsilon_2) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\tanh(2kx_0) = 0.
+\end{equation}
+Substituting expressions for $\epsilon(x)$ into this equation gives
+\begin{equation}
+\rho_0(k^2v_{A0}^2 - \omega^2)[\rho_1(k^2v_{A1}^2 - \omega^2) + \rho_2(k^2v_{A2}^2 - \omega^2)] + [\rho_0^2(k^2v_{A0}^2 - \omega^2)^2 + \rho_1\rho_2(k^2v_{A1}^2 - \omega^2)(k^2v_{A2}^2 - \omega^2)]\tanh(2kx_0) = 0.
+\end{equation}
+The above equation can be rewritten as a quadratic in $(\omega/k)^2$, namely
+\begin{align}
+[(\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2)] & \left(\frac{\omega}{k}\right)^4 \\
+- [(2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] & \left(\frac{\omega}{k}\right)^2 \\
++ [(\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] & = 0,
+\end{align}
+which has solutions
+\begin{equation}
+\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},
+\end{equation}
+where
+\begin{align}
+a &= (\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2), \\
+b &= (2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \\
+c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}).
+\end{align}
+
+
+Given that the $T(\omega)$ is analytic, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses $\pm\omega_0$ (Figure~\ref{fig: brom cont incomp}).
+
+\begin{figure}
+	\centering
+	\scalebox{0.9}{
+	\begin{tikzpicture}[very thick,decoration={
+		markings,
+		mark=at position 0.29 with {\arrow{>}}}
+	]
+		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
+		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
+		
+		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
+		\draw [postaction={decorate}, thick] (4,1) to (4,0) node[above left]{$L$} to [out=-90,in=0] (0,-4) to [out=180,in=-90] (-4,0) node[above left]{$L$} to (-4,1);
+		\node [above left] at (0,1) {$\gamma$};
+		
+		\draw[fill] (-4,0) circle [radius=0.025];
+		\draw[fill] (4,0) circle [radius=0.025];
+		\draw[fill] (0,1) circle [radius=0.025];
+		
+		\draw[fill] (3,0) circle [radius=0.025];
+		\node [below] at (3,0) {$\omega_0$};
+		
+		\draw[fill] (-3,0) circle [radius=0.025];
+		\node [below] at (-3,0) {$-\omega_0$};
+		
+		\node [above] at (-1.7,1) {$C_0$};
+		\node [below right] at (2.8,-2.8) {$C_1$};
+	\end{tikzpicture} 
+	}
+	\label{fig: brom cont incomp}
+	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
+\end{figure}
+
+
+
 
 
 
