@@ -166,7 +166,8 @@ Physicality of the principle leaky kink mode: \cite{cal03} solved the initial va
 
 Consider an equilibrium plasma with magnetic field $B_0(x)\mathbf{\hat{z}}$, density $\rho_0(x)$, and pressure $p_0(x)$, without gravity. In the absence of structuring in the $z$-direction and considering perturbations in the $(x,z)$-plane only, we can take Fourier components for velocity and other parameters like $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x)e^{i(kz + ly - \omega t)}$. The velocity perturbation amplitude in the inhomogeneous direction of an ideal plasma is given by
 \begin{equation}
-\frac{d}{dx}\left(\frac{\epsilon(x)}{l^2 - m_0^2(x)} \frac{d\hat{v}_x}{dx}\right) - \epsilon(x)\hat{v}_x = 0,
+\frac{d}{dx}\left(\frac{\epsilon(x)}{l^2 + m_0^2(x)} \frac{d\hat{v}_x}{dx}\right) - \epsilon(x)\hat{v}_x = 0,
+\label{gov gen}
 \end{equation}
 where
 \begin{equation}
@@ -175,12 +176,12 @@ m_0^2(x) = \frac{(k^2c_0^2(x) - \omega^2)(k^2v_A^2(x) - \omega^2)}{(c_0^2(x) + v
 \end{equation}
 and
 \begin{equation}
-c_0(x) = \sqrt{\frac{\gamma p_0}{\rho_0(x)}}, \quad
+c_0(x) = \sqrt{\frac{\gamma p_0(x)}{\rho_0(x)}}, \quad
 v_A(x) = \frac{B_0(x)}{\sqrt{\mu \rho_0(x)}}, \quad
 c_T(x) = \frac{c_0(x)v_A(x)}{\sqrt{c_0^2(x) + v_A^2(x)}}
-\end{equation} are the sound, Alfv\'{e}n, and tube speeds.
+\end{equation} are the sound, Alfv\'{e}n, and tube speeds, respectively.
 
-When the plasma is incompressible, so that $c_0 \to \infty$, this reduces to
+When the plasma is incompressible, so that $c_0 \to \infty$, we have $c_T^2 \to v_A^2$ and $m_0^2 \to k^2$. After restricting the analysis to propagation only parallel to the magnetic field ($l = 0$), Equation~\eqref{gov gen} reduces to
 \begin{equation}
 \frac{d}{dx}\left(\epsilon(x) \frac{d\hat{v}_x}{dx}\right) - k^2\epsilon(x)\hat{v}_x = 0,
 \label{gov}
@@ -198,13 +199,14 @@ This gives us the initial-value form of Equation~\eqref{gov} to be
 \end{equation}
 where
 \begin{equation}
-f(x) = -ik\left\{\rho_0\left[\frac{\partial\hat{\Omega}}{\partial t}(x,0) - i\omega\hat{\Omega}(x,0)\right] + \left[\frac{\partial\hat{v}_z}{\partial t}(x,0) - i\omega \hat{v}_z(x,0)\right]\frac{d\rho_0}{dx}\right\},
+f(x) = ik\left\{\rho_0\left[\frac{\partial\hat{\Omega}}{\partial t}(x,0) - i\omega\hat{\Omega}(x,0)\right] - \left[\frac{\partial\hat{v}_z}{\partial t}(x,0) - i\omega \hat{v}_z(x,0)\right]\frac{d\rho_0}{dx}\right\},
 \label{f}
 \end{equation}
 where the vorticity, $\Omega(x,t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mathbf{\hat{y}} = \nabla \times \mathbf{v}(\mathbf{x},t)$, is given by
 \begin{equation}
-\hat{\Omega}(\mathbf{x},t) = \frac{i}{k}\left(\frac{\partial^2\hat{v}_x}{\partial x^2} - k^2 \hat{v}_x\right).
+\hat{\Omega}(\mathbf{x},t) = -\frac{i}{k}\left(\frac{\partial^2\hat{v}_x}{\partial x^2} - k^2 \hat{v}_x\right).
 \end{equation}
+(this differs from \cite{rae_etal81} by a factor of $-1$ due to taking Fourier forms like $e^{ikz}$ rather than $e^{-ikz}$)
 
 Consider equilibrium magnetic field and density profiles given by
 \begin{equation}
@@ -496,7 +498,7 @@ c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0(\rho
 \end{align}
 
 
-Given that the $T(\omega)$ is analytic, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses $\pm\omega_0$ (Figure~\ref{fig: brom cont incomp}).
+Given that the function $T(\omega)$ is analytic, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses $\pm\omega_0$ (Figure~\ref{fig: brom cont incomp} < -- WHY IS THIS HAPPENING?!).
 
 \begin{figure}
 	\centering
@@ -530,8 +532,34 @@ Given that the $T(\omega)$ is analytic, we can construct a closed Bromwich conto
 	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
 \end{figure}
 
+First, we see that, as $|\omega| \to \infty$, the integrand in question behaves like $T_{1,2}(\omega) \to \mathcal{O}(|\omega|^{-1})$. Therefore,
+\begin{equation}
+\lim_{L \to \infty} \int_{C_1} \frac{T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} d\omega = 0.
+\end{equation}
 
+Secondly, the contour $C$ is integrated in the clockwise direction and therefore is equal to $-2\pi i$ multiplied by the sum of the residues of the integrand at $\omega = \pm \omega_0$. The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule, to within choice of initial condition, as
+\begin{align}
+\mathrm{Res}\left[\frac{T_{1,2}(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \omega_0 \right] &= 
+\lim_{\omega \to \omega_0} \frac{(\omega - \omega_0)T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} \\ 
+&= \lim_{\omega \to \omega_0} \frac{1}{D'(\omega)} [T_{1,2}(\omega)e^{-i\omega t} + (\omega - \omega_0)T'_{1,2}(\omega)e^{-i\omega t} - it(\omega - \omega_0)T_{1,2}(\omega)e^{-i\omega t}] \\
+&= \chi_{1,2} e^{-i\omega_0 t},
+\end{align}
+where $\chi_{1,2} = T_{1,2}(\omega_0) / D'(\omega_0)$.
+Similarly, the residue at $\omega = -\omega_0$ is
+\begin{align}
+\mathrm{Res}\left[\frac{T_{1,2}(\omega)}{D(\omega)}e^{-i\omega t}, \omega = -\omega_0 \right] &= \lim_{\omega \to -\omega_0} \frac{(\omega + \omega_0)T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} \\
+&= -\chi_{1,2} e^{i\omega_0 t}.
+\end{align}
+where we have used the fact that $D$ and $T_{1,2}$ are even functions and $D'$ is an odd function of $\omega$.
 
+Putting all of the above results together, we find that the boundary velocities are
+\begin{align}
+A_{1,2} &= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C_0} \frac{T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
+&= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C} \frac{T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
+&= \frac{-i}{k} \sum \mathrm{Res}\left[\frac{T_{1,2}(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \pm \omega_0 \right] \\
+&= \frac{-i}{k} \chi_{1,2} (e^{-i\omega_0 t} - e^{i\omega_0 t}) \\
+&= -\frac{2}{k} \chi_{1,2} \sin(\omega_0 t).
+\end{align}
 
 
 
