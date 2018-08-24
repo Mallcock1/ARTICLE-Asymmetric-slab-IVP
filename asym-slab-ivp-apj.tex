@@ -243,9 +243,9 @@ Sturm-Liouville Theory tells us that with the aid of a Green's function, $G(x;s)
 \begin{equation}
 \tilde{v}_x(x) =
 \begin{cases}
-A(\cosh{kx} + \sinh{kx}) - \frac{1}{\epsilon_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds, & \text{if  } x<-x_0,\\
-B\cosh{kx} + C\sinh{kx} - \frac{1}{\epsilon_0} \int_{-x_0}^{x_0} G(x;s)f(s)ds, & \text{if  } |x|<x_0,\\
-D(\cosh{kx} - \sinh{kx}) - \frac{1}{\epsilon_2} \int_{x_0}^{\infty} G(x;s)f(s)ds, & \text{if  } x>x_0,
+\tilde{A}(\cosh{kx} + \sinh{kx}) - \frac{1}{\epsilon_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds, & \text{if  } x<-x_0,\\
+\tilde{B}\cosh{kx} + \tilde{C}\sinh{kx} - \frac{1}{\epsilon_0} \int_{-x_0}^{x_0} G(x;s)f(s)ds, & \text{if  } |x|<x_0,\\
+\tilde{D}(\cosh{kx} - \sinh{kx}) - \frac{1}{\epsilon_2} \int_{x_0}^{\infty} G(x;s)f(s)ds, & \text{if  } x>x_0,
 \end{cases}
 \label{ivp slab sol}
 \end{equation}
@@ -265,10 +265,10 @@ c_0-s_0              &-c_0           &s_0              &0                   \\
 \right)
 \left(
 \begin{matrix}
-A \\
-B \\
-C \\
-D
+\tilde{A} \\
+\tilde{B} \\
+\tilde{C} \\
+\tilde{D}
 \end{matrix}
 \right)
 =
@@ -297,23 +297,29 @@ I_1 = \int_{-\infty}^{-x_0} e^{ks}f(s) ds, \quad I_0^- = \int_{-x_0}^{x_0} e^{-k
 \end{equation}
 Solving this system of equations gives
 \newcommand{\e}{\epsilon}
-\begin{align}
-A = & \frac{e^{2kx_0}}{2k\e_1D_R} \left\{\left[I_1e^{4kx_0}(\e_0 - \e_1)(\e_0 + \e_2) - 4I_2e^{2kx_0}\e_0\e_1 - I_1(\e_0 + \e_1)(\e_0 - \e_2)\right]\right. \\
-    & \qquad\qquad - \left. 2\e_1\left[I_0^-e^{2kx_0}(\e_0 + \e_2) + I_0^+(\e_0 - \e_2)\right]\right\}, \\
-B = & \frac{1}{2k\e_0D_R} \left\{ \left[ ((I_0^+ - I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ + I_0^-)(\e_0^2 - \e_1\e_2))e^{2kx_0} - (I_0^+ + I_0^-)(\e_0 - \e_1)(\e_0 - \e_2)\right] \right. \\
-    & \qquad\qquad - \left. 2\e_0e^{2kx_0}\left[((I_1 + I_2)\e_0 + I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 + I_2)\e_0 - I_1\e_2 - I_2\e_1\right]\right\}, \\
-C = & \frac{1}{2k\e_0D_R} \left\{ \left[ ((I_0^+ + I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ - I_0^-)(\e_0^2 - \e_1\e_2))e^{2kx_0} - (I_0^+ - I_0^-)(\e_0 - \e_1)(\e_0 - \e_2)\right] \right. \\
-    & \qquad\qquad - \left. 2\e_0e^{2kx_0}\left[((I_2 - I_1)\e_0 - I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 - I_2)\e_0 - I_1\e_2 + I_2\e_1\right]\right\}, \\
-D = & \frac{e^{2kx_0}}{2k\e_2D_R} \left\{\left[I_2e^{4kx_0}(\e_0 + \e_1)(\e_0 - \e_2) - 4I_1e^{2kx_0}\e_0\e_2 - I_2(\e_0 - \e_1)(\e_0 + \e_2)\right] \right. \\
-    & \qquad\qquad - \left. 2\e_2\left[(I_0^+e^{2kx_0}(\e_0 + \e_1) + I_0^-(\e_0 - \e_1)\right]\right\},
-\end{align}
-where
 \begin{equation}
-D_R = (\e_0 + \e_1)(\e_0 + \e_2)e^{4kx_0} - (\e_0 - \e_1)(\e_0 - \e_2).
-\label{DR incomp}
+\tilde{A} = \frac{e^{2kx_0}T_1}{2k\e_1D_R}, 
+\quad 
+\tilde{B} = \frac{e^{2kx_0}T_0^-}{2k\e_0D_R}, 
+\quad 
+\tilde{C} = \frac{e^{2kx_0}T_0^+}{2k\e_0D_R}, 
+\quad 
+\tilde{D} = \frac{e^{2kx_0}T_2}{2k\e_2D_R},
+\label{consts}
 \end{equation}
+where
+\begin{align}
+T_1(\omega) &= I_1[e^{4kx_0}(\e_0 - \e_1)(\e_0 + \e_2) - (\e_0 + \e_1)(\e_0 - \e_2)]- 4I_2e^{2kx_0}\e_0\e_1 - 2\e_1\left[I_0^-e^{2kx_0}(\e_0 + \e_2) + I_0^+(\e_0 - \e_2)\right], \\
+T_0^-(\omega) &= [(I_0^+ - I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ + I_0^-)(\e_0^2 - \e_1\e_2)]e^{2kx_0} - (I_0^+ + I_0^-)(\e_0 - \e_1)(\e_0 - \e_2) \notag \\
+& \quad - 2\e_0e^{2kx_0}\left[((I_1 + I_2)\e_0 + I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 + I_2)\e_0 - I_1\e_2 - I_2\e_1\right], \\
+T_0^+(\omega) &= [(I_0^+ + I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ - I_0^-)(\e_0^2 - \e_1\e_2)]e^{2kx_0} - (I_0^+ - I_0^-)(\e_0 - \e_1)(\e_0 - \e_2) \notag \\
+& \quad - 2\e_0e^{2kx_0}\left[((I_2 - I_1)\e_0 - I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 - I_2)\e_0 - I_1\e_2 + I_2\e_1\right], \\
+T_2(\omega) &= I_2[e^{4kx_0}(\e_0 + \e_1)(\e_0 - \e_2) - (\e_0 - \e_1)(\e_0 + \e_2)] - 4I_1e^{2kx_0}\e_0\e_2 -  2\e_2\left[I_0^+e^{2kx_0}(\e_0 + \e_1) + I_0^-(\e_0 - \e_1)\right], \\
+D_R(\omega) &= (\e_0 + \e_1)(\e_0 + \e_2)e^{4kx_0} - (\e_0 - \e_1)(\e_0 - \e_2).
+\label{DR incomp}
+\end{align}
 
-The solutions of equation $D_R = 0$ are precisely the solutions of the dispersion relation for an incompressible asymmetric magnetic slab. To confirm this, we follow notion from \cite{zsa_etal18} (with an added superscript $z$) by observing that for an incompressible plasma, the sound speed, $c_s \to \infty$. Therefore,
+The solutions of equation $D_R(\omega) = 0$ are precisely the solutions of the dispersion relation for an incompressible asymmetric magnetic slab. To confirm this, we follow notion from \cite{zsa_etal18} (with an added superscript~$z$) by observing that for an incompressible plasma, the sound speed, $c_s \to \infty$. Therefore,
 \begin{equation}
 m_j^2 = \frac{(k^2c_j^2 - \omega^2)(k^2v_{Aj}^2 - \omega^2)}{(c_j^2 + v_{Aj}^2)(k^2c_Tj^2 - \omega^2)} \to k^2,
 \end{equation}
@@ -324,6 +330,103 @@ Therefore, after multiplying Equation~\eqref{DR incomp} by $\omega k / i(e^{4kx_
 \begin{equation}
 2(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)[\tanh{kx_0} + \coth{kx_0}] = 0.
 \end{equation}
+
+The solution given by Equation~\eqref{ivp slab sol}, with constants (with respect to $x$) $\tilde{A}$, $\tilde{B}$, $\tilde{C}$, and $\tilde{D}$, given by Equation~\eqref{consts} corroborates with those describing the initial value problem of surface waves on an interface between two incompressible plasmas. When the slab width, $2x_0$, approaches zero, it is expected that the solutions here approach those describing the interface. As $x_ 0 \to 0$, the dispersion function behaves like
+\begin{equation}
+D_R \to (\epsilon_0 + \epsilon_1)(\epsilon_0 + \epsilon_2) - (\epsilon_0 - \epsilon_1)(\epsilon_0 - \epsilon_2) = 2\epsilon_0(\epsilon_1 + \epsilon_2).
+\end{equation}
+Therefore, in this limit, $\tilde{A}$ and $\tilde{D}$ behave like
+\begin{align}
+\tilde{A} &\to \frac{1}{4k\epsilon_0\epsilon_1(\epsilon_1 + \epsilon_2)} \left\{ 2I_1\epsilon_0(\epsilon_2 - \epsilon_1) - 4I_2\epsilon_0\epsilon_1 \right\} = \frac{1}{k(\epsilon_1 + \epsilon_2)} \left\{ -I_2 + \frac{1}{2\epsilon_1}(\epsilon_2 - \epsilon_1)I_1 \right\}, \\
+\tilde{D} &\to \frac{1}{4k\epsilon_0\epsilon_2(\epsilon_1 + \epsilon_2)} \left\{ 2I_2\epsilon_0(\epsilon_1 - \epsilon_2) - 4I_1\epsilon_0\epsilon_2 \right\} = \frac{1}{k(\epsilon_1 + \epsilon_2)} \left\{ -I_1 + \frac{1}{2\epsilon_2}(\epsilon_1 - \epsilon_2)I_2 \right\}, \\
+\end{align}
+which are equal to (the corrected versions of) $A_-$ and $A_+$, respectively, from \cite{rae_etal81}.
+
+
+
+\subsubsection{Solution in time}
+
+To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform, such that
+\begin{equation}
+v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
+\end{equation}
+where $\gamma$ is a real number such that all the singularities of the integrand is below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane. Since the problem is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
+
+Focusing firstly on the region $x<-x_0$, the solution is
+\begin{align}
+v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
+&= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A} e^{-i\omega t} ds \right) + \left(\int_{-\infty}^{-x_0} G(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
+\label{sol incomp}
+\end{align}
+
+The first integral in the above solution is calculated as follows:
+The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_{1,2}$, and $T_0^\pm$ are entire functions.
+
+The final integral in Equation~\eqref{sol incomp} is calculated as follows:
+
+
+the singularities of $\tilde{v}_x$ are precisely the singularities of $A$ and $1/\e_1$
+
+Considering the functional form of $\tilde{v}_x(x, \omega)$, we see that, in each region, it is made up of a term involving 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Specific initial conditions}
+The above approach using arbitrary initial conditions is forced to cease here due to mathematical intractability of the general inverse Laplace transform calculation (however, general asymptotic results are, just barely, tractable). Instead, we progress with specific initial conditions. 
+
+Choosing specific initial conditions requires a delicate balance between mathematical tractability and physical applicability. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -437,19 +540,46 @@ I_2 = \int_{x_0}^\infty e^{k(x_0 - s)} f(s) ds.
 \end{equation}
 
 
-\subsubsection{Asymptotic solution for large time}
-To study the asymptotic behaviours of the velocity perturbation, we begin with the asymptotic behaviour of the boundary velocities, $A_1(t) = v_x(t, -x_0)$ and $A_2(t) = v_x(t, x_0)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Solution in time}
+
+To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
-A_1(t) = \frac{1}{2\pi k} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
-\quad
-A_2(t) = \frac{1}{2\pi k} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
-\label{A inv laplace}
+v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
 \end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
+where $\gamma$ is a real number such that all the singularities of the integrand is below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane. Since the problem is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
 
-Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ (so that we can construct the Bromwich contour such that it is contained to a single-valued branch) and the zeros of $D$ (whose residues determine the value of the contour integral).
+Focusing firstly on the region $x<-x_0$, the solution is
+\begin{align}
+v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
+&= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_1 e^{-i\omega t} ds \right) + \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
+\label{sol incomp}
+\end{align}
 
-The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore $T_1$ and $T_2$ are entire functions.
+The first integral in the above solution is calculated as follows. The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_1$ and $T_2$ are entire functions.
 
 The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. They show that the dispersion relation governing transverse wave propagation parallel to the magnetic field in an asymmetric slab of compressible plasma is given by
 \begin{equation}
@@ -466,7 +596,7 @@ m_j^2 = \frac{(k^2c_j^2 - \omega^2)(k^2v_{Aj}^2 - \omega^2)}{(c_j^2 + v_{Aj}^2)(
 \quad
 c_{Tj}^2 = \frac{c_j^2v_{Aj}^2}{c_j^2 + v_{Aj}^2},
 \end{equation}
-for $j = 0, 1, 2$. When compressibility is neglected, such that the sound speeds, $c_j$, approach infinity, we have $c_{Tj}^2 \to v_{Aj}^2$, $m_j^2 \to k^2$, and therefore $\Lambda_j = -i\rho_j(k^2v_{Aj}^2 - \omega^2)/\omega k = -i\epsilon_j / \omega k$.Therefore, Equation~\eqref{DR} can be reduced to the dispersion relation for an incompressible magnetic slab, which is
+for $j = 0, 1, 2$. When compressibility is neglected, such that the sound speeds, $c_j$, approach infinity, we have $c_{Tj}^2 \to v_{Aj}^2$, $m_j^2 \to k^2$, and therefore $\Lambda_j = -i\rho_j(k^2v_{Aj}^2 - \omega^2)/\omega k = -i\epsilon_j / \omega k$, for $j=0,1,2$. Therefore, Equation~\eqref{DR} can be reduced to the dispersion relation for an incompressible magnetic slab, which is
 \begin{equation}
 2(\epsilon_0^2 + \epsilon_1 \epsilon_2) + \epsilon_0(\epsilon_1 + \epsilon_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0,
 \end{equation}
@@ -474,9 +604,9 @@ which can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$
 
 The zeros of $D(\omega) = 0$ are found by writing this equation as
 \begin{equation}
-\epsilon_0(\epsilon_1 + \epsilon_2) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\tanh(2kx_0) = 0.
+\epsilon_0(\epsilon_1 + \epsilon_2) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\tanh(2kx_0) = 0
 \end{equation}
-Substituting expressions for $\epsilon(x)$ into this equation gives
+and substituting expressions for $\epsilon(x)$, which gives
 \begin{equation}
 \rho_0(k^2v_{A0}^2 - \omega^2)[\rho_1(k^2v_{A1}^2 - \omega^2) + \rho_2(k^2v_{A2}^2 - \omega^2)] + [\rho_0^2(k^2v_{A0}^2 - \omega^2)^2 + \rho_1\rho_2(k^2v_{A1}^2 - \omega^2)(k^2v_{A2}^2 - \omega^2)]\tanh(2kx_0) = 0.
 \end{equation}
@@ -497,16 +627,15 @@ b &= (2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_
 c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}).
 \end{align}
 
-
-Given that the function $T(\omega)$ is analytic, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses $\pm\omega_0$ (Figure~\ref{fig: brom cont incomp} < -- WHY IS THIS HAPPENING?!).
+Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_0$, as shown by Figure~\ref{fig: brom cont incomp} (WHY IS THIS HAPPENING?!).
 
 \begin{figure}
 	\centering
 	\scalebox{0.9}{
-	\begin{tikzpicture}[very thick,decoration={
-		markings,
-		mark=at position 0.29 with {\arrow{>}}}
-	]
+		\begin{tikzpicture}[very thick,decoration={
+			markings,
+			mark=at position 0.29 with {\arrow{>}}}
+		]
 		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
 		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
 		
@@ -526,238 +655,82 @@ Given that the function $T(\omega)$ is analytic, we can construct a closed Bromw
 		
 		\node [above] at (-1.7,1) {$C_0$};
 		\node [below right] at (2.8,-2.8) {$C_1$};
-	\end{tikzpicture} 
+		\end{tikzpicture} 
 	}
 	\label{fig: brom cont incomp}
 	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
 \end{figure}
 
-First, we see that, as $|\omega| \to \infty$, the integrand in question behaves like $T_{1,2}(\omega) \to \mathcal{O}(|\omega|^{-1})$. Therefore,
+Firstly, we see that the integrands in question behave like $T_1(\omega)/D(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore,
 \begin{equation}
-\lim_{L \to \infty} \int_{C_1} \frac{T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} d\omega = 0.
+\lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega = 0.
 \end{equation}
 
-Secondly, the contour $C$ is integrated in the clockwise direction and therefore is equal to $-2\pi i$ multiplied by the sum of the residues of the integrand at $\omega = \pm \omega_0$. The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule, to within choice of initial condition, as
+Secondly, the contour $C$ is integrated in the clockwise direction and therefore is equal to $-2\pi i$ multiplied by the sum of the residues of the integrand at $\omega = \pm \omega_0$. THERE IS A PROBLEM WITH THE BELOW BECAUSE THERE COULD BE 4 ROOTS (BACKWARDS AND FORWARD PROPAGATING SAUS AND KINK). WE ALSO MUST CHECK L'H'S RULE IS VALID HERE, AND THAT THE ROOTS OF D ARE NOT ALSO THE ROOTS OF T OR D'. The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule, to within choice of initial condition, as
 \begin{align}
-\mathrm{Res}\left[\frac{T_{1,2}(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \omega_0 \right] &= 
-\lim_{\omega \to \omega_0} \frac{(\omega - \omega_0)T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} \\ 
-&= \lim_{\omega \to \omega_0} \frac{1}{D'(\omega)} [T_{1,2}(\omega)e^{-i\omega t} + (\omega - \omega_0)T'_{1,2}(\omega)e^{-i\omega t} - it(\omega - \omega_0)T_{1,2}(\omega)e^{-i\omega t}] \\
-&= \chi_{1,2} e^{-i\omega_0 t},
+\mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \omega_0 \right] &= 
+\lim_{\omega \to \omega_0} \frac{(\omega - \omega_0)T_1(\omega)}{D(\omega)} e^{-i\omega t} \\ 
+&= \lim_{\omega \to \omega_0} \frac{1}{D'(\omega)} [T_1(\omega)e^{-i\omega t} + (\omega - \omega_0)T'_1(\omega)e^{-i\omega t} - it(\omega - \omega_0)T_1(\omega)e^{-i\omega t}] \\
+&= \chi_1 e^{-i\omega_0 t},
 \end{align}
-where $\chi_{1,2} = T_{1,2}(\omega_0) / D'(\omega_0)$.
+where $\chi_1 = T_1(\omega_0) / D'(\omega_0)$.
 Similarly, the residue at $\omega = -\omega_0$ is
 \begin{align}
-\mathrm{Res}\left[\frac{T_{1,2}(\omega)}{D(\omega)}e^{-i\omega t}, \omega = -\omega_0 \right] &= \lim_{\omega \to -\omega_0} \frac{(\omega + \omega_0)T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} \\
-&= -\chi_{1,2} e^{i\omega_0 t}.
+\mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = -\omega_0 \right] &= \lim_{\omega \to -\omega_0} \frac{(\omega + \omega_0)T_1(\omega)}{D(\omega)} e^{-i\omega t} \\
+&= -\chi_1 e^{i\omega_0 t}.
 \end{align}
-where we have used the fact that $D$ and $T_{1,2}$ are even functions and $D'$ is an odd function of $\omega$.
+where we have used the fact that $D$ and $T_1$ are even functions and $D'$ is an odd function of $\omega$.
 
-Putting all of the above results together, we find that the boundary velocities are
+Putting all of the above results together, we find that solution of the first integral of Equation~\eqref{sol incomp}, or equivalently the boundary velocity is
 \begin{align}
-A_{1,2} &= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C_0} \frac{T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
-&= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C} \frac{T_{1,2}(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
-&= \frac{-i}{k} \sum \mathrm{Res}\left[\frac{T_{1,2}(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \pm \omega_0 \right] \\
-&= \frac{-i}{k} \chi_{1,2} (e^{-i\omega_0 t} - e^{i\omega_0 t}) \\
-&= -\frac{2}{k} \chi_{1,2} \sin(\omega_0 t).
+A_1 &= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
+&= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
+&= \frac{-i}{k} \sum \mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \pm \omega_0 \right] \\
+&= \frac{-i}{k} \chi_1 (e^{-i\omega_0 t} - e^{i\omega_0 t}) \\
+&= -\frac{2}{k} \chi_1 \sin(\omega_0 t).
 \end{align}
 
 
 
 
-\section{initial value problem - zero-beta magnetic slab}
 
-Employing the same procedure as \cite{rud_etal06} to reduce the linearised MHD equations governing cold (zero-beta) plasma leads us to the following equations for the perturbations in magnetic pressure, $P = B_0b_z/\mu$, and transverse velocity, $v_x$:
-\begin{equation}
-\frac{\partial^2P}{\partial{}t^2} = v_A^2 \nabla^2P, \quad \frac{\partial^2v_x}{\partial{}t^2} = v_A^2 \nabla^2v_x.
-\end{equation}
-Taking Fourier components in $z$ and Laplace transform (non-standard, see Appendix~\ref{app: laplace trans}) in $t$, such that $\hat{P}(x) = \int_0^\infty P(x,z,t)e^{i(\omega{}t-kz)} dt$, and introducing transverse wavenumber $\Lambda$, such that $\Lambda^2 = k^2 - \omega^2 / v_A^2$, reduces these equations to
-\begin{equation}
-\frac{d^2\hat{P}}{dx^2} - \Lambda^2 \hat{P} = F_P, \quad \frac{d^2\hat{v}_x}{dx^2} - \Lambda^2 \hat{v}_x = F_v,
-\end{equation}
-where $F_P(x) = (i\omega P_0 - \dot{P}_0) / v_A^2$ and $F_v(x) = (i\omega u_0 - \dot{u}_0) / v_A^2$, where we have defined the initial values by
-\begin{equation}
-P|_{t=0} = P_0, \quad \frac{\partial{}P}{\partial{t}}\biggr\rvert_{t=0} = \dot{P}_0, \quad v_x|_{t=0} = u_0, \quad \frac{\partial{}v_x}{\partial{t}}\biggr\rvert_{t=0} = \dot{u}_0.
-\end{equation}
-
-\subsection{Solution in Laplace space}
-
-\subsubsection{Solution within the slab}
-Consider an asymmetric magnetic slab as defined in Section 2. For the solution inside the slab, $|x| < x_0$, $\hat{P}(x)$ satisfies
-\begin{equation}
-\frac{d^2\hat{P}}{dx^2} - \Lambda_0^2 \hat{P} = F_P,
-\label{P eq inside}
-\end{equation}
-under the boundary conditions $\hat{P}(-x_0) = \hat{A}_1$ and $\hat{P}(-x_0) = \hat{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
-\begin{equation}
-\frac{d^2G_0}{dx^2} - \Lambda_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0,
-\end{equation}
-where $\delta$ denotes the Dirac Delta function. The general solution, for $|x| < x_0$, of this equation is
-\begin{equation}
-G_0(x;s) = c_1\sinh(\Lambda_0(x - x_0)) + c_2\sinh(\Lambda_0(x + x_0)),
-\end{equation}
-where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\partial G_0 / \partial x$ have jumps of 0 and 1 at $x = s$, respectively, determines $c_1$ and $c_2$ so that $G_0(x;s)$ is
-\begin{equation}
-G_0(x;s) = \frac{1}{\Lambda_0\sinh(2\Lambda_0 x_0)}
-\begin{cases}
-\sinh(\Lambda_0(s - x_0))\sinh(\Lambda_0(x + x_0)), & \text{if } -x_0<x<s, \\
-\sinh(\Lambda_0(x - x_0))\sinh(\Lambda_0(s + x_0)), & \text{if } s<x<x_0.
-\end{cases}
-\end{equation}
-Then the solution of Equation~\eqref{P eq inside} is
-\begin{equation}
-\hat{P}(x) = \frac{1}{\sinh{2\Lambda_0x_0}} \left[ \hat{A}_1\sinh(\Lambda_0(x_0 - x)) + \hat{A}_2\sinh(\Lambda_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) F_P(s) ds.
-\label{P sol 0}
-\end{equation}
-This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
+\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions. Publish}
 
 
-\subsubsection{Solution outside the slab}
-For the solution outside and to the left of the slab, $x < -x_0$, $\hat{P}(x)$ satisfies
-\begin{equation}
-\frac{d^2\hat{P}}{dx^2} - \Lambda_1^2 \hat{P} = F_P,
-\end{equation}
-and the boundary conditions $\hat{P}(-\infty) = 0$, $\hat{P}(-x_0) = \hat{A}_1$. By following a Green's function method, the solution of the aforementioned Sturm-Liouville system is
-\begin{equation}
-\hat{P}(x) = \hat{A}_1e^{\Lambda_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x;s) F_P(s) ds,
-\label{P sol 1}
-\end{equation}
-where the Green's function, $G_1$, is defined by
-\begin{equation}
-G_1(x;s) = \frac{1}{2\Lambda_1}
-\begin{cases}
-e^{\Lambda_1(x+s+2x_0)} - e^{\Lambda_1(x-s)}, & \text{if } -\infty<x<s, \\
-e^{\Lambda_1(x+s+2x_0)} - e^{\Lambda_1(s-x)}, & \text{if } s<x<-x_0.
-\end{cases}
-\end{equation}
-
-Similarly, for the solution outside and to the right of the slab, $x > x_0$, $\hat{P}(x)$ satisfies
-\begin{equation}
-\hat{P}(x) = \hat{A}_2e^{\Lambda_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x;s) F_P(s) ds,
-\label{P sol 2}
-\end{equation}
-where the Green's function, $G_2$, is defined by
-\begin{equation}
-G_2(x;s) = \frac{1}{2\Lambda_2}
-\begin{cases}
-e^{-\Lambda_2(x+s-2x_0)} - e^{\Lambda_2(x-s)}, & \text{if } x_0<x<s, \\
-e^{-\Lambda_2(x+s+2x_0)} - e^{\Lambda_2(s-x)}, & \text{if } s<x<\infty.
-\end{cases}
-\end{equation}
-
-putting all of this together, the (Laplace transform of) the magnetic pressure is
-\begin{equation}
-\hat{P}(x) = 
-\begin{cases}
-\hat{A}_1e^{\Lambda_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x;s) F_P(s) ds, & \text{if } 0 < x < -x_0, \\
-
-\frac{1}{\sinh{2\Lambda_0x_0}} \left[ \hat{A}_1\sinh(\Lambda_0(x_0 - x)) + \hat{A}_2\sinh(\Lambda_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) F_P(s) ds, & \text{if } -x_0 < x < x_0, \\
-
-\hat{A}_2e^{\Lambda_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x;s) F_P(s) ds, & \text{if } x_0 < x < \infty,
-\end{cases}
-\label{P sol}
-\end{equation}
-where the Greens function is given by
-\begin{equation}
-G(x;s) = 
-\begin{cases}
-G_1(x;s) = \\ 
-\frac{1}{2\Lambda_1}[
-(e^{\Lambda_1(x+s+2x_0)} - e^{\Lambda_1(x-s)})H(x-s) + (e^{\Lambda_1(x+s+2x_0)} - e^{\Lambda_1(s-x)})H(s-x)], & \text{if } -\infty < x < -x_0, \\
-
-G_0(x;s) = \\
-\frac{1}{\Lambda_0\sinh(2\Lambda_0 x_0)}[
-\sinh(\Lambda_0(s - x_0))\sinh(\Lambda_0(x + x_0))H(x-s) + \\ \sinh(\Lambda_0(x - x_0))\sinh(\Lambda_0(s + x_0))H(s-x)], & \text{if } -x_0 < x < x_0, \\
-
-G_2(x;s) = \\
-\frac{1}{2\Lambda_2}[
-(e^{-\Lambda_2(x+s-2x_0)} - e^{\Lambda_2(x-s)})H(x-s) + (e^{-\Lambda_2(x+s+2x_0)} - e^{\Lambda_2(s-x)})H(s-x)], & \text{if } x_0 < x < \infty.
-\end{cases}
-\end{equation}
 
 
-\subsubsection{Matching solutions}
-For physically relevant solutions, we require that the transverse displacement (equivalently, the perturbation in transverse velocity) and the total pressure (equivalently, the magnetic pressure, since we are assuming that the plasma is cold) be continuous across the interfaces at $x = \pm x_0$.
-
-Continuity in magnetic pressure, $P$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2}, respectively, and our definition of $\hat{A}_1 = \hat{P}(x=-x_0)$ and $\hat{A}_2 = \hat{P}(x=x_0)$.
-
-Continuity in transverse velocity, $v_x$ can be dealt with as follows. If we make the simplification to the prescribed initial conditions such at $u_0 = 0$ and $\dot{u}_0 + \frac{1}{\rho_0}\frac{dP_0}{dx} = 0$, so that the initial plasma is at rest and its initial acceleration transverse to the slab is due to the initial pressure gradient, then this boundary condition is equivalent to
-\begin{equation}
-\left[ \left[ \frac{1}{\rho_0(\omega^2 - k^2v_A^2)} \frac{\partial \hat{P}}{\partial x} \right] \right]_{x=\pm x_0} = 0.
-\end{equation}
-Substituting the solutions given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2} into these boundary conditions gives
-\begin{equation}
-\hat{A}_1(\omega) = \frac{T_1(\omega)}{D(\omega)}, \quad \hat{A}_2(\omega) = \frac{T_2(\omega)}{D(\omega)},
-\end{equation}
-where
-\begin{align}
-T_1(\omega) & = (\Lambda_1^2 I_{s1} - \Lambda_0^2I_{e1})[\Lambda_0\Lambda_2\sinh(2\Lambda_0x_0) + \Lambda_2^2\cosh(2\Lambda_0x_0)] - \Lambda_1^2(\Lambda_0^2 I_{e2} + \Lambda_2^2 I_{s2}), \\
-T_2(\omega) & = \Lambda_2^2(\Lambda_1^2 I_{s1} - \Lambda_0^2I_{e1}) - (\Lambda_0^2 I_{e2} + \Lambda_2^2 I_{s2})[\Lambda_0\Lambda_1\sinh(2\Lambda_0x_0) + \Lambda_1^2\cosh(2\Lambda_0x_0)], \\
-D(\omega) & = \Lambda_0\Lambda_1\Lambda_2[\Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2\Lambda_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2\Lambda_0x_0)],
-\label{D}
-\end{align}
-and
-\begin{equation}
-\begin{aligned}[t]
-I_{e1} & = \int_{-\infty}^{-x_0} e^{\Lambda_1(s + x_0)} F_p(s) ds, \\
-I_{s1} & = \int_{-x_0}^{x_0} \frac{\sinh(\Lambda_0(s - x_0))}{\sinh(2\Lambda_0x_0)} F_p(s) ds,
-\end{aligned}
-\quad
-\begin{aligned}[t]
-I_{e2} & = \int_{x_0}^\infty e^{\Lambda_2(x_0 - s)} F_p(s) ds, \\
-I_{s2} & = \int_{-x_0}^{x_0} \frac{\sinh(\Lambda_0(s + x_0))}{\sinh(2\Lambda_0x_0)} F_p(s) ds.
-\end{aligned}
-\end{equation}
 
 
-\subsection{Solution in time}
-We aim to study the asymptotic behaviour of the magnetic pressure perturbation for various regimes in time.
 
-\subsubsection{Asymptotic solution for large time}
-To study the asymptotic behaviours of the magnetic pressure perturbation, we start with the asymptotic behaviours of $A_1(t) = P(t, -x_0)$ and $A_2(t) = P(t, x_0)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
-\begin{equation}
-A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega, \quad A_2(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
-\label{A inv laplace}
-\end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
 
-Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ (so that we can construct the Bromwich contour such that it is contained to a single-valued branch) and the zeros of $D$ (whose residues determine the value of the contour integral).
 
-To determine the singularities of these functions, we determine the singularities of the constituent functions, as follows.
-\begin{itemize}
-	\item The functions $\Lambda_{0,1,2}^2$ are polynomial in $\omega$, and are therefore entire.
-	
-	\item However, $\Lambda_{0,1,2}$ are involve radicals and have (algebraic) branch points of at $\omega = \pm kv_{A0}$, $\pm kv_{A1}$, and $\pm kv_{A2}$, respectively\footnote{More precisely, $\omega = \pm kv_{A0}$, $\pm kv_{A1}$, and $\pm kv_{A2}$ are the ramification points corresponding to the branch points $\Lambda_{0,1,2} = 0$, each with ramification index 2. However the language used in the main text is common shorthand that is considered synonymous, although less rigorous.}.
-	
-	\item The functions $\cosh(z)$ and $\sinh(z)$ are entire functions of $z$ with only even and odd terms in their respective series expansions. Therefore $\cosh(z)$ and $z\sinh(z)$ are entire functions of $z^2$. Hence $\cosh(\Lambda_0x_0)$ and $\Lambda_0\sinh{\Lambda_0x_0}$ are entire functions of $\omega$.
-	
-	\item The integrands of $I_{s1,2}$ are integrated with respect to $s$. So, to determine the singularities of $I_{s1,2}$, we need consider only the singularities of the integrands. The initial condition, $F_P(s)$ is not a function of $\omega$ so does not influence the singularities. The function $f(z) = \sinh(az) / \sinh(bz)$, for constants $a$ and $b \neq 0$ are entire functions of $z$, containing only even powers (once $f$ has been trivially redefined as to remove the removable singularity at $z=0$). Therefore, $f$ is also an entire function of $z^2$. Hence, by letting $a = s \pm x_0$ and $b = 2x_0$, it follows that $\sinh(\Lambda_0(s-x_0)) / \sinh(2\Lambda_0x_0)$ is entire in $\omega$.
-	
-	\item As above, to determine the singularities of $I_{e1,2}$, we need consider only the singularities of the integrands. The function $e^{a\sqrt{z}}$, for constant $a \neq 0$ has algebraic branch points at $z=0$. Therefore, by setting $a = x_0 \pm s$, it follows that the functions $e^{\Lambda_{1,2}(x_0 \pm s)}$, and therefore $I_{e1,2}$, have algebraic branch points (of ramification index 2) at $\omega = \pm kv_{A1,2}$, respectively.
-\end{itemize}
-The above analysis determines that the singularities of each function $T_1(\omega)$, $T_2(\omega)$, and $D(\omega)$ are precisely the algebraic branch points at $\omega = \pm kv_{A1}$ and $\omega = \pm kv_{A2}$.
+The final integral in Equation~\eqref{sol incomp} is calculated as follows:
 
-The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. To see this, observe that for a zero-beta plasma, the parameters $\Lambda_i^z = -i\rho_i\omega\sqrt{k^2v_{Ai}^2 - \omega^2}$, for $i = 0,1,2$, where we have added the superscript label $z$ to differentiate it from $\Lambda_i$ in the present text. Trivially,
-\begin{equation}
-\Lambda_i = \frac{i\mu\omega}{B_i^2} \Lambda_i^z.
-\end{equation}
-Due to equilibrium total pressure balance (the total pressure in a cold plasma is merely the magnetic pressure), the strength of the magnetic field is uniform across the structure, \textit{i.e.} $B_0^2 = B_1^2 = B_2^2$. Therefore, $D=0$ is equivalent to
-\begin{equation}
-\Lambda_0^z(\Lambda_1^z + \Lambda_2^z) + (\Lambda_0^{z2} + \Lambda_1^z \Lambda_2^z)\tanh(2m_0x_0) = 0,
-\end{equation}
-where $m_0^2 = k^2 - \omega^2 / v_{A0}^2$, which is the dispersion relation of a zero-beta asymmetric magnetic slab \citep{zsa_etal18}. It follows that the zeros of $D$ are precisely the eigenvalues of the asymmetric magnetic slab.
 
-\textit{Perhaps this marks the end of the road for the cold plasma IVP because there do not exist any surface modes of a cold magnetic slab, regardless of Alfv\'{e}n speed ordering (Figure~\ref{fig: zero beta}). Maybe there are surface leaky modes? Doesn't seem like it when you look at the imaginary part of the dispersion function. Back to incompressible??? It would be more tractable due to being analytically soluble and waves manifest only as surface modes, therefore allowing application of SMS techniques.}
+the singularities of $\tilde{v}_x$ are precisely the singularities of $A$ and $1/\e_1$
 
-\begin{figure}
-	\begin{center}
-		\subfloat[]{\scalebox{0.4}{
-				\includegraphics{disp_rel_zero_beta_1.png}}}
-		\subfloat[]{\scalebox{0.4}{
-				\includegraphics{disp_rel_zero_beta_2.png}}}
-	\end{center}
-	\caption{Solutions to the zero-beta dispersion relation in two different ordering of the characteristic speeds.}
-	\label{fig: zero beta}
-\end{figure}
+Considering the functional form of $\tilde{v}_x(x, \omega)$, we see that, in each region, it is made up of a term involving 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
