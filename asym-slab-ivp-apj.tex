@@ -618,7 +618,7 @@ The above equation can be rewritten as a quadratic in $(\omega/k)^2$, namely
 \end{align}
 which has solutions
 \begin{equation}
-\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \label{solution omega0}
+\left(\frac{\omega_{0+}}{k}\right)^2 = \frac{-b + \sqrt{b^2 - 4ac}}{2a}, \quad \text{and} \quad \left(\frac{\omega_{0-}}{k}\right)^2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}, \label{solution omega0}
 \end{equation}
 where
 \begin{align}
@@ -626,10 +626,9 @@ a &= (\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2), \label{sol
 b &= (2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \label{solution b} \\
 c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2). \label{solution c}
 \end{align}
+We know from analysis of the dispersion relation \citep{zsa_etal18} that the solutions $\pm\omega_{0\pm}$ must be real. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
-The solutions, $\omega_0$ corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
-
-Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_0$, as shown by Figure~\ref{fig: brom cont incomp} (WHY IS THIS HAPPENING?!).
+Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_{0\pm}$, as shown by Figure~\ref{fig: brom cont incomp}.
 
 \begin{figure}
 	\centering
@@ -650,17 +649,23 @@ Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromw
 		\draw[fill] (0,1) circle [radius=0.025];
 		
 		\draw[fill] (3,0) circle [radius=0.025];
-		\node [below] at (3,0) {$\omega_0$};
+		\node [below] at (3,0) {$\omega_{0+}$};
 		
 		\draw[fill] (-3,0) circle [radius=0.025];
-		\node [below] at (-3,0) {$-\omega_0$};
+		\node [below] at (-3,0) {$-\omega_{0+}$};
+		
+		\draw[fill] (1.5,0) circle [radius=0.025];
+		\node [below] at (1.5,0) {$\omega_{0-}$};
+		
+		\draw[fill] (-1.5,0) circle [radius=0.025];
+		\node [below] at (-1.5,0) {$-\omega_{0-}$};
 		
 		\node [above] at (-1.7,1) {$C_0$};
 		\node [below right] at (2.8,-2.8) {$C_1$};
 		\end{tikzpicture} 
 	}
-	\label{fig: brom cont incomp}
 	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
+	\label{fig: brom cont incomp}
 \end{figure}
 
 Firstly, we see that the integrands in question behave like $T_1(\omega)/D(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore,
