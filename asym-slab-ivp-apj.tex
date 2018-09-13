@@ -517,7 +517,7 @@ m^2 = \frac{(k^2v_A^2 - \omega^2)(k^2c_0^2 - \omega^2)}{(c_0^2 + v_A^2)(k^2c_T^2
 \quad \text{and} \quad
 c_T^2 = \frac{c_0^2 v_A^2}{c_0^2 + v_A^2}.
 \end{equation}
-When the plasma is incompressible, $m^2 \to k^2$, therefore continuity in total pressure is equivalent to continuity in $\epsilon(x)\tilde{v}_x'(x)$.
+When the plasma is incompressible, $m^2 \to k^2$, therefore continuity in total pressure is equivalent to continuity in $\epsilon(x)\tilde{v}_x'(x)$ for an incompressible plasma.
 
 Applying this boundary condition gives
 \begin{equation}
@@ -612,20 +612,22 @@ and substituting expressions for $\epsilon(x)$, which gives
 \end{equation}
 The above equation can be rewritten as a quadratic in $(\omega/k)^2$, namely
 \begin{align}
-[(\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2)] & \left(\frac{\omega}{k}\right)^4 \\
-- [(2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] & \left(\frac{\omega}{k}\right)^2 \\
-+ [(\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] & = 0,
+& \left(\frac{\omega}{k}\right)^4 [(\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2)]  \\
+- & \left(\frac{\omega}{k}\right)^2 [(2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] \\
++ & [(\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] = 0,
 \end{align}
 which has solutions
 \begin{equation}
-\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},
+\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \label{solution omega0}
 \end{equation}
 where
 \begin{align}
-a &= (\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2), \\
-b &= (2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \\
-c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}).
+a &= (\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2), \label{solution a} \\
+b &= (2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \label{solution b} \\
+c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2). \label{solution c}
 \end{align}
+
+The solutions, $\omega_0$ corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
 Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_0$, as shown by Figure~\ref{fig: brom cont incomp} (WHY IS THIS HAPPENING?!).
 
@@ -694,7 +696,7 @@ A_1 &= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{D(\ome
 
 
 
-\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions. Publish}
+\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. (maybe see what these solutions are like in symmetric slab/interface). Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions. Publish}
 
 
 
@@ -775,6 +777,49 @@ Therefore, the inverse transform of the non-standard Laplace transform is
 f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\omega)e^{-i\omega t} d\omega.
 \end{equation}
 
+
+\section{Corroboration of incompressible solutions with previous results}
+
+\subsection{Interface}\label{app: interface}
+When we let the width of an asymmetric slab vanish, we recover the traditional interface geometry. Letting $x_0 \to 0$, the parameters $a$, $b$, and $c$, from Equations~\eqref{solution a}, \eqref{solution b}, and~\eqref{solution c}, reduce to
+\begin{align}
+a &= \rho_0(\rho_1 + \rho_2), \\
+b &= \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \\
+c &= \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2).
+\end{align}
+Therefore, when the slab width vanishes, the eigenmodes given by Equation~\eqref{solution omega0} reduce to
+\begin{equation}
+\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} =
+\begin{cases}
+v_{A0}^2, \\
+\frac{\rho_1v_{A1}^2 + \rho_2v_{A2}^2}{\rho_1 + \rho_2}.
+\end{cases}
+\end{equation}
+The first solution above is degenerate because, while the parameter $v_{A0}$ makes sense in the limit as the slab width vanishes, it is meaningless in an interface system constructed without an inner region at all. The second solution corroborates with the surface eigenmodes of an interface, as expected \citep{rob81a}.
+
+
+
+\subsection{Symmetric slab}\label{app: symmetric}
+
+By letting the parameters on each external plasma region be equal (\textit{i.e.} $\rho_1 = \rho_2 = \rho_e$, and similar for the magnetic field and Aflv\'{e}n speed) the asymmetric slab is reduced to a symmetric slab. In this limit, the parameters $a$, $b$, and $c$, from Equations~\eqref{solution a}, \eqref{solution b}, and~\eqref{solution c}, can be reduced to
+\begin{align}
+a &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2 + \rho_e^2 + \rho_0\rho_e(\tau_0 + c_0) \right], \\
+b &= \frac{2}{\tau_0 + c_0} \left[ 2(\rho_0^2v_{A0}^2 + \rho_e^2v_{Ae}^2) + \rho_0\rho_e(v_{A0}^2 + v_{Ae}^2)(\tau_0 + c_0) \right], \\
+c &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2v_{A0}^4 + \rho_e^2v_{Ae}^4 + \rho_0\rho_ev_{A0}^2v_{Ae}^2(\tau_0 + c_0) \right],
+\end{align}
+where $\tau_0 = \tanh{kx_0}$ and $c_0 = \coth{kx_0}$. The discriminant in the solution, Equation~\eqref{solution omega0}, reduces to
+\begin{equation}
+b^2 - 4ac = 4\rho_0^2\rho_e^2(v_{A0}^2 - v_{Ae}^2)^2 \left(\frac{\tau_0 - c_0}{\tau_0 + c_0}\right)^2. 
+\end{equation}
+Therefore, the eigenfrequencies reduce to
+\begin{equation}
+\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} =
+\begin{cases}
+\frac{\rho_0v_{A0}^2 + \rho_ev_{Ae}^2c_0}{\rho_0 + \rho_ec_0}, \\
+\frac{\rho_0v_{A0}^2 + \rho_ev_{Ae}^2\tau_0}{\rho_0 + \rho_e\tau_0},
+\end{cases}
+\end{equation}
+which corroborates with Equation~(12) in \cite{rob81b}.
 
 
 %% The reference list follows the main body and any appendices.
