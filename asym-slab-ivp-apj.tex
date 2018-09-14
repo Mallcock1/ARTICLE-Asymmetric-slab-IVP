@@ -575,7 +575,7 @@ where $\gamma$ is a real number such that all the singularities of the integrand
 Focusing firstly on the region $x<-x_0$, the solution is
 \begin{align}
 v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
-&= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_1 e^{-i\omega t} ds \right) + \frac{1}{2\pi} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
+&= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_1 e^{-i\omega t} d\omega \right) + \frac{1}{2\pi} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
 \label{sol incomp}
 \end{align}
 
@@ -698,19 +698,6 @@ A_1 &= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{D(\ome
 \end{align}
 
 
-
-
-
-\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. (maybe see what these solutions are like in symmetric slab/interface). Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions. Publish}
-
-
-
-
-
-
-
-
-
 The final integral (let's call it $J_1$) in Equation~\eqref{sol incomp} is calculated as follows.
 \begin{align}
 J_1 &= \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega, \\
@@ -775,14 +762,15 @@ v_x = \frac{2}{k} e^{k(x+x_0)} [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\
 Similarly, the transverse velocity for the region $x>x_0$ is
 \begin{align}
 v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}_2e^{k(x_0-x)} + \frac{1}{\e_2} \int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
-&= \frac{e^{k(x_0-x)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_2 e^{-i\omega t} ds \right) + \left(\int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_2} d\omega \right), \\
+&= \frac{e^{k(x_0-x)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_2 e^{-i\omega t} d\omega \right) + \left(\int_{x_0}^{\infty} G_2(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_2} d\omega \right), \\
 &= \frac{2}{k} e^{k(x_0-x)} [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A2}t}}{\rho_2 k v_{A2}} \left(\int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right).
 \end{align}
 Finally, for the region $|x|<x_0$, it is
 \begin{align}
-v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \frac{1}{\sinh{2kx_0}} \left\{ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right\} + \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s) ds \right]e^{-i\omega t} d\omega, \\
-&= \textcolor{red}{CHANGE THIS AND BELOW EQN \frac{e^{k(x_0-x)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_2 e^{-i\omega t} ds \right) + \left(\int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_2} d\omega \right),} \\
-&= \frac{2}{k} e^{k(x_0-x)} [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A2}t}}{\rho_2 k v_{A2}} \left(\int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right).
+v_x =& \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \frac{1}{\sinh{2kx_0}} \left\{ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right\} + \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s) ds \right]e^{-i\omega t} d\omega, \\
+=& \frac{1}{2\pi\sinh{2kx_0}} \left[A_1 \sinh(k(x_0 - x)) + A_2 \sinh(k(x_0 + x)) \right] + \left(\int_{-x_0}^{x_0} G_0(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_0} d\omega \right), \\
+=& \frac{2}{k\sinh{2kx_0}} \{ [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)] \sinh(k(x_0 - x)) + [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)] \sinh(k(x_0 + x)) \} \notag \\
+& + \frac{\sin{kv_{A0}t}}{\rho_0 k v_{A0}} \left(\int_{-\infty}^{-x_0} G_0(x;s)f(s)ds \right).
 \end{align}
 
 
@@ -795,6 +783,8 @@ v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left
 
 
 
+
+\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. (maybe see what these solutions are like in symmetric slab/interface). Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions. Publish}
 
 
 
