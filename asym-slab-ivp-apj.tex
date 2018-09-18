@@ -668,33 +668,33 @@ Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromw
 	\label{fig: brom cont incomp}
 \end{figure}
 
-Firstly, we see that the integrands in question behave like $T_1(\omega)/D(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore,
+Firstly, we see that the integrands in question behave like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore,
 \begin{equation}
-\lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega = 0.
+\lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega = 0.
 \end{equation}
 
-Secondly, the contour $C$ is integrated in the clockwise direction and therefore is equal to $-2\pi i$ multiplied by the sum of the residues of the integrand at $\omega = \pm \omega_{0\pm}$. WE MUST CHECK L'H'S RULE IS VALID HERE, AND THAT THE ROOTS OF D ARE NOT ALSO THE ROOTS OF T OR D'. The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule, to within choice of initial condition, as
+Secondly, the contour $C$ is integrated in the clockwise direction and therefore is equal to $-2\pi i$ multiplied by the sum of the residues of the integrand at $\omega = \pm \omega_{0\pm}$. \textcolor{red}{WE MUST CHECK L'H'S RULE IS VALID HERE, AND THAT THE ROOTS OF D ARE NOT ALSO THE ROOTS OF T OR D'.} The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule, to within choice of initial condition, as
 \begin{align}
-\mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \omega_{0+} \right] &= 
-\lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{D(\omega)} e^{-i\omega t} \\ 
-&= \lim_{\omega \to \omega_{0+}} \frac{1}{D'(\omega)} [T_1(\omega)e^{-i\omega t} + (\omega - \omega_{0+})T'_1(\omega)e^{-i\omega t} - it(\omega - \omega_{0+})T_1(\omega)e^{-i\omega t}] \\
+\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0+} \right] &= 
+\lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \\ 
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} [T_1(\omega)e^{-i\omega t} + (\omega - \omega_{0+})T'_1(\omega)e^{-i\omega t} - it(\omega - \omega_{0+})T_1(\omega)e^{-i\omega t}] \\
 &= \chi_{1+} e^{-i\omega_{0+} t},
 \end{align}
-where $\chi_{1+} = T_1(\omega_{0+}) / D'(\omega_{0+})$. In the following, we define $\chi_{1-} = T_1(\omega_{0-}) / D'(\omega_{0-})$. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
+where $\chi_{1+} = T_1(\omega_{0+}) / kD'(\omega_{0+})$. In the following, we define $\chi_{1-} = T_1(\omega_{0-}) / kD'(\omega_{0-})$, and similar for subscripts $0$, and $2$. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
 \begin{align}
-\mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = -\omega_{0+} \right] &= -\chi_{1+} e^{i\omega_{0+} t}, \\
-\mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \omega_{0-} \right] &= \chi_{1-} e^{-i\omega_{0-} t}, \\
-\mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = -\omega_{0-} \right] &= -\chi_{1-} e^{i\omega_{0-} t}, \\
+\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = -\omega_{0+} \right] &= -\chi_{1+} e^{i\omega_{0+} t}, \\
+\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0-} \right] &= \chi_{1-} e^{-i\omega_{0-} t}, \\
+\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = -\omega_{0-} \right] &= -\chi_{1-} e^{i\omega_{0-} t}, \\
 \end{align}
 respectively. In the above derivation, we have used the fact that $D$ and $T_1$ are even functions and $D'$ is an odd function of $\omega$.
 
 Putting all of the above results together, we find that solution of the first integral of Equation~\eqref{sol incomp}, or equivalently the boundary velocity, is
 \begin{align}
-A_1 &= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
-&= \frac{1}{2\pi k} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega \\
-&= \frac{-i}{k} \sum \mathrm{Res}\left[\frac{T_1(\omega)}{D(\omega)}e^{-i\omega t}, \omega = \pm \omega_{0\pm} \right] \\
-&= \frac{-i}{k} [\chi_{1+} (e^{-i\omega_{0+} t} - e^{i\omega_{0+} t}) + \chi_{1-} (e^{-i\omega_{0-} t} - e^{i\omega_{0-} t})] \\
-&= \frac{2}{k} [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)].
+A_1 &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
+&= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
+&= -i \sum \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \pm \omega_{0\pm} \right] \\
+&= -i [\chi_{1+} (e^{-i\omega_{0+} t} - e^{i\omega_{0+} t}) + \chi_{1-} (e^{-i\omega_{0-} t} - e^{i\omega_{0-} t})] \\
+&= -2 [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)].
 \end{align}
 
 
@@ -751,7 +751,7 @@ J_1 = -\frac{2\pi i}{\rho_1} \sum \mathrm{Res} \left[ \frac{e^{-i\omega t}}{k^2v
 
 Combining the above expressions for $A_1$ and $J_1$ we find that the solution for the transverse velocity, for $x<-x_0$ is
 \begin{equation}
-v_x = \frac{2}{k} e^{k(x+x_0)} [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A1}t}}{\rho_1 k v_{A1}} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right),
+v_x = -2 e^{k(x+x_0)} [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A1}t}}{\rho_1 k v_{A1}} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right),
 \end{equation}
 
 
@@ -761,16 +761,16 @@ v_x = \frac{2}{k} e^{k(x+x_0)} [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\
 
 Similarly, the transverse velocity for the region $x>x_0$ is
 \begin{align}
-v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}_2e^{k(x_0-x)} + \frac{1}{\e_2} \int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
+v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}_2e^{k(x_0-x)} + \frac{1}{\e_2} \int_{x_0}^{\infty} G_2(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
 &= \frac{e^{k(x_0-x)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_2 e^{-i\omega t} d\omega \right) + \left(\int_{x_0}^{\infty} G_2(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_2} d\omega \right), \\
-&= \frac{2}{k} e^{k(x_0-x)} [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A2}t}}{\rho_2 k v_{A2}} \left(\int_{-\infty}^{-x_0} G_2(x;s)f(s)ds \right).
+&= -2 e^{k(x_0-x)} [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A2}t}}{\rho_2 k v_{A2}} \left(\int_{x_0}^{\infty} G_2(x;s)f(s)ds \right).
 \end{align}
 Finally, for the region $|x|<x_0$, it is
 \begin{align}
 v_x =& \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \frac{1}{\sinh{2kx_0}} \left\{ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right\} + \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s) ds \right]e^{-i\omega t} d\omega, \\
 =& \frac{1}{2\pi\sinh{2kx_0}} \left[A_1 \sinh(k(x_0 - x)) + A_2 \sinh(k(x_0 + x)) \right] + \left(\int_{-x_0}^{x_0} G_0(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_0} d\omega \right), \\
-=& \frac{2}{k\sinh{2kx_0}} \{ [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)] \sinh(k(x_0 - x)) + [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)] \sinh(k(x_0 + x)) \} \notag \\
-& + \frac{\sin{kv_{A0}t}}{\rho_0 k v_{A0}} \left(\int_{-\infty}^{-x_0} G_0(x;s)f(s)ds \right).
+=& -\frac{2}{\sinh{2kx_0}} \{ [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)] \sinh(k(x_0 - x)) + [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)] \sinh(k(x_0 + x)) \} \notag \\
+& + \frac{\sin{kv_{A0}t}}{\rho_0 k v_{A0}} \left(\int_{-x_0}^{x_0} G_0(x;s)f(s)ds \right).
 \end{align}
 
 
@@ -816,7 +816,7 @@ v_x =& \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left
 M. Allcock acknowledges the support from the University Prize Scholarship at the University of Sheffield. R. Erd\'{e}lyi acknowledges the support from the UK Science and Technology Facilities Council (STFC) and the Royal Society. 
 
 % inlude mayavi visualisations and link to the website?
-\software{Mayavi}
+%\software{Mayavi}
 
 \appendix
 
