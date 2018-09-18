@@ -162,7 +162,7 @@ Numerical results: \cite{ter_etal06}
 
 Physicality of the principle leaky kink mode: \cite{cal03} solved the initial value problem of transverse waves in a cold magnetic flux tube. \cite{rud_etal06} repeated it showing PLK modes are on an unphysical banch of the complex plane (?). Commented on by \cite{cal06} and in return by \cite{rud_etal06b}. Settled (?) by considering numerical solution by \cite{ter_etal07} and analytically by \cite{and_etal07}. So PLK modes are not physical.
 
-\section{initial value problem - incompressible magnetic slab}
+\section{Initial value problem - incompressible magnetic slab}
 
 Consider an equilibrium plasma with magnetic field $B_0(x)\mathbf{\hat{z}}$, density $\rho_0(x)$, and pressure $p_0(x)$, without gravity. In the absence of structuring in the $z$-direction and considering perturbations in the $(x,z)$-plane only, we can take Fourier components for velocity and other parameters like $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x)e^{i(kz + ly - \omega t)}$. The velocity perturbation amplitude in the inhomogeneous direction of an ideal plasma is given by
 \begin{equation}
@@ -188,7 +188,7 @@ When the plasma is incompressible, so that $c_0 \to \infty$, we have $c_T^2 \to 
 \end{equation}
 which is commonly used for solving eigenmode problems in MHD wave physics. In the present work, the temporal evolution of linear asymmetric MHD waves is considered so we must dial back our assumptions about how the wave behaviour through time.
 
-Above we used a Fourier decomposition in time, which is valid when the solutions are homogeneous in time, such as normal mode solutions (rewrite this). To investigate the temporal evolution of solutions, we take only Fourier components in the $z$-direction, that is $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x,t)e^{ikz}$, and we take the Laplace transform with respect to time, such that
+Above we have used a Fourier decomposition in time, which is valid when the solutions are homogeneous in time, such as normal mode solutions (rewrite this). To investigate the temporal evolution of solutions, we take only Fourier components in the $z$-direction, that is $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x,t)e^{ikz}$, and we take the Laplace transform with respect to time, such that
 \begin{equation}
 \mathbf{\tilde{v}}(x) = \int_0^\infty \mathbf{\widehat{v}}(x,t)e^{i\omega t} dt.
 \end{equation}
@@ -232,221 +232,13 @@ In this equilibrium, transverse velocity perturbations are related to initial pe
 \begin{cases}
 f(x)/\epsilon_1, & \text{if  } x<-x_0,\\
 f(x)/\epsilon_0, & \text{if  } |x|<x_0,\\
-f(x)/\epsilon_2, & \text{if  } x>x_0.
-\end{cases}
-\label{ivp gov slab}
-\end{equation}
-
-
-\subsection{Attempt 1}
-Sturm-Liouville Theory tells us that with the aid of a Green's function, $G(x;s)$, Equation~\eqref{ivp gov slab} can be solved to give
-\begin{equation}
-\tilde{v}_x(x) =
-\begin{cases}
-\tilde{A}(\cosh{kx} + \sinh{kx}) - \frac{1}{\epsilon_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds, & \text{if  } x<-x_0,\\
-\tilde{B}\cosh{kx} + \tilde{C}\sinh{kx} - \frac{1}{\epsilon_0} \int_{-x_0}^{x_0} G(x;s)f(s)ds, & \text{if  } |x|<x_0,\\
-\tilde{D}(\cosh{kx} - \sinh{kx}) - \frac{1}{\epsilon_2} \int_{x_0}^{\infty} G(x;s)f(s)ds, & \text{if  } x>x_0,
-\end{cases}
-\label{ivp slab sol}
-\end{equation}
-where
-\begin{equation}
-G(x;s) = \frac{1}{2k}[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)]
-\end{equation}
-and $H$ is the Heaviside step function. Ensuring continuity of both transverse velocity and total pressure across the boundaries at $x=\pm x_0$ gives us the following system of linear algebraic equations for the constants $A$, $B$, $C$, and $D$:
-\begin{equation}
-\left(
-\begin{matrix}
-c_0-s_0              &-c_0           &s_0              &0                   \\
-0                    &c_0            &s_0              &s_0-c_0           \\
-\epsilon_1(c_0-s_0)  &\epsilon_0s_0  &-\epsilon_0c_0   &0                   \\
-0                    &\epsilon_0s_0  &\epsilon_0c_0    &-\epsilon_2(s_0-c_0)
-\end{matrix}
-\right)
-\left(
-\begin{matrix}
-\tilde{A} \\
-\tilde{B} \\
-\tilde{C} \\
-\tilde{D}
-\end{matrix}
-\right)
-=
-\frac{1}{2k}
-\left(
-\begin{matrix}
-e^{kx_0}/\epsilon_1  & -e^{-kx_0}/\epsilon_0  & 0                      & 0                   \\
-0                    & 0                      & e^{-kx_0}/\epsilon_0   & -e^{kx_0}/\epsilon_2 \\
--e^{kx_0} & -e^{-kx_0}  & 0                      & 0                   \\
-0                    & 0                      & -e^{-kx_0}  & -e^{kx_0}
-\end{matrix}
-\right)
-\left(
-\begin{matrix}
-I_1    \\
-I_0^- \\
-I_0^+ \\
-I_2
-\end{matrix}
-\right),
-\label{coefmatrix}
-\end{equation}
-where $c_0 = \cosh{kx_0}$, $s_0 = \sinh{kx_0}$, and the functionals $I_1$, $I_0^-$, $I_0^+$, and $I_2$ are given by
-\begin{equation}
-I_1 = \int_{-\infty}^{-x_0} e^{ks}f(s) ds, \quad I_0^- = \int_{-x_0}^{x_0} e^{-ks}f(s) ds, \quad I_0^+ = \int_{-x_0}^{x_0} e^{ks}f(s) ds, \quad I_2  = \int_{x_0}^{\infty} e^{-ks}f(s) ds.
-\end{equation}
-Solving this system of equations gives
-\newcommand{\e}{\epsilon}
-\begin{equation}
-\tilde{A} = \frac{e^{2kx_0}T_1}{2k\e_1D_R}, 
-\quad 
-\tilde{B} = \frac{e^{2kx_0}T_0^-}{2k\e_0D_R}, 
-\quad 
-\tilde{C} = \frac{e^{2kx_0}T_0^+}{2k\e_0D_R}, 
-\quad 
-\tilde{D} = \frac{e^{2kx_0}T_2}{2k\e_2D_R},
-\label{consts}
-\end{equation}
-where
-\begin{align}
-T_1(\omega) &= I_1[e^{4kx_0}(\e_0 - \e_1)(\e_0 + \e_2) - (\e_0 + \e_1)(\e_0 - \e_2)]- 4I_2e^{2kx_0}\e_0\e_1 - 2\e_1\left[I_0^-e^{2kx_0}(\e_0 + \e_2) + I_0^+(\e_0 - \e_2)\right], \\
-T_0^-(\omega) &= [(I_0^+ - I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ + I_0^-)(\e_0^2 - \e_1\e_2)]e^{2kx_0} - (I_0^+ + I_0^-)(\e_0 - \e_1)(\e_0 - \e_2) \notag \\
-& \quad - 2\e_0e^{2kx_0}\left[((I_1 + I_2)\e_0 + I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 + I_2)\e_0 - I_1\e_2 - I_2\e_1\right], \\
-T_0^+(\omega) &= [(I_0^+ + I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ - I_0^-)(\e_0^2 - \e_1\e_2)]e^{2kx_0} - (I_0^+ - I_0^-)(\e_0 - \e_1)(\e_0 - \e_2) \notag \\
-& \quad - 2\e_0e^{2kx_0}\left[((I_2 - I_1)\e_0 - I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 - I_2)\e_0 - I_1\e_2 + I_2\e_1\right], \\
-T_2(\omega) &= I_2[e^{4kx_0}(\e_0 + \e_1)(\e_0 - \e_2) - (\e_0 - \e_1)(\e_0 + \e_2)] - 4I_1e^{2kx_0}\e_0\e_2 -  2\e_2\left[I_0^+e^{2kx_0}(\e_0 + \e_1) + I_0^-(\e_0 - \e_1)\right], \\
-D_R(\omega) &= (\e_0 + \e_1)(\e_0 + \e_2)e^{4kx_0} - (\e_0 - \e_1)(\e_0 - \e_2).
-\label{DR incomp}
-\end{align}
-
-The solutions of equation $D_R(\omega) = 0$ are precisely the solutions of the dispersion relation for an incompressible asymmetric magnetic slab. To confirm this, we follow notion from \cite{zsa_etal18} (with an added superscript~$z$) by observing that for an incompressible plasma, the sound speed, $c_s \to \infty$. Therefore,
-\begin{equation}
-m_j^2 = \frac{(k^2c_j^2 - \omega^2)(k^2v_{Aj}^2 - \omega^2)}{(c_j^2 + v_{Aj}^2)(k^2c_Tj^2 - \omega^2)} \to k^2,
-\end{equation}
-\begin{equation}
-\Lambda_j^z = \frac{i\rho_j}{\omega m_j}(k^2v_{Aj}^2 - \omega^2) \to \frac{i \rho_j}{\omega k}(k^2v_{Aj}^2 - \omega^2), \quad \text{for } j = 0,1,2.
-\end{equation}
-Therefore, after multiplying Equation~\eqref{DR incomp} by $\omega k / i(e^{4kx_0} + 1)$, we recover the dispersion relation in \cite{zsa_etal18} for an incompressible plasma, namely
-\begin{equation}
-2(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)[\tanh{kx_0} + \coth{kx_0}] = 0.
-\end{equation}
-
-The solution given by Equation~\eqref{ivp slab sol}, with constants (with respect to $x$) $\tilde{A}$, $\tilde{B}$, $\tilde{C}$, and $\tilde{D}$, given by Equation~\eqref{consts} corroborates with those describing the initial value problem of surface waves on an interface between two incompressible plasmas. When the slab width, $2x_0$, approaches zero, it is expected that the solutions here approach those describing the interface. As $x_ 0 \to 0$, the dispersion function behaves like
-\begin{equation}
-D_R \to (\epsilon_0 + \epsilon_1)(\epsilon_0 + \epsilon_2) - (\epsilon_0 - \epsilon_1)(\epsilon_0 - \epsilon_2) = 2\epsilon_0(\epsilon_1 + \epsilon_2).
-\end{equation}
-Therefore, in this limit, $\tilde{A}$ and $\tilde{D}$ behave like
-\begin{align}
-\tilde{A} &\to \frac{1}{4k\epsilon_0\epsilon_1(\epsilon_1 + \epsilon_2)} \left\{ 2I_1\epsilon_0(\epsilon_2 - \epsilon_1) - 4I_2\epsilon_0\epsilon_1 \right\} = \frac{1}{k(\epsilon_1 + \epsilon_2)} \left\{ -I_2 + \frac{1}{2\epsilon_1}(\epsilon_2 - \epsilon_1)I_1 \right\}, \\
-\tilde{D} &\to \frac{1}{4k\epsilon_0\epsilon_2(\epsilon_1 + \epsilon_2)} \left\{ 2I_2\epsilon_0(\epsilon_1 - \epsilon_2) - 4I_1\epsilon_0\epsilon_2 \right\} = \frac{1}{k(\epsilon_1 + \epsilon_2)} \left\{ -I_1 + \frac{1}{2\epsilon_2}(\epsilon_1 - \epsilon_2)I_2 \right\}, \\
-\end{align}
-which are equal to (the corrected versions of) $A_-$ and $A_+$, respectively, from \cite{rae_etal81}.
-
-
-
-\subsubsection{Solution in time}
-
-To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform, such that
-\begin{equation}
-v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
-\end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrand is below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane. Since the problem is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
-
-Focusing firstly on the region $x<-x_0$, the solution is
-\begin{align}
-v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
-&= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A} e^{-i\omega t} ds \right) + \left(\int_{-\infty}^{-x_0} G(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
-\label{sol incomp 1}
-\end{align}
-
-The first integral in the above solution is calculated as follows:
-The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_{1,2}$, and $T_0^\pm$ are entire functions.
-
-The final integral in Equation~\eqref{sol incomp 1} is calculated as follows:
-
-
-the singularities of $\tilde{v}_x$ are precisely the singularities of $A$ and $1/\e_1$
-
-Considering the functional form of $\tilde{v}_x(x, \omega)$, we see that, in each region, it is made up of a term involving 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Specific initial conditions}
-The above approach using arbitrary initial conditions is forced to cease here due to mathematical intractability of the general inverse Laplace transform calculation (however, general asymptotic results are, just barely, tractable). Instead, we progress with specific initial conditions. 
-
-Choosing specific initial conditions requires a delicate balance between mathematical tractability and physical applicability. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Attempt 2}
-
-The idea behind this second attempt is to choose the Green's function in such a way as to make the constant coefficients of the particular solution part are directly related to the boundary values of the transverse velocity.
-
-We are trying to solve the equation
-\begin{equation}
-\frac{d^2\tilde{v}_x}{dx^2} - k^2\tilde{v}_x = 
-\begin{cases}
-f(x)/\epsilon_1, & \text{if  } x<-x_0,\\
-f(x)/\epsilon_0, & \text{if  } |x|<x_0,\\
 f(x)/\epsilon_2, & \text{if  } x>x_0,
 \end{cases}
 \label{ivp gov slab 2}
 \end{equation}
 under the boundary conditions $\tilde{v}_x(-x_0) = \tilde{A}_1$ and $\tilde{v}_x(x_0) = \tilde{A}_2$.
 
-The Green's function, $G(x;s)$, corresponding to Equation~\eqref{ivp gov slab 2} must satisfy 
+Sturm-Liouville Theory tells us that the Green's function, $G(x;s)$, corresponding to Equation~\eqref{ivp gov slab 2} must satisfy 
 \begin{equation}
 \frac{\partial^2G}{\partial x^2} - k^2 G = \delta(x-s), \quad G(-x_0;s) = G(x_0;s) = 0,
 \end{equation}
@@ -504,7 +296,7 @@ for $x < -x_0$, and
 for $x > x_0$.
 
 
-\subsubsection{Matching solutions}
+\subsection{Matching solutions}
 To establish physically relevant solutions, we require that the transverse velocity and the total pressure are continuous over each interface. Given the above solutions, the transverse velocity is automatically continuous over the boundaries. The perturbation in the total pressure, $P_T$, for a compressible plasma is given (for example, in \cite{all_etal17}) by
 \begin{equation}
 \tilde{P}_T(x) = \frac{\Lambda}{m}\frac{d\tilde{v}_x}{d x},
@@ -540,31 +332,7 @@ I_2 = \int_{x_0}^\infty e^{k(x_0 - s)} f(s) ds.
 \end{equation}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Solution in time}
+\subsection{Solution in time}
 
 To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
@@ -573,6 +341,7 @@ v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \
 where $\gamma$ is a real number such that all the singularities of the integrand is below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane. Since the problem is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
 
 Focusing firstly on the region $x<-x_0$, the solution is
+\newcommand{\e}{\epsilon}
 \begin{align}
 v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
 &= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_1 e^{-i\omega t} d\omega \right) + \frac{1}{2\pi} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
@@ -784,7 +553,7 @@ v_x =& \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left
 
 
 
-\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. (maybe see what these solutions are like in symmetric slab/interface). Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions. Publish}
+\textcolor{red}{TO DO NEXT: Redo the above with the 4 poles, not just two. (maybe see what these solutions are like in symmetric slab/interface). Evaluate final integral of equation~\eqref{sol incomp}. Repeat the above for other two regions of the slab. This gives us the full solution. Then maybe try to work out $\chi_{1,2}$. Test various initial conditions for typical parameter values.}
 
 
 
@@ -883,55 +652,8 @@ Therefore, the eigenfrequencies reduce to
 which corroborates with Equation~(12) in \cite{rob81b}.
 
 
-%% The reference list follows the main body and any appendices.
-%% Use LaTeX's thebibliography environment to mark up your reference list.
-%% Note \begin{thebibliography} is followed by an empty set of
-%% curly braces.  If you forget this, LaTeX will generate the error
-%% "Perhaps a missing \item?".
-%%
-%% thebibliography produces citations in the text using \bibitem-\cite
-%% cross-referencing. Each reference is preceded by a
-%% \bibitem command that defines in curly braces the KEY that corresponds
-%% to the KEY in the \cite commands (see the first section above).
-%% Make sure that you provide a unique KEY for every \bibitem or else the
-%% paper will not LaTeX. The square brackets should contain
-%% the citation text that LaTeX will insert in
-%% place of the \cite commands.
-
-%% We have used macros to produce journal name abbreviations.
-%% \aastex provides a number of these for the more frequently-cited journals.
-%% See the Author Guide for a list of them.
-
-%% Note that the style of the \bibitem labels (in []) is slightly
-%% different from previous examples.  The natbib system solves a host
-%% of citation expression problems, but it is necessary to clearly
-%% delimit the year from the author name used in the citation.
-%% See the natbib documentation for more details and options.
-
-%\begin{thebibliography}{}
-%
-%\bibitem[Astropy Collaboration et al.(2013)]{2013A&A...558A..33A} Astropy Collaboration, Robitaille, T.~P., Tollerud, E.~J., et al.\ 2013, \aap, 558, A33 
-%\bibitem[Bertin \& Arnouts(1996)]{1996A&AS..117..393B} Bertin, E., \& Arnouts, S.\ 1996, \aaps, 117, 393 
-%\bibitem[Corrales(2015)]{2015ApJ...805...23C} Corrales, L.\ 2015, \apj, 805, 23
-%\bibitem[Ferland et al.(2013)]{2013RMxAA..49..137F} Ferland, G.~J., Porter, R.~L., van Hoof, P.~A.~M., et al.\ 2013, \rmxaa, 49, 137
-%\bibitem[Hanisch \& Biemesderfer(1989)]{1989BAAS...21..780H} Hanisch, R.~J., \& Biemesderfer, C.~D.\ 1989, \baas, 21, 780 
-%\bibitem[Lamport(1994)]{lamport94} Lamport, L. 1994, LaTeX: A Document Preparation System, 2nd Edition (Boston, Addison-Wesley Professional)
-%\bibitem[Schwarz et al.(2011)]{2011ApJS..197...31S} Schwarz, G.~J., Ness, J.-U., Osborne, J.~P., et al.\ 2011, \apjs, 197, 31  
-%\bibitem[Vogt et al.(2014)]{2014ApJ...793..127V} Vogt, F.~P.~A., Dopita, M.~A., Kewley, L.~J., et al.\ 2014, \apj, 793, 127  
-%
-%\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \bibliography{Bibliography}
 
-%% This command is needed to show the entire author+affilation list when
-%% the collaboration and author truncation commands are used.  It has to
-%% go at the end of the manuscript.
-%\allauthors
-
-%% Include this line if you are using the \added, \replaced, \deleted
-%% commands to see a summary list of all changes at the end of the article.
-%\listofchanges
-
 \end{document}
-
-% End of file `sample61.tex'.

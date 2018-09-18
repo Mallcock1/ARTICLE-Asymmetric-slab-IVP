@@ -1,0 +1,14 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+
+\bibitem[{{Rae} \& {Roberts}(1981)}]{rae_etal81}
+{Rae}, I.~C., \& {Roberts}, B. 1981, Geophysical and Astrophysical Fluid
+  Dynamics, 18, 197
+
+\bibitem[{{Zs{\'a}mberger} {et~al.}(2018){Zs{\'a}mberger}, {Allcock}, \&
+  {Erd{\'e}lyi}}]{zsa_etal18}
+{Zs{\'a}mberger}, N.~K., {Allcock}, M., \& {Erd{\'e}lyi}, R. 2018, \apj, 853,
+  136
+
+\end{thebibliography}

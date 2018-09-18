@@ -1,0 +1,417 @@
+\documentclass{aastex61}
+
+
+%% arguement options are:
+%%
+%%  twocolumn   : two text columns, 10 point font, single spaced article.
+%%                This is the most compact and represent the final published
+%%                derived PDF copy of the accepted manuscript from the publisher
+%%  manuscript  : one text column, 12 point font, double spaced article.
+%%  preprint    : one text column, 12 point font, single spaced article.  
+%%  preprint2   : two text columns, 12 point font, single spaced article.
+%%  modern      : a stylish, single text column, 12 point font, article with
+%% 		  wider left and right margins. This uses the Daniel
+%% 		  Foreman-Mackey and David Hogg design.
+%%
+%% Note that you can submit to the AAS Journals in any of these 6 styles.
+%%
+%% There are other optional arguments one can envoke to allow other stylistic
+%% actions. The available options are:
+%%
+%%  astrosymb    : Loads Astrosymb font and define \astrocommands. 
+%%  tighten      : Makes baselineskip slightly smaller, only works with 
+%%                 the twocolumn substyle.
+%%  times        : uses times font instead of the default
+%%  linenumbers  : turn on lineno package.
+%%  trackchanges : required to see the revision mark up and print its output
+%%  longauthor   : Do not use the more compressed footnote style (default) for 
+%%                 the author/collaboration/affiliations. Instead print all
+%%                 affiliation information after each name. Creates a much
+%%                 long author list but may be desirable for short author papers
+%%
+%% these can be used in any combination, e.g.
+%%
+%% \documentclass[twocolumn,linenumbers,trackchanges]{aastex61}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{breakurl}
+
+\usepackage{amsthm, amsmath}
+\def\UrlFont{\sf}
+\let\captionbox\relax
+\usepackage[caption=false]{subfig}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+
+
+%% Definitions for the journal names
+%\newcommand{\adv}{    {\it Adv. Space Res.}} 
+%\newcommand{\annG}{   {\it Ann. Geophys.}} 
+%\newcommand{\aap}{    {\it Astron. Astrophys.}}
+%\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+%\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+%\newcommand{\ag}{     {\it Ann. Geophys.}}
+%\newcommand{\aj}{     {\it Astron. J.}} 
+%\newcommand{\apj}{    {\it Astrophys. J.}}
+%\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+%\newcommand{\apss}{   {\it Astrophys. Space Sci.}} 
+%\newcommand{\cjaa}{   {\it Chin. J. Astron. Astrophys.}} 
+%\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+%\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+%\newcommand{\ijga}{   {\it Int. J. Geomagn. Aeron.}}
+%\newcommand{\jastp}{  {\it J. Atmos. Solar-Terr. Phys.}} 
+%\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+%\newcommand{\lrsp}{Living Rev. Solar Phys.}
+%\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+%\newcommand{\nat}{    {\it Nature}}
+%\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+%\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+%\newcommand{\pre}{    {\it Phys. Rev. E}}
+%\newcommand{\solphys}{{\it Solar Phys.}}
+%\newcommand{\sovast}{ {\it Soviet  Astron.}} 
+%\newcommand{\ssr}{    {\it Space Sci. Rev.}}
+
+
+%\received{July 1, 2016}
+%\revised{September 27, 2016}
+%\accepted{\today}
+%\submitjournal{ApJ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+\shorttitle{Evolution of Asymmetric MHD Waves}
+\shortauthors{Allcock and Erd\'{e}lyi}
+\watermark{DRAFT}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{Evolution of Asymmetric Slab Magnetohydrodynamic Waves}
+
+%% LaTeX will automatically break titles if they run longer than
+%% one line. However, you may use \\ to force a line break if
+%% you desire. In v6.1 you can include a footnote in the title.
+
+%% A significant change from earlier AASTEX versions is in the structure for 
+%% calling author and affilations. The change was necessary to implement 
+%% autoindexing of affilations which prior was a manual process that could 
+%% easily be tedious in large author manuscripts.
+%%
+%% The \author command is the same as before except it now takes an optional
+%% arguement which is the 16 digit ORCID. The syntax is:
+%% \author[xxxx-xxxx-xxxx-xxxx]{Author Name}
+%%
+%% This will hyperlink the author name to the author's ORCID page. Note that
+%% during compilation, LaTeX will do some limited checking of the format of
+%% the ID to make sure it is valid.
+%%
+%% Use \affiliation for affiliation information. The old \affil is now aliased
+%% to \affiliation. AASTeX v6.1 will automatically index these in the header.
+%% When a duplicate is found its index will be the same as its previous entry.
+%%
+%% Note that \altaffilmark and \altaffiltext have been removed and thus 
+%% can not be used to document secondary affiliations. If they are used latex
+%% will issue a specific error message and quit. Please use multiple 
+%% \affiliation calls for to document more than one affiliation.
+%%
+%% The new \altaffiliation can be used to indicate some secondary information
+%% such as fellowships. This command produces a non-numeric footnote that is
+%% set away from the numeric \affiliation footnotes.  NOTE that if an
+%% \altaffiliation command is used it must come BEFORE the \affiliation call,
+%% right after the \author command, in order to place the footnotes in
+%% the proper location.
+%%
+%% Use \email to set provide email addresses. Each \email will appear on its
+%% own line so you can put multiple email address in one \email call. A new
+%% \correspondingauthor command is available in V6.1 to identify the
+%% corresponding author of the manuscript. It is the author's responsibility
+%% to make sure this name is also in the author list.
+%%
+%% While authors can be grouped inside the same \author and \affiliation
+%% commands it is better to have a single author for each. This allows for
+%% one to exploit all the new benefits and should make book-keeping easier.
+%%
+%% If done correctly the peer review system will be able to
+%% automatically put the author and affiliation information from the manuscript
+%% and save the corresponding author the trouble of entering it by hand.
+
+\correspondingauthor{Robert Erd\'{e}lyi}
+\email{robertus@sheffield.ac.uk}
+
+\author[0000-0002-0771-743X]{Matthew Allcock}
+\affil{Solar Physics and Space Plasma Research Centre, School of Mathematics and Statistics, University of Sheffield, Hicks Building, Hounsfield Road, Sheffield, S3 7RH, UK}
+
+\author[0000-0003-3439-4127]{Robert Erd\'{e}lyi}
+\affiliation{Solar Physics and Space Plasma Research Centre, School of Mathematics and Statistics, University of Sheffield, Hicks Building, Hounsfield Road, Sheffield, S3 7RH, UK}
+
+
+\begin{abstract}
+	
+	Abstract (250 word limit for ApJ)
+	
+\end{abstract}
+
+\keywords{magnetohydrodynamics --- plasmas --- Sun: atmosphere --- Sun: oscillations --- waves}
+	
+\section{Initial value problem - incompressible magnetic slab}
+
+Consider an equilibrium plasma with magnetic field $B_0(x)\mathbf{\hat{z}}$, density $\rho_0(x)$, and pressure $p_0(x)$, without gravity. In the absence of structuring in the $z$-direction and considering perturbations in the $(x,z)$-plane only, we can take Fourier components for velocity and other parameters like $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x)e^{i(kz + ly - \omega t)}$. The velocity perturbation amplitude in the inhomogeneous direction of an ideal plasma is given by
+\begin{equation}
+\frac{d}{dx}\left(\frac{\epsilon(x)}{l^2 + m_0^2(x)} \frac{d\hat{v}_x}{dx}\right) - \epsilon(x)\hat{v}_x = 0,
+\label{gov gen}
+\end{equation}
+where
+\begin{equation}
+\epsilon(x) = \rho_0(x)[k^2v_A^2(x)-\omega^2], \quad
+m_0^2(x) = \frac{(k^2c_0^2(x) - \omega^2)(k^2v_A^2(x) - \omega^2)}{(c_0^2(x) + v_A^2(x))(k^2c_T^2(x) - \omega^2)},
+\end{equation}
+and
+\begin{equation}
+c_0(x) = \sqrt{\frac{\gamma p_0(x)}{\rho_0(x)}}, \quad
+v_A(x) = \frac{B_0(x)}{\sqrt{\mu \rho_0(x)}}, \quad
+c_T(x) = \frac{c_0(x)v_A(x)}{\sqrt{c_0^2(x) + v_A^2(x)}}
+\end{equation} are the sound, Alfv\'{e}n, and tube speeds, respectively.
+
+When the plasma is incompressible, so that $c_0 \to \infty$, we have $c_T^2 \to v_A^2$ and $m_0^2 \to k^2$. After restricting the analysis to propagation only parallel to the magnetic field ($l = 0$), Equation~\eqref{gov gen} reduces to
+\begin{equation}
+\frac{d}{dx}\left(\epsilon(x) \frac{d\hat{v}_x}{dx}\right) - k^2\epsilon(x)\hat{v}_x = 0,
+\label{gov}
+\end{equation}
+which is commonly used for solving eigenmode problems in MHD wave physics. In the present work, the temporal evolution of linear asymmetric MHD waves is considered so we must dial back our assumptions about how the wave behaviour through time.
+
+Above we used a Fourier decomposition in time, which is valid when the solutions are homogeneous in time, such as normal mode solutions (rewrite this). To investigate the temporal evolution of solutions, we take only Fourier components in the $z$-direction, that is $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x,t)e^{ikz}$, and we take the Laplace transform with respect to time, such that
+\begin{equation}
+\mathbf{\tilde{v}}(x) = \int_0^\infty \mathbf{\widehat{v}}(x,t)e^{i\omega t} dt.
+\end{equation}
+This gives us the initial-value form of Equation~\eqref{gov} to be
+\begin{equation}
+\frac{d}{dx}\left(\epsilon(x) \frac{d\tilde{v}_x}{dx}\right) - k^2\epsilon(x)\tilde{v}_x = f(x),
+\label{ivp gov}
+\end{equation}
+where
+\begin{equation}
+f(x) = ik\left\{\rho_0\left[\frac{\partial\hat{\Omega}}{\partial t}(x,0) - i\omega\hat{\Omega}(x,0)\right] - \left[\frac{\partial\hat{v}_z}{\partial t}(x,0) - i\omega \hat{v}_z(x,0)\right]\frac{d\rho_0}{dx}\right\},
+\label{f}
+\end{equation}
+where the vorticity, $\Omega(x,t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mathbf{\hat{y}} = \nabla \times \mathbf{v}(\mathbf{x},t)$, is given by
+\begin{equation}
+\hat{\Omega}(\mathbf{x},t) = -\frac{i}{k}\left(\frac{\partial^2\hat{v}_x}{\partial x^2} - k^2 \hat{v}_x\right).
+\end{equation}
+(this differs from \cite{rae_etal81} by a factor of $-1$ due to taking Fourier forms like $e^{ikz}$ rather than $e^{-ikz}$)
+
+Consider equilibrium magnetic field and density profiles given by
+\begin{equation}
+B(x)=
+\begin{cases}
+B_1, & \text{if  }x<-x_0, \\
+B_0, & \text{if }|x|\leq{x_0}, \\
+B_2, & \text{if  }x>x_0,
+\end{cases}
+\quad \text{and} \quad
+\rho(x)=
+\begin{cases}
+\rho_1, & \text{if  }x<-x_0, \\
+\rho_0, & \text{if }|x|\leq{x_0}, \\
+\rho_2, & \text{if  }x>x_0,
+\end{cases}
+\end{equation}
+where $B_i$ and $\rho_i$ are uniform for $i = 0,1,2$. This establishes the plasma as magnetic slab embedded in an asymmetric magnetic background.
+
+In this equilibrium, transverse velocity perturbations are related to initial perturbations in the following way:
+\begin{equation}
+\frac{d^2\tilde{v}_x}{dx^2} - k^2\tilde{v}_x = 
+\begin{cases}
+f(x)/\epsilon_1, & \text{if  } x<-x_0,\\
+f(x)/\epsilon_0, & \text{if  } |x|<x_0,\\
+f(x)/\epsilon_2, & \text{if  } x>x_0.
+\end{cases}
+\label{ivp gov slab}
+\end{equation}
+
+
+\subsection{Attempt 1}
+Sturm-Liouville Theory tells us that with the aid of a Green's function, $G(x;s)$, Equation~\eqref{ivp gov slab} can be solved to give
+\begin{equation}
+\tilde{v}_x(x) =
+\begin{cases}
+\tilde{A}(\cosh{kx} + \sinh{kx}) - \frac{1}{\epsilon_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds, & \text{if  } x<-x_0,\\
+\tilde{B}\cosh{kx} + \tilde{C}\sinh{kx} - \frac{1}{\epsilon_0} \int_{-x_0}^{x_0} G(x;s)f(s)ds, & \text{if  } |x|<x_0,\\
+\tilde{D}(\cosh{kx} - \sinh{kx}) - \frac{1}{\epsilon_2} \int_{x_0}^{\infty} G(x;s)f(s)ds, & \text{if  } x>x_0,
+\end{cases}
+\label{ivp slab sol}
+\end{equation}
+where
+\begin{equation}
+G(x;s) = \frac{1}{2k}[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)]
+\end{equation}
+and $H$ is the Heaviside step function. Ensuring continuity of both transverse velocity and total pressure across the boundaries at $x=\pm x_0$ gives us the following system of linear algebraic equations for the constants $A$, $B$, $C$, and $D$:
+\begin{equation}
+\left(
+\begin{matrix}
+c_0-s_0              &-c_0           &s_0              &0                   \\
+0                    &c_0            &s_0              &s_0-c_0           \\
+\epsilon_1(c_0-s_0)  &\epsilon_0s_0  &-\epsilon_0c_0   &0                   \\
+0                    &\epsilon_0s_0  &\epsilon_0c_0    &-\epsilon_2(s_0-c_0)
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+\tilde{A} \\
+\tilde{B} \\
+\tilde{C} \\
+\tilde{D}
+\end{matrix}
+\right)
+=
+\frac{1}{2k}
+\left(
+\begin{matrix}
+e^{kx_0}/\epsilon_1  & -e^{-kx_0}/\epsilon_0  & 0                      & 0                   \\
+0                    & 0                      & e^{-kx_0}/\epsilon_0   & -e^{kx_0}/\epsilon_2 \\
+-e^{kx_0} & -e^{-kx_0}  & 0                      & 0                   \\
+0                    & 0                      & -e^{-kx_0}  & -e^{kx_0}
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+I_1    \\
+I_0^- \\
+I_0^+ \\
+I_2
+\end{matrix}
+\right),
+\label{coefmatrix}
+\end{equation}
+where $c_0 = \cosh{kx_0}$, $s_0 = \sinh{kx_0}$, and the functionals $I_1$, $I_0^-$, $I_0^+$, and $I_2$ are given by
+\begin{equation}
+I_1 = \int_{-\infty}^{-x_0} e^{ks}f(s) ds, \quad I_0^- = \int_{-x_0}^{x_0} e^{-ks}f(s) ds, \quad I_0^+ = \int_{-x_0}^{x_0} e^{ks}f(s) ds, \quad I_2  = \int_{x_0}^{\infty} e^{-ks}f(s) ds.
+\end{equation}
+Solving this system of equations gives
+\newcommand{\e}{\epsilon}
+\begin{equation}
+\tilde{A} = \frac{e^{2kx_0}T_1}{2k\e_1D_R}, 
+\quad 
+\tilde{B} = \frac{e^{2kx_0}T_0^-}{2k\e_0D_R}, 
+\quad 
+\tilde{C} = \frac{e^{2kx_0}T_0^+}{2k\e_0D_R}, 
+\quad 
+\tilde{D} = \frac{e^{2kx_0}T_2}{2k\e_2D_R},
+\label{consts}
+\end{equation}
+where
+\begin{align}
+T_1(\omega) &= I_1[e^{4kx_0}(\e_0 - \e_1)(\e_0 + \e_2) - (\e_0 + \e_1)(\e_0 - \e_2)]- 4I_2e^{2kx_0}\e_0\e_1 - 2\e_1\left[I_0^-e^{2kx_0}(\e_0 + \e_2) + I_0^+(\e_0 - \e_2)\right], \\
+T_0^-(\omega) &= [(I_0^+ - I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ + I_0^-)(\e_0^2 - \e_1\e_2)]e^{2kx_0} - (I_0^+ + I_0^-)(\e_0 - \e_1)(\e_0 - \e_2) \notag \\
+& \quad - 2\e_0e^{2kx_0}\left[((I_1 + I_2)\e_0 + I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 + I_2)\e_0 - I_1\e_2 - I_2\e_1\right], \\
+T_0^+(\omega) &= [(I_0^+ + I_0^-)(\e_2 - \e_1)\e_0 - (I_0^+ - I_0^-)(\e_0^2 - \e_1\e_2)]e^{2kx_0} - (I_0^+ - I_0^-)(\e_0 - \e_1)(\e_0 - \e_2) \notag \\
+& \quad - 2\e_0e^{2kx_0}\left[((I_2 - I_1)\e_0 - I_1\e_2 + I_2\e_1)e^{2kx_0} + (I_1 - I_2)\e_0 - I_1\e_2 + I_2\e_1\right], \\
+T_2(\omega) &= I_2[e^{4kx_0}(\e_0 + \e_1)(\e_0 - \e_2) - (\e_0 - \e_1)(\e_0 + \e_2)] - 4I_1e^{2kx_0}\e_0\e_2 -  2\e_2\left[I_0^+e^{2kx_0}(\e_0 + \e_1) + I_0^-(\e_0 - \e_1)\right], \\
+D_R(\omega) &= (\e_0 + \e_1)(\e_0 + \e_2)e^{4kx_0} - (\e_0 - \e_1)(\e_0 - \e_2).
+\label{DR incomp}
+\end{align}
+
+The solutions of equation $D_R(\omega) = 0$ are precisely the solutions of the dispersion relation for an incompressible asymmetric magnetic slab. To confirm this, we follow notion from \cite{zsa_etal18} (with an added superscript~$z$) by observing that for an incompressible plasma, the sound speed, $c_s \to \infty$. Therefore,
+\begin{equation}
+m_j^2 = \frac{(k^2c_j^2 - \omega^2)(k^2v_{Aj}^2 - \omega^2)}{(c_j^2 + v_{Aj}^2)(k^2c_Tj^2 - \omega^2)} \to k^2,
+\end{equation}
+\begin{equation}
+\Lambda_j^z = \frac{i\rho_j}{\omega m_j}(k^2v_{Aj}^2 - \omega^2) \to \frac{i \rho_j}{\omega k}(k^2v_{Aj}^2 - \omega^2), \quad \text{for } j = 0,1,2.
+\end{equation}
+Therefore, after multiplying Equation~\eqref{DR incomp} by $\omega k / i(e^{4kx_0} + 1)$, we recover the dispersion relation in \cite{zsa_etal18} for an incompressible plasma, namely
+\begin{equation}
+2(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)[\tanh{kx_0} + \coth{kx_0}] = 0.
+\end{equation}
+
+The solution given by Equation~\eqref{ivp slab sol}, with constants (with respect to $x$) $\tilde{A}$, $\tilde{B}$, $\tilde{C}$, and $\tilde{D}$, given by Equation~\eqref{consts} corroborates with those describing the initial value problem of surface waves on an interface between two incompressible plasmas. When the slab width, $2x_0$, approaches zero, it is expected that the solutions here approach those describing the interface. As $x_ 0 \to 0$, the dispersion function behaves like
+\begin{equation}
+D_R \to (\epsilon_0 + \epsilon_1)(\epsilon_0 + \epsilon_2) - (\epsilon_0 - \epsilon_1)(\epsilon_0 - \epsilon_2) = 2\epsilon_0(\epsilon_1 + \epsilon_2).
+\end{equation}
+Therefore, in this limit, $\tilde{A}$ and $\tilde{D}$ behave like
+\begin{align}
+\tilde{A} &\to \frac{1}{4k\epsilon_0\epsilon_1(\epsilon_1 + \epsilon_2)} \left\{ 2I_1\epsilon_0(\epsilon_2 - \epsilon_1) - 4I_2\epsilon_0\epsilon_1 \right\} = \frac{1}{k(\epsilon_1 + \epsilon_2)} \left\{ -I_2 + \frac{1}{2\epsilon_1}(\epsilon_2 - \epsilon_1)I_1 \right\}, \\
+\tilde{D} &\to \frac{1}{4k\epsilon_0\epsilon_2(\epsilon_1 + \epsilon_2)} \left\{ 2I_2\epsilon_0(\epsilon_1 - \epsilon_2) - 4I_1\epsilon_0\epsilon_2 \right\} = \frac{1}{k(\epsilon_1 + \epsilon_2)} \left\{ -I_1 + \frac{1}{2\epsilon_2}(\epsilon_1 - \epsilon_2)I_2 \right\}, \\
+\end{align}
+which are equal to (the corrected versions of) $A_-$ and $A_+$, respectively, from \cite{rae_etal81}.
+
+
+
+\subsubsection{Solution in time}
+
+To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform, such that
+\begin{equation}
+v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
+\end{equation}
+where $\gamma$ is a real number such that all the singularities of the integrand is below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane. Since the problem is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
+
+Focusing firstly on the region $x<-x_0$, the solution is
+\begin{align}
+v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left[ \tilde{A}e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G(x;s)f(s)ds \right]e^{-i\omega t} d\omega, \\
+&= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A} e^{-i\omega t} ds \right) + \left(\int_{-\infty}^{-x_0} G(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
+\label{sol incomp 1}
+\end{align}
+
+The first integral in the above solution is calculated as follows:
+The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_{1,2}$, and $T_0^\pm$ are entire functions.
+
+The final integral in Equation~\eqref{sol incomp 1} is calculated as follows:
+
+
+the singularities of $\tilde{v}_x$ are precisely the singularities of $A$ and $1/\e_1$
+
+Considering the functional form of $\tilde{v}_x(x, \omega)$, we see that, in each region, it is made up of a term involving 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Specific initial conditions}
+The above approach using arbitrary initial conditions is forced to cease here due to mathematical intractability of the general inverse Laplace transform calculation (however, general asymptotic results are, just barely, tractable). Instead, we progress with specific initial conditions. 
+
+Choosing specific initial conditions requires a delicate balance between mathematical tractability and physical applicability.
+
+
+
+\bibliography{Bibliography}
+
+\end{document}
