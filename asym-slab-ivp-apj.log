@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.25)  19 SEP 2018 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.25)  1 OCT 2018 16:44
 entering extended mode
 **./asym-slab-ivp-apj.tex
 (asym-slab-ivp-apj.tex
@@ -918,28 +918,31 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 142.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] [5] [6]
+) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no © in font cmr10!
+ [3] [4] [5] [6] [7] [8] [9]
+(asym-slab-ivp-apj.bbl
+Overfull \vbox (59.11183pt too high) has occurred while \output is active []
 
-LaTeX Warning: Reference `sol incomp 1' on page 7 undefined on input line 484.
 
-[7] [8] (asym-slab-ivp-apj.bbl) [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 622.
+Overfull \vbox (59.11183pt too high) has occurred while \output is active []
+
+
+[10]) [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 674.
  (asym-slab-ivp-apj.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 622.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 622.
-
-
-LaTeX Warning: There were undefined references.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 674.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 674.
  ) 
 Here is how much of TeX's memory you used:
- 20402 strings out of 493323
- 371217 string characters out of 3139069
- 486260 words of memory out of 3000000
- 23473 multiletter control sequences out of 15000+200000
+ 20440 strings out of 493323
+ 371686 string characters out of 3139069
+ 485601 words of memory out of 3000000
+ 23490 multiletter control sequences out of 15000+200000
  15825 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,92p,530b,1060s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,92p,1010b,1060s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
@@ -960,11 +963,12 @@ les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr
-8a.pfb>
-Output written on asym-slab-ivp-apj.pdf (9 pages, 328067 bytes).
+msfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.
+pfb>
+Output written on asym-slab-ivp-apj.pdf (11 pages, 346897 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

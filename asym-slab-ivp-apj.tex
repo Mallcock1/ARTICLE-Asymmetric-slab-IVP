@@ -224,7 +224,14 @@ B_2, & \text{if  }x>x_0,
 \rho_2, & \text{if  }x>x_0,
 \end{cases}
 \end{equation}
-where $B_i$ and $\rho_i$ are uniform for $i = 0,1,2$. This establishes the plasma as magnetic slab embedded in an asymmetric magnetic background.
+where $B_i$ and $\rho_i$ are uniform for $i = 0,1,2$. This establishes the plasma as magnetic slab embedded in an asymmetric magnetic background. So that the structure is in equilibrium, we require that the total pressure in each of the three regions be equal, that is
+\begin{align}
+p_1 + \frac{B_1^2}{2\mu} &= p_0  + \frac{B_0^2 }{2\mu} = p_2 + \frac{B_2^2 }{2\mu}, \label{eq:pressure}
+\end{align}
+where $p_i$ is the gas pressure in region $i$ and $\mu$ is the permeability of free space. The sound speed in each region is $c_i = \sqrt{\gamma p_i / \rho_i}$, for $i = 0, 1, 2$, where $\gamma$ is the adiabatic index. The Alfvén speed is denoted by $v_{Ai}= B_i/\sqrt{\rho_i \mu}$, for $i=0,1,2$. Equation~\ref{eq:pressure} describing equilibrium pressure balance yields the following relationship between the density ratios and characteristic speeds for any two regions,
+\begin{align}
+\frac{\rho_i}{\rho_j}= \frac{c_j^2 + \frac{1}{2} \gamma v_{Aj}^2}{c_i^2 + \frac{1}{2} \gamma v_{Ai}^2}, \quad \text{where} \quad i=0,1,2; \quad j=0,1,2; \quad i \neq j. \label{eq:ratio}
+\end{align}
 
 In this equilibrium, transverse velocity perturbations are related to initial perturbations in the following way:
 \begin{equation}
@@ -255,7 +262,7 @@ The general solution, for $|x| < x_0$, of the equation for $G_0$ is
 \begin{equation}
 G_0(x;s) = c_1\sinh(k(x - x_0)) + c_2\sinh(k(x + x_0)),
 \end{equation}
-where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\partial G_0 / \partial x$ have jumps of 0 and 1 at $x = s$, respectively, determines $c_1$ and $c_2$, so that $G_0(x;s)$ is
+where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. In accordance with standard Green's Functions procedure \citep{boy_etal12}, ensuring $G_0$ and $\partial G_0 / \partial x$ have jumps of 0 and 1 at $x = s$, respectively,  determines $c_1$ and $c_2$, so that $G_0(x;s)$ is
 \begin{equation}
 G_0(x;s) = \frac{1}{k\sinh(2k x_0)}
 \begin{cases}
@@ -337,8 +344,9 @@ I_2 = \int_{x_0}^\infty e^{k(x_0 - s)} f(s) ds.
 To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
 v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
+\label{laplace transform}
 \end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrand is below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane. Since the problem is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
+where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
 
 Focusing firstly on the region $x<-x_0$, the solution is
 \newcommand{\e}{\epsilon}
@@ -347,6 +355,8 @@ v_x &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left
 &= \frac{e^{k(x+x_0)}}{2\pi} \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{A}_1 e^{-i\omega t} d\omega \right) + \frac{1}{2\pi} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right) \left( \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega \right),
 \label{sol incomp}
 \end{align}
+
+\textcolor{red}{CONSIDER ADDING AN OVERVIEW OF THE FOLLOWING METHOD TO EVALUATE THE INTEGRALS IN THE ABOVE.}
 
 The first integral in the above solution is calculated as follows. The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_1$ and $T_2$ are entire functions.
 
@@ -369,9 +379,9 @@ for $j = 0, 1, 2$. When compressibility is neglected, such that the sound speeds
 \begin{equation}
 2(\epsilon_0^2 + \epsilon_1 \epsilon_2) + \epsilon_0(\epsilon_1 + \epsilon_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0,
 \end{equation}
-which can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$ is given by Equation~\eqref{D incomp}. It follows that the zeros of $D(\omega)$ are precisely the eigenvalues of the asymmetric incompressible magnetic slab.
+which can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$ is given by Equation~\eqref{D incomp}. It follows that the zeros of $D(\omega)$ are precisely the eigenvalues of the asymmetric incompressible magnetic slab. This is a specific case of a powerful general result for initial value problems and their corresponding eigenvalue problems which is explored in the MHD setting by \cite{goe_etal04}, Chapter 10.2.
 
-The zeros of $D(\omega) = 0$ are found by writing this equation as
+The zeros of $D$ are found by writing the equation $D(\omega) = 0$ as
 \begin{equation}
 \epsilon_0(\epsilon_1 + \epsilon_2) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\tanh(2kx_0) = 0
 \end{equation}
@@ -382,7 +392,7 @@ and substituting expressions for $\epsilon(x)$, which gives
 The above equation can be rewritten as a quadratic in $(\omega/k)^2$, namely
 \begin{align}
 & \left(\frac{\omega}{k}\right)^4 [(\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2)]  \\
-- & \left(\frac{\omega}{k}\right)^2 [(2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] \\
+- & \left(\frac{\omega}{k}\right)^2 [(2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0 \{ \rho_1(v_{A0}^2 + v_{A1}^2) + \rho_2(v_{A0}^2 + v_{A2}^2) \} ] \\
 + & [(\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2)] = 0,
 \end{align}
 which has solutions
@@ -392,12 +402,12 @@ which has solutions
 where
 \begin{align}
 a &= (\rho_0^2 + \rho_1\rho_2)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2), \label{solution a} \\
-b &= (2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \label{solution b} \\
+b &= -(2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2))\tanh(2kx_0) - \rho_0 \{ \rho_1(v_{A0}^2 + v_{A1}^2) + \rho_2(v_{A0}^2 + v_{A2}^2) \}, \label{solution b} \\
 c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2). \label{solution c}
 \end{align}
-We know from analysis of the dispersion relation \citep{zsa_etal18} that the solutions $\pm\omega_{0\pm}$ must be real. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
+We know from analysis of the dispersion relation \citep{zsa_etal18} that the above solutions $\pm\omega_{0\pm}$ must be real. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
-Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_{0\pm}$, which is general case is shown by Figure~\ref{fig: brom cont incomp}.
+With the location of the singularities of the integrand in hand, we can return to evaluating the first integral in Equation~\eqref{sol incomp} by making use of the famous Residue Theorem of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To remedy this, we can choose a series of contours such that the limit of the integrals over these contours is equal to the limiting integral in Equation~\eqref{sol incomp}. We using the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_{0\pm}$, which is general case is shown by Figure~\ref{fig: brom cont incomp}. In the limit $L \to \infty$, we recover the desired integral.
 
 \begin{figure}
 	\centering
@@ -437,16 +447,17 @@ Given that the function $T_1(\omega)$ is entire, we can construct a closed Bromw
 	\label{fig: brom cont incomp}
 \end{figure}
 
-Firstly, we see that the integrands in question behave like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore,
+Considering first the integral along $C_1$, we see that the integrand in question behave like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore, the integral around the semi-circle vanishes, \textit{i.e.}
 \begin{equation}
 \lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega = 0.
 \end{equation}
+So we have successfully chosen a sequence of contours which limit to the same limit as that of Equation~\eqref{sol incomp}. Thankfully the integral around each of these new contours is much easier to calculate than the original, as will be exploited in the following paragraph.
 
-Secondly, the contour $C$ is integrated in the clockwise direction and therefore is equal to $-2\pi i$ multiplied by the sum of the residues of the integrand at $\omega = \pm \omega_{0\pm}$. \textcolor{red}{WE MUST CHECK L'H'S RULE IS VALID HERE, AND THAT THE ROOTS OF D ARE NOT ALSO THE ROOTS OF T OR D'.} The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule, to within choice of initial condition, as
+Next, considering the integral along contour $C$, since it is integrated in the clockwise direction it is therefore equal to $-2\pi i$ multiplied by the sum of the residues of the singularities at $\omega = \pm \omega_{0\pm}$. \textcolor{red}{WE MUST CHECK L'H'S RULE IS VALID HERE, AND THAT THE ROOTS OF D ARE NOT ALSO THE ROOTS OF T OR D'.} The residue at $\omega = \omega_0$ can be evaluated using L'Hopital's Rule (the necessary requirements that ensure that this rule can be used are verified in Appendix~\ref{app: l'hopital}, to within a free choice of initial condition, $f(x)$, as
 \begin{align}
 \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0+} \right] &= 
 \lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \\ 
-&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} [T_1(\omega)e^{-i\omega t} + (\omega - \omega_{0+})T'_1(\omega)e^{-i\omega t} - it(\omega - \omega_{0+})T_1(\omega)e^{-i\omega t}] \\
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} [T_1(\omega) + (\omega - \omega_{0+})T'_1(\omega) - it(\omega - \omega_{0+})T_1(\omega)]e^{-i\omega t} \\
 &= \chi_{1+} e^{-i\omega_{0+} t},
 \end{align}
 where $\chi_{1+} = T_1(\omega_{0+}) / kD'(\omega_{0+})$. In the following, we define $\chi_{1-} = T_1(\omega_{0-}) / kD'(\omega_{0-})$, and similar for subscripts $0$, and $2$. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
@@ -467,12 +478,12 @@ A_1 &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{kD(\omeg
 \end{align}
 
 
-The final integral (let's call it $J_1$) in Equation~\eqref{sol incomp} is calculated as follows.
-\begin{align}
-J_1 &= \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega, \\
-&= \frac{1}{\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} d\omega.
-\end{align}
-The integrand above has 2 simple poles at $\omega = \pm k v_{A1}$. By noting that the integrand approaches zero as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+The final integral in Equation~\eqref{sol incomp} is calculated as follows.
+\begin{equation}
+\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega,
+= \frac{1}{\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} d\omega,
+\end{equation}
+whose integrand has 2 simple poles at $\omega = \pm k v_{A1}$. By noting that the integrand approaches zero as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
 \begin{align}
 \mathrm{Res}\left[\frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = kv_{A1} \right] &= 
 \lim_{\omega \to kv_{A1}} \frac{(\omega - kv_{A1})e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
@@ -481,9 +492,9 @@ The integrand above has 2 simple poles at $\omega = \pm k v_{A1}$. By noting tha
 \lim_{\omega \to -kv_{A1}} \frac{(\omega + kv_{A1})e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
 &= \frac{e^{ikv_{A1} t}}{2kv_{A1}}.
 \end{align}
-Therefore, the final integral in Equation~\eqref{sol incomp 1} is
+Therefore, the final integral in Equation~\eqref{sol incomp} is
 \begin{equation}
-J_1 = -\frac{2\pi i}{\rho_1} \sum \mathrm{Res} \left[ \frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{2\pi \sin{kv_{A1}t}}{\rho_1 k v_{A1}}.
+\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega = -\frac{2\pi i}{\rho_1} \sum \mathrm{Res} \left[ \frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{2\pi \sin{kv_{A1}t}}{\rho_1 k v_{A1}}.
 \end{equation}
 
 \begin{figure}
@@ -518,15 +529,10 @@ J_1 = -\frac{2\pi i}{\rho_1} \sum \mathrm{Res} \left[ \frac{e^{-i\omega t}}{k^2v
 	\label{fig: brom cont incomp 2}
 \end{figure}
 
-Combining the above expressions for $A_1$ and $J_1$ we find that the solution for the transverse velocity, for $x<-x_0$ is
+Combining the above expressions we find that the transverse velocity solution for $x<-x_0$ is
 \begin{equation}
 v_x = -2 e^{k(x+x_0)} [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)]  + \frac{\sin{kv_{A1}t}}{\rho_1 k v_{A1}} \left(\int_{-\infty}^{-x_0} G_1(x;s)f(s)ds \right),
 \end{equation}
-
-
-
-
-
 
 Similarly, the transverse velocity for the region $x>x_0$ is
 \begin{align}
@@ -545,7 +551,7 @@ v_x =& \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \left
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \acknowledgments
-M. Allcock acknowledges the support from the University Prize Scholarship at the University of Sheffield. R. Erd\'{e}lyi acknowledges the support from the UK Science and Technology Facilities Council (STFC) and the Royal Society. 
+M. Allcock acknowledges the support from the University Prize Scholarship at the University of Sheffield. R. Erd\'{e}lyi acknowledges the support from the UK Science and Technology Facilities Council (STFC grant number: ST/M000826/1) and the Royal Society. 
 
 % inlude mayavi visualisations and link to the website?
 %\software{Mayavi}
@@ -577,7 +583,7 @@ f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\om
 When we let the width of an asymmetric slab vanish, we recover the traditional interface geometry. Letting $x_0 \to 0$, the parameters $a$, $b$, and $c$, from Equations~\eqref{solution a}, \eqref{solution b}, and~\eqref{solution c}, reduce to
 \begin{align}
 a &= \rho_0(\rho_1 + \rho_2), \\
-b &= \rho_0v_{A0}^2(\rho_1 +\rho_2) + \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \\
+b &= -\rho_0v_{A0}^2(\rho_1 +\rho_2) - \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \\
 c &= \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2).
 \end{align}
 Therefore, when the slab width vanishes, the eigenmodes given by Equation~\eqref{solution omega0} reduce to
@@ -597,7 +603,7 @@ The first solution above is degenerate because, while the parameter $v_{A0}$ mak
 By letting the parameters on each external plasma region be equal (\textit{i.e.} $\rho_1 = \rho_2 = \rho_e$, and similar for the magnetic field and Aflv\'{e}n speed) the asymmetric slab is reduced to a symmetric slab. In this limit, the parameters $a$, $b$, and $c$, from Equations~\eqref{solution a}, \eqref{solution b}, and~\eqref{solution c}, can be reduced to
 \begin{align}
 a &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2 + \rho_e^2 + \rho_0\rho_e(\tau_0 + c_0) \right], \\
-b &= \frac{2}{\tau_0 + c_0} \left[ 2(\rho_0^2v_{A0}^2 + \rho_e^2v_{Ae}^2) + \rho_0\rho_e(v_{A0}^2 + v_{Ae}^2)(\tau_0 + c_0) \right], \\
+b &= \frac{-2}{\tau_0 + c_0} \left[ 2(\rho_0^2v_{A0}^2 + \rho_e^2v_{Ae}^2) + \rho_0\rho_e(v_{A0}^2 + v_{Ae}^2)(\tau_0 + c_0) \right], \\
 c &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2v_{A0}^4 + \rho_e^2v_{Ae}^4 + \rho_0\rho_ev_{A0}^2v_{Ae}^2(\tau_0 + c_0) \right],
 \end{align}
 where $\tau_0 = \tanh{kx_0}$ and $c_0 = \coth{kx_0}$. The discriminant in the solution, Equation~\eqref{solution omega0}, reduces to
@@ -613,6 +619,52 @@ Therefore, the eigenfrequencies reduce to
 \end{cases}
 \end{equation}
 which corroborates with Equation~(12) in \cite{rob81b}.
+
+
+\section{Validation of L'Hopital's rule} \label{app: l'hopital}
+L'Hopital's Rule is a powerful tool for evaluating limits of quotients of functions, provided that these functions satisfy certain necessary criteria. L'Hopital's Rule states that for functions $f$ and $g$ which are differentiable on an open interval $I$ except possibly at a point $c$ contained in $I$, if $\lim_{x\to c}f(x) = \lim_{x\to c}g(x) = 0{\text{ or }}\pm \infty$, $g'(x) \neq 0$ for all $x$ in $I$ with $x \neq c$, and $\lim_{x\to c}\frac{f'(x)}{g'(x)}$ exists, then
+\begin{equation}
+\lim_{x\to c}\frac{f(x)}{g(x)} = \lim_{x\to c}\frac {f'(x)}{g'(x)}.
+\end{equation}
+
+Applied to the present problem, the requirements are that:
+\begin{enumerate}
+	\item The functions $(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}$ and $D(\omega)$ are differentiable on an open interval $I$ except possibly at a point $\omega_{0+}$ contained in $I$,
+	\item $\lim_{\omega \to \omega_{0+}}(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t} = 0$,
+	\item $\lim_{\omega \to \omega_{0+}}D(\omega) = 0$,
+	\item $D'(\omega) \neq 0$ for all $\omega$ in $I$ with $\omega \neq \omega_{0+}$,
+	\item $\lim_{\omega \to \omega_{0+}} \frac{[(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}]'}{kD'(\omega)}$ exists.
+\end{enumerate}
+
+Below, we validate that each of these conditions holds:
+\begin{enumerate}
+	\item Taking $I = \mathbb{R}$, the functions $T_1(\omega)$ and $D(\omega)$ are polynomial in $\omega$ (because their only $\omega$ dependence is solely from the polynomials $\e_0$ and $\e_1$). Therefore, $D(\omega)$ and the product of the differentiable functions $(\omega - \omega_{0+})$, $T_1(\omega)$, and $e^{-i\omega t}$ are differentiable.
+	
+	\item $T_1(\omega)$ is polynomial in $\omega$, $\omega_{0+}$ is finite, and $e^{-i\omega t}$ is continuous, therefore the limits of $T_1(\omega)$ and $e^{-i\omega t}$ are finite leading to
+		\begin{equation}
+			\lim_{\omega \to \omega_{0+}}(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t} = \lim_{\omega \to \omega_{0+}}(\omega - \omega_{0+}) \lim_{\omega \to \omega_{0+}} T_1(\omega) \lim_{\omega \to \omega_{0+}} e^{-i\omega t} = 0
+		\end{equation}
+		
+	\item $D(\omega)$ is a polynomial, therefore is continuous, from which the result follows.
+	
+	\item The function $D'(\omega)$ can be rewritten as
+	\begin{align}
+	D'(\omega) = 2k^2\omega&\left[ 2\{c_0\rho_0(\rho_1 + \rho_2) + s_0(\rho_0^2 + \rho_1\rho_2)\}\frac{\omega^2}{k^2} \right. \\
+	&- \left. \{c_0\rho_0[\rho_1v_{A1}^2 + \rho_2v_{A2}^2 + (\rho_1 + \rho_2)v_{A0}^2] + s_0[2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2)]\}\right],
+	\end{align}
+	which has zeros at $\omega = 0$ and $\omega = \pm \omega_0$, where
+	\begin{equation}
+	\frac{\omega_0^2}{k^2} = -\frac{b}{2a},
+	\end{equation}
+	where $a$ and $b$ are given by Equations (????). Therefore, the zeros of the function $D$ are also zeros of $D'$ if and only if $d = 0$, \textit{i.e.} when the four zeros of $D$ degenerate to two solutions.
+	
+	Therefore, when $d = 0$, we can choose an interval $I$ that covers $\omega_{0+}$ such that $D'(\omega) \neq 0$ in $I$ apart from at $\omega_{0+}$, where $D'(\omega) = 0$.
+	
+	When $d \neq 0$, the zeros of $D$ are a finite distance away from the zeros of $D'$, therefore, we can choose $I$ to be an interval around $\omega_{0+}$ that covers less than that distance either side of $\omega_{0+}$. Then the required condition holds.
+	
+	\item The numerator is the product of a polynomial in $\omega$ with an exponential of $\omega$, therefore is continuous. The denominator is also continuous, since it is polynomial, so when $d \neq 0$ (so that the zeros of $D$ are not zeros of $D'$), the limit must exist. When $d = 0$, the two zeros (since two degenerate) of $D$ are precisely the two zeros of $D'$.
+\end{enumerate}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
