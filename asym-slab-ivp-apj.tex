@@ -622,47 +622,36 @@ which corroborates with Equation~(12) in \cite{rob81b}.
 
 
 \section{Validation of L'Hopital's rule} \label{app: l'hopital}
-L'Hopital's Rule is a powerful tool for evaluating limits of quotients of functions, provided that these functions satisfy certain necessary criteria. L'Hopital's Rule states that for functions $f$ and $g$ which are differentiable on an open interval $I$ except possibly at a point $c$ contained in $I$, if $\lim_{x\to c}f(x) = \lim_{x\to c}g(x) = 0{\text{ or }}\pm \infty$, $g'(x) \neq 0$ for all $x$ in $I$ with $x \neq c$, and $\lim_{x\to c}\frac{f'(x)}{g'(x)}$ exists, then
+L'Hopital's Rule is a powerful tool for evaluating limits of quotients of functions, provided that these functions satisfy certain necessary criteria. L'Hopital's Rule (for function of complex variables) states that, for functions $f$ and $g$ which are analytic at a point $z_0$, if $f(x_0) = g(z_0) = 0$, $g'(z_0) \neq 0$ then
 \begin{equation}
-\lim_{x\to c}\frac{f(x)}{g(x)} = \lim_{x\to c}\frac {f'(x)}{g'(x)}.
+\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac{f'(z)}{g'(z)}.
 \end{equation}
+There are stronger formulations of the complex L'Hopital's rule which are superfluous for our present needs \textcolor{red}{CITATION?}.
 
-Applied to the present problem, the requirements are that:
+Applied to the present problem, the requirements for L'Hopital's rule to hold are:
 \begin{enumerate}
-	\item The functions $(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}$ and $D(\omega)$ are differentiable on an open interval $I$ except possibly at a point $\omega_{0+}$ contained in $I$,
-	\item $\lim_{\omega \to \omega_{0+}}(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t} = 0$,
-	\item $\lim_{\omega \to \omega_{0+}}D(\omega) = 0$,
-	\item $D'(\omega) \neq 0$ for all $\omega$ in $I$ with $\omega \neq \omega_{0+}$,
-	\item $\lim_{\omega \to \omega_{0+}} \frac{[(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}]'}{kD'(\omega)}$ exists.
+	\item The functions $(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}$ and $kD(\omega)$ are analytic at $\omega_{0+}$,
+	\item $[(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}]|_{\omega = \omega_{0+}} = kD(\omega_{0+}) = 0$,
+	\item $kD'(\omega_{0+}) \neq 0$.
 \end{enumerate}
 
 Below, we validate that each of these conditions holds:
 \begin{enumerate}
-	\item Taking $I = \mathbb{R}$, the functions $T_1(\omega)$ and $D(\omega)$ are polynomial in $\omega$ (because their only $\omega$ dependence is solely from the polynomials $\e_0$ and $\e_1$). Therefore, $D(\omega)$ and the product of the differentiable functions $(\omega - \omega_{0+})$, $T_1(\omega)$, and $e^{-i\omega t}$ are differentiable.
+	\item Functions $T_1(\omega)$ and $D(\omega)$ are polynomials and hence are analytic. Since products of analytic functions are also analytic, $(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}$ and $kD(\omega)$ are analytic. In particular, they are analytic at $\omega_{0+}$.
 	
-	\item $T_1(\omega)$ is polynomial in $\omega$, $\omega_{0+}$ is finite, and $e^{-i\omega t}$ is continuous, therefore the limits of $T_1(\omega)$ and $e^{-i\omega t}$ are finite leading to
-		\begin{equation}
-			\lim_{\omega \to \omega_{0+}}(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t} = \lim_{\omega \to \omega_{0+}}(\omega - \omega_{0+}) \lim_{\omega \to \omega_{0+}} T_1(\omega) \lim_{\omega \to \omega_{0+}} e^{-i\omega t} = 0
-		\end{equation}
-		
-	\item $D(\omega)$ is a polynomial, therefore is continuous, from which the result follows.
+	\item The point $\omega_{0+}$ is a zero of $D(\omega)$ (by definition of $\omega_{0+}$) and $T_1(\omega)$ is regular at $\omega_{0+}$, therefore $[(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}]|_{\omega = \omega_{0+}} = kD(\omega_{0+}) = 0$.
 	
 	\item The function $D'(\omega)$ can be rewritten as
 	\begin{align}
-	D'(\omega) = 2k^2\omega&\left[ 2\{c_0\rho_0(\rho_1 + \rho_2) + s_0(\rho_0^2 + \rho_1\rho_2)\}\frac{\omega^2}{k^2} \right. \\
-	&- \left. \{c_0\rho_0[\rho_1v_{A1}^2 + \rho_2v_{A2}^2 + (\rho_1 + \rho_2)v_{A0}^2] + s_0[2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2)]\}\right],
+	D'(\omega) &= 2k^2\omega\left[ 2\{c_0\rho_0(\rho_1 + \rho_2) + s_0(\rho_0^2 + \rho_1\rho_2)\}\frac{\omega^2}{k^2} \right. \notag \\
+	& \qquad \qquad - \left. \{c_0\rho_0[\rho_1v_{A1}^2 + \rho_2v_{A2}^2 + (\rho_1 + \rho_2)v_{A0}^2] + s_0[2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2)]\}\right] \\
+	& = 2k^2\omega\left[ 2a \frac{\omega^2}{k^2} + b \right],
 	\end{align}
-	which has zeros at $\omega = 0$ and $\omega = \pm \omega_0$, where
+	where $a$ and $b$ are given by Equations~\eqref{solution a} and~\eqref{solution b}. The above equation has zeros at $\omega = 0$ and $\omega = \pm \omega_0$, where
 	\begin{equation}
-	\frac{\omega_0^2}{k^2} = -\frac{b}{2a},
+	\frac{\omega_0^2}{k^2} = -\frac{b}{2a}.
 	\end{equation}
-	where $a$ and $b$ are given by Equations (????). Therefore, the zeros of the function $D$ are also zeros of $D'$ if and only if $d = 0$, \textit{i.e.} when the four zeros of $D$ degenerate to two solutions.
-	
-	Therefore, when $d = 0$, we can choose an interval $I$ that covers $\omega_{0+}$ such that $D'(\omega) \neq 0$ in $I$ apart from at $\omega_{0+}$, where $D'(\omega) = 0$.
-	
-	When $d \neq 0$, the zeros of $D$ are a finite distance away from the zeros of $D'$, therefore, we can choose $I$ to be an interval around $\omega_{0+}$ that covers less than that distance either side of $\omega_{0+}$. Then the required condition holds.
-	
-	\item The numerator is the product of a polynomial in $\omega$ with an exponential of $\omega$, therefore is continuous. The denominator is also continuous, since it is polynomial, so when $d \neq 0$ (so that the zeros of $D$ are not zeros of $D'$), the limit must exist. When $d = 0$, the two zeros (since two degenerate) of $D$ are precisely the two zeros of $D'$.
+	Therefore, the zeros of the function $D$ are always at least a factor of $i$ away from the zeros of $D'$ (and are a factor of exactly $i$ away if and only if $d = b^2 - 4ac = 0$). The result follows.
 \end{enumerate}
 
 
