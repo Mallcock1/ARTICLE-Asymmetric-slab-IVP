@@ -190,7 +190,7 @@ which is commonly used for solving eigenmode problems in MHD wave physics. In th
 
 Above we have used a Fourier decomposition in both space and time. To investigate the temporal evolution of solutions, we take only Fourier components in the $z$-direction, that is $\mathbf{v}(\mathbf{x},t) = \mathbf{\hat{v}}(x,t)e^{ikz}$, and we take the Laplace transform with respect to time, such that
 \begin{equation}
-\mathbf{\tilde{v}}(x) = \int_0^\infty \mathbf{\widehat{v}}(x,t)e^{i\omega t} dt.
+\mathbf{\tilde{v}}(x) = \mathcal{L}\{\mathbf{\hat{v}}(x, t)\} = \int_0^\infty \mathbf{\widehat{v}}(x,t)e^{i\omega t} dt.
 \end{equation}
 This gives us the initial-value form of Equation~\eqref{gov} to be
 \begin{equation}
@@ -206,7 +206,7 @@ where the vorticity, $\Omega(x,t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mat
 \begin{equation}
 \hat{\Omega}(\mathbf{x},t) = -\frac{i}{k}\left(\frac{\partial^2\hat{v}_x}{\partial x^2} - k^2 \hat{v}_x\right).
 \end{equation}
-(this differs from \cite{rae_etal81} by a factor of $-1$ due to taking Fourier forms like $e^{ikz}$ rather than $e^{-ikz}$)
+(this differs from \cite{rae_etal81} by a factor of $-1$ due to taking Fourier forms like $e^{ikz}$ rather than $e^{-ikz}$). For utility later on, we define the function $\Psi(x, t) = k(\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t))$ so that $f(x) = \omega \Psi(x, 0) + i\frac{\partial \Psi}{\partial t}(x, 0)$.
 
 Consider equilibrium magnetic field and density profiles given by
 \begin{equation}
@@ -343,7 +343,7 @@ I_2 = \int_{x_0}^\infty e^{k(x_0 - s)} f(s) ds.
 
 To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
-v_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
+v_x(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x, \omega)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x,\omega) e^{-i\omega t} d\omega,
 \label{laplace transform}
 \end{equation}
 where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
@@ -599,7 +599,7 @@ v_{A0}^2, \\
 \frac{\rho_1v_{A1}^2 + \rho_2v_{A2}^2}{\rho_1 + \rho_2}.
 \end{cases}
 \end{equation}
-The first solution above is degenerate because, while the parameter $v_{A0}$ makes sense in the limit as the slab width vanishes, it is meaningless in an interface system constructed without an inner region at all. The second solution corroborates with the surface eigenmodes of an interface, as expected \citep{rob81a}.
+The first solution above is degenerate because, while the parameter $v_{A0}$ makes sense in the limit as the slab width vanishes, it is meaningless in an interface system constructed without an inner region. The second solution corroborates with the surface eigenfrequencies of an interface, as expected \citep{rob81a}.
 
 
 
