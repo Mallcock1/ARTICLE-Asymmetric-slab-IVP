@@ -410,6 +410,8 @@ c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0
 \end{align}
 We know from analysis of the dispersion relation \citep{zsa_etal18} that the above solutions $\pm\omega_{0\pm}$ must be real. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
+The zeroes of the dispersion function, $D$, found above, make up the discrete spectrum of modes. Therefore, the discrete spectrum is made up of all of (and only) the normal modes of the system. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. Fortunately, the slab 
+
 With the location of the singularities of the integrand in hand, we can return to evaluating the first integral in Equation~\eqref{sol incomp} by making use of the famous Residue Theorem of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To remedy this, we can choose a series of contours such that the limit of the integrals over these contours is equal to the limiting integral in Equation~\eqref{sol incomp}. We using the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_{0\pm}$, which is general case is shown by Figure~\ref{fig: brom cont incomp}. In the limit $L \to \infty$, we recover the desired integral.
 
 \begin{figure}
@@ -499,9 +501,9 @@ whose integrand has 2 simple poles at $\omega = \pm k v_{A1}$. By noting that th
 \lim_{\omega \to -kv_{A1}} \frac{(\omega + kv_{A1}) \omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
 &= -\frac{e^{ikv_{A1} t}}{2}.
 \end{align}
-Therefore, the final integral in Equation~\eqref{sol incomp} is
+Therefore, the second ILT in Equation~\eqref{sol incomp} is
 \begin{equation}
-\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left[ \frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{1}{\rho_1}\cos{kv_{A1}t}.
+\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left[ \frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{i}{\rho_1}\cos{kv_{A1}t}.
 \end{equation}
 
 Similarly, the third and final ILT in Equation~\eqref{sol incomp}, $\mathcal{L}^{-1}\{ 1 / \e_1 \}$, is calculated as follows.
@@ -518,7 +520,7 @@ whose integrand has 2 simple poles at $\omega = \pm k v_{A1}$. By noting that th
 \lim_{\omega \to -kv_{A1}} \frac{(\omega + kv_{A1}) e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
 &= \frac{e^{ikv_{A1} t}}{2kv_{A1}}.
 \end{align}
-Therefore, the final integral in Equation~\eqref{sol incomp} is
+Therefore, the final ILT in Equation~\eqref{sol incomp} is
 \begin{equation}
 \mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left[ \frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{\sin{kv_{A1}t}}{\rho_1kv_{A1}}.
 \end{equation}
@@ -556,21 +558,23 @@ Therefore, the final integral in Equation~\eqref{sol incomp} is
 \end{figure}
 Combining the above expressions we find that the transverse velocity solution for $x<-x_0$ is
 \begin{align}
-v_x = &-2 \left[ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right] \\
-&+ \frac{1}{\rho_1} \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi(s, 0) \cos{kv_{A1}t} + i\frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A1}t}}{kv_{A_1}} \right]ds. 
+v_x = &-2 e^{k(x+x_0)} \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
+&+ \frac{i}{\rho_1} \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi(s, 0) \cos{kv_{A1}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A1}t}}{kv_{A_1}} \right]ds.
 \end{align}
 Similarly, the transverse velocity for the region $x>x_0$ is
 \begin{align}
 v_x &= \mathcal{L}^{-1} \left\{ \tilde{A}_2e^{k(x_0-x)} + \frac{1}{\e_2} \int_{x_0}^{\infty} G_2(x;s)f(s, \omega)ds \right\}, \\
 &= e^{k(x_0-x)} \mathcal{L}^{-1}\left\{ \tilde{A}_2 \right\} + \int_{x_0}^{\infty} G_2(x;s)\mathcal{L}^{-1}\left\{ \frac{f(s, \omega)}{\e_2} \right\} ds, \\
-&= -2 e^{k(x_0 - x)} [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)]  + \frac{1}{\rho_2} \int_{x_0}^{\infty} G_2(x;s) \left[ \Psi(s, 0) \cos{kv_{A2}t} + i\frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A2}t}}{kv_{A_2}} \right]ds. \\
+&= -2 e^{k(x_0 - x)} \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
+& \quad + \frac{i}{\rho_2} \int_{x_0}^{\infty} G_2(x;s) \left[ \Psi(s, 0) \cos{kv_{A2}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A2}t}}{kv_{A_2}} \right]ds.
 \end{align}
 Finally, for the region $|x|<x_0$, it is
 \begin{align}
 v_x =& \mathcal{L}^{-1} \left\{ \frac{1}{\sinh{2kx_0}} \left[ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right] + \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s, \omega) ds \right\}, \\
 =& \frac{1}{\sinh{2kx_0}} \left[\mathcal{L}^{-1}\{\tilde{A}_1\} \sinh(k(x_0 - x)) + \mathcal{L}^{-1}\{\tilde{A}_2\} \sinh(k(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) \mathcal{L}^{-1}\left\{\frac{f(s, \omega)}{\e_0} \right\} ds, \\
-=& -\frac{2}{\sinh{2kx_0}} \{ [\chi_{1+} \sin(\omega_{0+} t) + \chi_{1-} \sin(\omega_{0-} t)] \sinh(k(x_0 - x)) + [\chi_{2+} \sin(\omega_{0+} t) + \chi_{2-} \sin(\omega_{0-} t)] \sinh(k(x_0 + x)) \} \notag \\
-& + \frac{1}{\rho_2} \int_{-x_0}^{x_0} G_0(x;s) \left[ \Psi(s, 0) \cos{kv_{A0}t} + i\frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A0}t}}{kv_{A_0}} \right]ds.
+=& -\frac{2}{\sinh{2kx_0}} \left[ \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 - x)) \right. \\ 
+&+ \left. \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 + x)) \right] \notag \\
+& + \frac{i}{\rho_0} \int_{-x_0}^{x_0} G_0(x;s) \left[ \Psi(s, 0) \cos{kv_{A0}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A0}t}}{kv_{A0}} \right]ds.
 \end{align}
 
 
@@ -593,8 +597,6 @@ Let $\Omega(x, 0) = \Omega_0$ be constant. Therefore, $\Psi_0 = k\rho_0\Omega_0$
 	\int_{x_0}^{\infty} G_2(x;s) \Psi_0 ds &= - \Omega_0 \rho_2 \left[ e^{-k(x-x_0)} \int_{x_0}^{x} \sinh(k(s-x_0)) ds + \sinh(k(x-x_0)) \int_{x}^{\infty} e^{-k(s-x_0)} ds \right], \\
 	&= \frac{\Omega_0 \rho_2}{k} \left[ e^{-k(x-x_0)} - 1 \right].
 	\end{align}
-	
-\textcolor{red}{One of the $G_1$ or $G_2$ integrals, or the greens functions themselves is probably wrong by a factor of -1.}
 
 \begin{align}
 I_0^\pm &= \frac{\Omega_0\omega\rho_0k}{\sinh{2kx_0}} \int_{-x_0}^{x_0} \sinh(k(s \pm x_0)) ds, \\
@@ -615,12 +617,33 @@ Therefore,
 \begin{equation}
 T_{1,2}(\omega) = -\Omega_0\omega\{ (\rho_0 \tanh{kx_0} + \rho_{1,2}) (\e_0 \cosh{2kx_0} + \e_{2,1}\sinh{2kx_0}) + \e_0(\rho_0 \tanh{kx_0} + \rho_{2,1}) \}.
 \end{equation}
-
-\subsubsection{Corroboration with interface}
 When $\rho_1 = \rho_2 = \rho_0$,
 \begin{equation}
 T_{1,2}(\omega) = -2\Omega_0\omega\rho_0 e^{kx_0} (\e_0 \cosh{kx_0} + \e_{2,1}\sinh{kx_0}).
 \end{equation}
+
+
+\subsubsection{Corroboration with interface}
+
+When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, we expect that the solution will reduce to (the corrected version of) Equation~(25) in \cite{rae_etal81}. Let's check that this is the case.
+
+When the above conditions hold, the zeros of the dispersion function reduce to $\omega_{0+} = kv_{A0}$ and $\omega_{0-} = kv_{AS} = k \sqrt{(v_{A1}^2 + v_{A2}^2) / 2}$ and the dispersion function itself reduces to $D(\omega) = \e_0(\e_1 + \e_2)$. Therefore, the functional reduce to
+\begin{equation}
+T_{1,2}(\omega) = -2\Omega_0\rho_0 \e_0,
+\quad 
+\chi_{1,2}[\Psi_0](\omega_{0+}) = 0,
+\quad
+\chi_{1,2}[\Psi_0](\omega_{0-}) = \frac{\Omega_0}{2k^2v_{AS}}.
+\end{equation}
+Therefore, the transverse velocity solution reduces to
+\begin{equation}
+v_x = -\frac{i\Omega_0}{k} 
+\begin{cases}
+(1 - e^{kx})\cos{kv_{A1}t} + e^{kx}\cos{kv_{AS}t} \quad &\text{ for } x < 0, \\
+(1 - e^{-kx})\cos{kv_{A2}t} + e^{-kx}\cos{kv_{AS}t} \quad &\text{ for } x > 0,
+\end{cases}
+\end{equation}
+which corroborates with (the corrected version of) the result from \cite{rae_etal81}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
