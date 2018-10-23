@@ -612,24 +612,36 @@ I_1 &= \Omega_0\omega\rho_1k \int_{-\infty}^{-x_0} e^{k(s + x_0)} ds, \\
 I_2 &= \Omega_0\omega\rho_2k \int_{x_0}^{\infty} e^{k(x_0 - s)} ds, \\
 &= \Omega_0 \omega \rho_2.
 \end{align}
-
-Therefore,
+Using the above, the transverse velocity through time for an initially constant vorticity is
 \begin{equation}
-T_{1,2}(\omega) = -\Omega_0\omega\{ (\rho_0 \tanh{kx_0} + \rho_{1,2}) (\e_0 \cosh{2kx_0} + \e_{2,1}\sinh{2kx_0}) + \e_0(\rho_0 \tanh{kx_0} + \rho_{2,1}) \}.
+v_x = -\frac{i}{k}\begin{cases}
+2 e^{k(x+x_0)} A^*_1 + \Omega_0 \{1 - e^{k(x+x_0)}\} \cos{kv_{A1}t} \quad &\text{ for } x<-x_0, \\
+\frac{2}{\sinh{2kx_0}} \left[ A^*_1 \sinh(k(x_0 - x)) + A^*_2 \sinh(k(x_0 + x)) \right] \quad &\text{ for } x<|x_0|, \\
+2 e^{k(x_0-x)} A^*_2 + \Omega_0 \{1 - e^{k(x_0-x)}\} \cos{kv_{A2}t} \quad &\text{ for } x>x_0, \\
+\end{cases}
 \end{equation}
-When $\rho_1 = \rho_2 = \rho_0$,
+where
+\begin{align}
+A^*_1 &= \omega_{0+} \frac{T_1[\psi_0](\omega_{0+})}{D'(\omega_{0+})} \cos(\omega_{0+} t) + \omega_{0-}\frac{T_1[\psi_0](\omega_{0-})}{D'(\omega_{0-})} \cos(\omega_{0-} t), \\
+A^*_2 &= \omega_{0+} \frac{T_2[\psi_0](\omega_{0+})}{D'(\omega_{0+})} \cos(\omega_{0+} t) + \omega_{0-}\frac{T_2[\psi_0](\omega_{0-})}{D'(\omega_{0-})} \cos(\omega_{0-} t), \\
+\end{align}
+and
 \begin{equation}
-T_{1,2}(\omega) = -2\Omega_0\omega\rho_0 e^{kx_0} (\e_0 \cosh{kx_0} + \e_{2,1}\sinh{kx_0}).
+T_{1,2}[\Psi_0](\omega) = -\Omega_0\{ (\rho_0 \tanh{kx_0} + \rho_{1,2}) (\e_0 \cosh{2kx_0} + \e_{2,1}\sinh{2kx_0}) + \e_0(\rho_0 \tanh{kx_0} + \rho_{2,1}) \}.
 \end{equation}
 
 
 \subsubsection{Corroboration with interface}
+When $\rho_1 = \rho_2 = \rho_0$,
+\begin{equation}
+T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 e^{kx_0} (\e_0 \cosh{kx_0} + \e_{2,1}\sinh{kx_0}).
+\end{equation}
 
 When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, we expect that the solution will reduce to (the corrected version of) Equation~(25) in \cite{rae_etal81}. Let's check that this is the case.
 
-When the above conditions hold, the zeros of the dispersion function reduce to $\omega_{0+} = kv_{A0}$ and $\omega_{0-} = kv_{AS} = k \sqrt{(v_{A1}^2 + v_{A2}^2) / 2}$ and the dispersion function itself reduces to $D(\omega) = \e_0(\e_1 + \e_2)$. Therefore, the functional reduce to
+When the above conditions hold, the dispersion function reduces to $D(\omega) = \e_0(\e_1 + \e_2)$ and its zeroes reduce to $\omega_{0+} = kv_{A0}$ and $\omega_{0-} = kv_{AS} = k \sqrt{(v_{A1}^2 + v_{A2}^2) / 2}$. Therefore, the functionals reduce to
 \begin{equation}
-T_{1,2}(\omega) = -2\Omega_0\rho_0 \e_0,
+T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 \e_0,
 \quad 
 \chi_{1,2}[\Psi_0](\omega_{0+}) = 0,
 \quad
