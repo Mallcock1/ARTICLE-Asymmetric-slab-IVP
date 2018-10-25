@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.25)  23 OCT 2018 10:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.25)  25 OCT 2018 08:58
 entering extended mode
 **./asym-slab-ivp-apj.tex
 (asym-slab-ivp-apj.tex
@@ -927,14 +927,14 @@ Overfull \hbox (71.45766pt too wide) in paragraph at lines 578--578
  []
 
 [9] [10] [11] [12] (asym-slab-ivp-apj.bbl) [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 772.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 771.
  (asym-slab-ivp-apj.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 772.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 772.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 771.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 771.
  ) 
 Here is how much of TeX's memory you used:
- 20477 strings out of 493323
- 372201 string characters out of 3139069
+ 20475 strings out of 493323
+ 372173 string characters out of 3139069
  487604 words of memory out of 3000000
  23491 multiletter control sequences out of 15000+200000
  16170 words of font info for 60 fonts, out of 3000000 for 9000
@@ -962,9 +962,9 @@ ts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on asym-slab-ivp-apj.pdf (13 pages, 374184 bytes).
+Output written on asym-slab-ivp-apj.pdf (13 pages, 373806 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 173 named destinations out of 1000 (max. 500000)
+ 427 PDF objects out of 1000 (max. 8388607)
+ 171 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
