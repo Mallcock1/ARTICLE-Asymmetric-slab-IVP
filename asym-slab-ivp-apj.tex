@@ -206,7 +206,7 @@ where the vorticity, $\Omega(x,t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mat
 \begin{equation}
 \hat{\Omega}(\mathbf{x},t) = -\frac{i}{k}\left(\frac{\partial^2\hat{v}_x}{\partial x^2} - k^2 \hat{v}_x\right).
 \end{equation}
-(this differs from \cite{rae_etal81} by a factor of $-1$ due to taking Fourier forms like $e^{ikz}$ rather than $e^{-ikz}$). For utility later on, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k(\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t))$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
+(this differs from \cite{rae_etal81} by a factor of $-1$ due to taking Fourier forms like $e^{ikz}$ rather than $e^{-ikz}$). For utility later on, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
 
 Consider equilibrium magnetic field and density profiles given by
 \begin{equation}
@@ -228,7 +228,7 @@ where $B_i$ and $\rho_i$ are uniform for $i = 0,1,2$. This establishes the plasm
 \begin{align}
 p_1 + \frac{B_1^2}{2\mu} &= p_0  + \frac{B_0^2 }{2\mu} = p_2 + \frac{B_2^2 }{2\mu}, \label{eq:pressure}
 \end{align}
-where $p_i$ is the gas pressure in region $i$ and $\mu$ is the permeability of free space. The sound speed in each region is $c_i = \sqrt{\gamma p_i / \rho_i}$, for $i = 0, 1, 2$, where $\gamma$ is the adiabatic index. The Alfvén speed is denoted by $v_{Ai}= B_i/\sqrt{\rho_i \mu}$, for $i=0,1,2$. Equation~\ref{eq:pressure} describing equilibrium pressure balance yields the following relationship between the density ratios and characteristic speeds for any two regions,
+where $p_i$ is the gas pressure in region $i$ and $\mu$ is the permeability of free space. The sound speed in each region is $c_i = \sqrt{\gamma p_i / \rho_i}$, for $i = 0, 1, 2$, where $\gamma$ is the adiabatic index. The Alfv\'{e}n speed is denoted by $v_{Ai}= B_i/\sqrt{\rho_i \mu}$, for $i=0,1,2$. Equation~\ref{eq:pressure}, which describes equilibrium pressure balance, yields the following relationship between the density ratios and characteristic speeds for any two regions,
 \begin{align}
 \frac{\rho_i}{\rho_j}= \frac{c_j^2 + \frac{1}{2} \gamma v_{Aj}^2}{c_i^2 + \frac{1}{2} \gamma v_{Ai}^2}, \quad \text{where} \quad i=0,1,2; \quad j=0,1,2; \quad i \neq j. \label{eq:ratio}
 \end{align}
@@ -361,7 +361,7 @@ v_x &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{
 
 \textcolor{red}{CONSIDER ADDING AN OVERVIEW OF THE FOLLOWING METHOD TO EVALUATE THE INTEGRALS IN THE ABOVE.}
 
-The first inverse Laplace transform (ILT), $\mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\}$, in the above solution is calculated as follows. The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_1$ and $T_2$ are entire functions. Hence, 
+The first inverse Laplace transform (ILT), $\mathcal{L}^{-1}\{ \tilde{A}_1 \}$, in the above solution is calculated as follows. The functions $\epsilon_{0,1,2}$ are polynomial in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are not functions of $\omega$ so also contribute no singularities in $\omega$. Therefore, $T_1$ and $T_2$ are entire functions. Hence, the singularities of $\tilde{A}_1$ are precisely the zeros of the dispersion function, $D(\omega)$.
 
 The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved by \cite{zsa_etal18}. They show that the dispersion relation governing transverse wave propagation parallel to the magnetic field in an asymmetric slab of compressible plasma is given by
 \begin{equation}
@@ -410,9 +410,9 @@ c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0
 \end{align}
 We know from analysis of the dispersion relation \citep{zsa_etal18} that the above solutions $\pm\omega_{0\pm}$ must be real. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, as shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
-The zeroes of the dispersion function, $D$, found above, make up the discrete spectrum of modes. Therefore, the discrete spectrum is made up of all of (and only) the normal modes of the system. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. Fortunately, the slab 
+The zeroes of the dispersion function, $D$, found above, make up the discrete spectrum of modes. Therefore, the discrete spectrum is made up of all of (and only) the normal modes of the system. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. \textcolor{red}{Fortunately, the slab }
 
-With the location of the singularities of the integrand in hand, we can return to evaluating the first integral in Equation~\eqref{sol incomp} by making use of the famous Residue Theorem of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To remedy this, we can choose a series of contours such that the limit of the integrals over these contours is equal to the limiting integral in Equation~\eqref{sol incomp}. We using the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_{0\pm}$, which is general case is shown by Figure~\ref{fig: brom cont incomp}. In the limit $L \to \infty$, we recover the desired integral.
+With the location of the singularities of the integrand in hand, we can return to evaluating the first integral in Equation~\eqref{sol incomp} by making use of the famous Residue Theorem of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To remedy this, we can choose a series of contours such that the limit of the integrals over these contours is equal to the limiting integral in Equation~\eqref{sol incomp}. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros of $D$ at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
 
 \begin{figure}
 	\centering
@@ -452,13 +452,13 @@ With the location of the singularities of the integrand in hand, we can return t
 	\label{fig: brom cont incomp}
 \end{figure}
 
-Considering first the integral along $C_1$, we see that the integrand in question behave like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore, the integral around the semi-circle vanishes, \textit{i.e.}
+Considering first the integral along $C_1$, we see that the integrand in question behaves like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore, the integral around the semi-circle vanishes, \textit{i.e.}
 \begin{equation}
 \lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega = 0.
 \end{equation}
 So we have successfully chosen a sequence of contours which limit to the same limit as that of Equation~\eqref{sol incomp}. Thankfully the integral around each of these new contours is much easier to calculate than the original, as will be exploited in the following paragraph.
 
-Next, considering the integral along contour $C$, since it is integrated in the clockwise direction it is therefore equal to $-2\pi i$ multiplied by the sum of the residues of the singularities at $\omega = \pm \omega_{0\pm}$. The residue at $\omega = \omega_{0+}$ can be evaluated using L'Hopital's Rule (the necessary requirements ensuring the validity of this rule are verified in Appendix~\ref{app: l'hopital}), to within a free choice of initial condition, $f(x,\omega)$, as
+Next, considering the integral along contour $C$, since it is integrated in the clockwise direction it is therefore equal to $-2\pi i$ multiplied by the sum of the residues of the singularities at $\omega = \pm \omega_{0\pm}$. The residues are evaluated using L'Hopital's Rule (the necessary requirements ensuring the validity of this rule are verified in Appendix~\ref{app: l'hopital}). To within a free choice of initial condition, $f(x,\omega)$, the residue at $\omega = \omega_{0+}$ is
 \begin{align}
 \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0+} \right] &= 
 \lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \\ 
@@ -467,15 +467,15 @@ Next, considering the integral along contour $C$, since it is integrated in the 
 &= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} \left\{ \omega T_1[\Psi_0](\omega) + iT_1\left[\frac{\partial \Psi_0}{\partial t}\right](\omega) \right\} e^{-i\omega t} \\
 &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] + i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{-i\omega_{0+} t},
 \end{align}
-where $\chi_{1+}[g] = T_1[g](\omega_{0+}) / kD'(\omega_{0+})$ is a functional mapping the function $g$ to the real numbers. In the following, we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$, and similar for subscripts $0$ and $2$. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
+where $\chi_{1+}[g] = T_1[g](\omega_{0+}) / kD'(\omega_{0+})$ is a functional mapping an arbitrary function $g$ to the real numbers. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
 \begin{align}
 \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = -\omega_{0+} \right] &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] - i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0+} t}, \\
 \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0-} \right] &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] + i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{-i\omega_{0-} t}, \\
 \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = -\omega_{0-} \right] &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] - i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0-} t}, \\
 \end{align}
-respectively. In the above derivation, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$ for any function $g$ that does not depend on $\omega$.
+respectively, where we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$. In the above derivation, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$ for any function $g$ that does not depend on $\omega$.
 
-Putting all of the above results together, we find that solution of the first ILT of Equation~\eqref{sol incomp}, or equivalently the boundary velocity, is
+Compiling the above results, we find that solution of the first ILT of Equation~\eqref{sol incomp}, or equivalently the boundary velocity, is
 \begin{align}
 \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
 &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
@@ -589,8 +589,8 @@ Let $\Omega(x, 0) = \Omega_0$ be constant. Therefore, $\Psi_0 = k\rho_0\Omega_0$
 	\end{align}
 	
 	\begin{align}
-	\int_{-x_0}^{x_0} G_0(x;s) \Psi_0 ds &= \Omega_0 \rho_0 \left[ \sinh(k(x-x_0)) \int_{-x_0}^{x} \sinh(k(s+x_0)) ds + \sinh(k(x+x_0)) \int_{x}^{x_0} \sinh(k(s-x_0)) ds \right], \\
-	&= 0.
+	\int_{-x_0}^{x_0} G_0(x;s) \Psi_0 ds &= \frac{\Omega_0 \rho_0}{\sinh{2kx_0}} \left[ \sinh(k(x-x_0)) \int_{-x_0}^{x} \sinh(k(s+x_0)) ds + \sinh(k(x+x_0)) \int_{x}^{x_0} \sinh(k(s-x_0)) ds \right], \\
+	&= \frac{\Omega_0 \rho_0}{k} \left( \frac{\cosh{kx}}{\cosh{kx_0}} - 1 \right).
 	\end{align}
 	
 	\begin{align}
@@ -616,7 +616,7 @@ Using the above, the transverse velocity through time for an initially constant 
 \begin{equation}
 v_x = -\frac{i}{k}\begin{cases}
 2 e^{k(x+x_0)} A^*_1 + \Omega_0 \{1 - e^{k(x+x_0)}\} \cos{kv_{A1}t} \quad &\text{ for } x<-x_0, \\
-\frac{2}{\sinh{2kx_0}} \left[ A^*_1 \sinh(k(x_0 - x)) + A^*_2 \sinh(k(x_0 + x)) \right] \quad &\text{ for } x<|x_0|, \\
+\frac{2}{\sinh{2kx_0}} \left[ A^*_1 \sinh(k(x_0 - x)) + A^*_2 \sinh(k(x_0 + x)) \right] + \Omega_0 \left( 1 - \frac{\cosh{kx}}{\cosh{kx_0}} \right)\cos{kv_{A0}t} \quad &\text{ for } x<|x_0|, \\
 2 e^{k(x_0-x)} A^*_2 + \Omega_0 \{1 - e^{k(x_0-x)}\} \cos{kv_{A2}t} \quad &\text{ for } x>x_0, \\
 \end{cases}
 \end{equation}
