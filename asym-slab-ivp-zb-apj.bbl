@@ -1,0 +1,13 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+
+\bibitem[{{Ruderman} \& {Roberts}(2006)}]{rud_etal06}
+{Ruderman}, M.~S., \& {Roberts}, B. 2006, \solphys, 237, 119
+
+\bibitem[{{Zs{\'a}mberger} {et~al.}(2018){Zs{\'a}mberger}, {Allcock}, \&
+  {Erd{\'e}lyi}}]{zsa_etal18}
+{Zs{\'a}mberger}, N.~K., {Allcock}, M., \& {Erd{\'e}lyi}, R. 2018, \apj, 853,
+  136
+
+\end{thebibliography}
