@@ -1,22 +1,27 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\href{#1}{#1}}
+\providecommand{\dodoi}[1]{doi:~\href{http://doi.org/#1}{\nolinkurl{#1}}}
+\providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
+\providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
 \bibitem[{{Allcock} \& {Erd{\'e}lyi}(2017)}]{all_etal17}
-{Allcock}, M., \& {Erd{\'e}lyi}, R. 2017, \solphys, 292, 35
+{Allcock}, M., \& {Erd{\'e}lyi}, R. 2017, \solphys, 292, 35,
+  \dodoi{10.1007/s11207-017-1054-y}
 
 \bibitem[{{Andries} \& {Goossens}(2007)}]{and_etal07}
-{Andries}, J., \& {Goossens}, M. 2007, Physics of Plasmas, 14, 052101
+{Andries}, J., \& {Goossens}, M. 2007, Physics of Plasmas, 14, 052101,
+  \dodoi{10.1063/1.2714513}
 
 \bibitem[{{Boyce} \& {DiPrima}(2012)}]{boy_etal12}
 {Boyce}, W.~E., \& {DiPrima}, R.~C. 2012, Elementary Differential Equations and
   Boundary Value Problems, 10th edn. (Wiley)
 
 \bibitem[{{Cally}(2003)}]{cal03}
-{Cally}, P.~S. 2003, \solphys, 217, 95
+{Cally}, P.~S. 2003, \solphys, 217, 95, \dodoi{10.1023/A:1027326916984}
 
 \bibitem[{{Cally}(2006)}]{cal06}
----. 2006, \solphys, 233, 79
+---. 2006, \solphys, 233, 79, \dodoi{10.1007/s11207-006-2653-1}
 
 \bibitem[{{Goedbloed} \& {Poedts}(2004)}]{goe_etal04}
 {Goedbloed}, J.~P.~H., \& {Poedts}, S. 2004, {Principles of
@@ -24,31 +29,35 @@
 
 \bibitem[{{Rae} \& {Roberts}(1981)}]{rae_etal81}
 {Rae}, I.~C., \& {Roberts}, B. 1981, Geophysical and Astrophysical Fluid
-  Dynamics, 18, 197
+  Dynamics, 18, 197, \dodoi{10.1080/03091928108208836}
 
 \bibitem[{{Roberts}(1981{\natexlab{a}})}]{rob81a}
-{Roberts}, B. 1981{\natexlab{a}}, \solphys, 69, 27
+{Roberts}, B. 1981{\natexlab{a}}, \solphys, 69, 27, \dodoi{10.1007/BF00151253}
 
 \bibitem[{{Roberts}(1981{\natexlab{b}})}]{rob81b}
----. 1981{\natexlab{b}}, \solphys, 69, 39
+---. 1981{\natexlab{b}}, \solphys, 69, 39, \dodoi{10.1007/BF00151254}
 
 \bibitem[{{Ruderman} \& {Roberts}(2006{\natexlab{a}})}]{rud_etal06}
-{Ruderman}, M.~S., \& {Roberts}, B. 2006{\natexlab{a}}, \solphys, 237, 119
+{Ruderman}, M.~S., \& {Roberts}, B. 2006{\natexlab{a}}, \solphys, 237, 119,
+  \dodoi{10.1007/s11207-006-0192-4}
 
 \bibitem[{{Ruderman} \& {Roberts}(2006{\natexlab{b}})}]{rud_etal06b}
----. 2006{\natexlab{b}}, Journal of Plasma Physics, 72, 285
+---. 2006{\natexlab{b}}, Journal of Plasma Physics, 72, 285,
+  \dodoi{10.1017/S0022377805004101}
 
 \bibitem[{{Terradas} {et~al.}(2007){Terradas}, {Andries}, \&
   {Goossens}}]{ter_etal07}
-{Terradas}, J., {Andries}, J., \& {Goossens}, M. 2007, \solphys, 246, 231
+{Terradas}, J., {Andries}, J., \& {Goossens}, M. 2007, \solphys, 246, 231,
+  \dodoi{10.1007/s11207-007-9067-6}
 
 \bibitem[{{Terradas} {et~al.}(2006){Terradas}, {Oliver}, \&
   {Ballester}}]{ter_etal06}
-{Terradas}, J., {Oliver}, R., \& {Ballester}, J.~L. 2006, \apj, 642, 533
+{Terradas}, J., {Oliver}, R., \& {Ballester}, J.~L. 2006, \apj, 642, 533,
+  \dodoi{10.1086/500730}
 
 \bibitem[{{Zs{\'a}mberger} {et~al.}(2018){Zs{\'a}mberger}, {Allcock}, \&
   {Erd{\'e}lyi}}]{zsa_etal18}
 {Zs{\'a}mberger}, N.~K., {Allcock}, M., \& {Erd{\'e}lyi}, R. 2018, \apj, 853,
-  136
+  136, \dodoi{10.3847/1538-4357/aa9ffe}
 
 \end{thebibliography}
