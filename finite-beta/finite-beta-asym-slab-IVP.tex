@@ -17,13 +17,16 @@
 \begin{document}
 \maketitle
 
+
+\section{Basic equations}
+From \cite{and_etal07},
 \begin{equation}
 \frac{1}{\rho(\omega^2 - \omega_A^2)} \left( \frac{\partial^2}{\partial x^2} - m^2 \right) \hat{p}_T = f(\omega, x),
 \end{equation}
 where
 \begin{align}
 f(\omega, x) &= \frac{\partial}{\partial x} \frac{\dot{\xi}_{x0} - i\omega\xi_{x0}}{\rho(\omega^2 - \omega_A^2)} + ik_y \frac{\dot{\xi}_{y0} - i\omega\xi_{y0}}{\rho(\omega^2 - \omega_A^2)} + ik_z \frac{c_0^2}{c_0^2 + v_A^2} \frac{\dot{\xi}_{z0} - i\omega\xi_{z0}}{\rho(\omega^2 - \omega_T^2)}, \\
-m^2 &= m(\omega)^2 = - \frac{(\omega^2 - \omega_1^2)(\omega^2 - \omega_2^2)}{(c_0^2 + v_A^2)(\omega^2 - \omega_T^2)}, \\
+m^2 &= m(\omega)^2 = \frac{(\omega_1^2 - \omega^2)(\omega_2^2 - \omega^2)}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}, \\
 \omega_1^2 &= \frac{1}{2}(k_y^2 + k_z^2)(c_0^2 + v_A^2) \left( 1 - \sqrt{1 - \frac{4\omega_T^2}{(k_y^2 + k_z^2)(c_0^2 + v_A^2)}} \right), \\
 \omega_2^2 &= \frac{1}{2}(k_y^2 + k_z^2)(c_0^2 + v_A^2) \left( 1 + \sqrt{1 - \frac{4\omega_T^2}{(k_y^2 + k_z^2)(c_0^2 + v_A^2)}} \right).
 \end{align}
@@ -35,12 +38,18 @@ Take $k_y \ll k_z$ and $\xi_{y0} = \dot{\xi}_{y0} = 0$, then
 where
 \begin{align}
 f(\omega, x) &= \frac{\partial}{\partial x} (\dot{\xi}_{x0} - i\omega\xi_{x0}) + ik_z \frac{c_0^2}{c_0^2 + v_A^2} \frac{(\omega^2 - \omega_A^2)}{(\omega^2 - \omega_T^2)} (\dot{\xi}_{z0} - i\omega\xi_{z0}), \\
-m^2 &= - \frac{(\omega^2 - \omega_0^2)(\omega^2 - \omega_A^2)}{(c_0^2 + v_A^2)(\omega^2 - \omega_T^2)},
+m^2 &= \frac{(\omega_0^2 - \omega^2)(\omega_A^2 - \omega^2)}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)},
 \end{align}
 where we have defined the initial values by
 \begin{equation}
 \xi_x(x, 0) = \xi_{x0}, \quad \frac{\partial{}\xi_x}{\partial{t}}(x, 0) = \dot{\xi}_{x0}, \quad \xi_z(x, 0) = \xi_{z0}, \quad \frac{\partial{}\xi_z}{\partial{t}}(x, 0) = \dot{\xi}_{z0}.
 \end{equation}
+
+Considering a magnetic slab in a non-magnetic environment, we have
+\begin{align}
+m_0^2 &= - \frac{(\omega^2 - \omega_0^2)(\omega^2 - \omega_A^2)}{(c_0^2 + v_A^2)(\omega^2 - \omega_T^2)}, \quad m_{1,2}^2 = \frac{\omega_{1,2}^2 - \omega^2}{c_{1,2}^2}, \\
+f_{1,2}(\omega,x) &= \frac{\partial}{\partial x} (\dot{\xi}_{x0} - i\omega\xi_{x0}) + ik(\dot{\xi}_{z0} - i\omega\xi_{z0}).
+\end{align}
 
 
 \section{Solution in Laplace space}
@@ -296,6 +305,7 @@ For an approximately symmetric slab, that is, when $\rho_2 = \rho_1(1 + \epsilon
 		I_2 & = \int_{-\infty}^{-x_0} e^{\epsilon m_1M(x_0 + s)} e^{m_1(x_0 + s)} f(\omega, s) ds, \text{ where } M = -\frac{\omega^2}{2c_1^2m_1^2}, \\
 		& = I_1 + \epsilon m_1M \int_{-\infty}^{-x_0} (x_0 + s) e^{m_1(x_0 + s)} f(\omega, s) ds.
 	\end{align}
+	It doesn't seem that this simplifies into $I_1(1 + J\epsilon)$ without making $f$ less general.
 	
 \end{itemize}
 

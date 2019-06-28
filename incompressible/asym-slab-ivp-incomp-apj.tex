@@ -57,7 +57,7 @@
 %% right after the \author command, in order to place the footnotes in
 %% the proper location.
 %%
-%% Use \email to set provide email addresses. Each \email will appear on its
+%% Use \email to set provide email adddresses. Each \email will appear on its
 %% own line so you can put multiple email address in one \email call. A new
 %% \correspondingauthor command is available in V6.1 to identify the
 %% corresponding author of the manuscript. It is the author's responsibility
@@ -261,13 +261,13 @@ D(\omega) = \epsilon_0(\epsilon_1 + \epsilon_2)\cosh(2kx_0) + (\epsilon_0^2 + \e
 \end{equation}
 is called the \textit{dispersion function} and $T_{1,2}$ are functionals given by
 \begin{align}
-T_1(\omega) &= T_1[f](\omega) = (I_0^- - I_1)[\epsilon_0\cosh(2kx_0) + \epsilon_2\sinh(2kx_0)] - \epsilon_0(I_0^+ + I_2), \\
-T_2(\omega) &= T_2[f](\omega) = \epsilon_0(I_0^- - I_1) - (I_0^+ + I_2)[\epsilon_0\cosh(2kx_0) + \epsilon_1\sinh(2kx_0)],
+T_1(\omega) &= T_1[f](\omega) = - (I_0^- + I_1)[\epsilon_0\cosh(2kx_0) + \epsilon_2\sinh(2kx_0)] - \epsilon_0(I_0^+ + I_2), \\
+T_2(\omega) &= T_2[f](\omega) = - \epsilon_0(I_0^- + I_1) - (I_0^+ + I_2)[\epsilon_0\cosh(2kx_0) + \epsilon_1\sinh(2kx_0)],
 \end{align}
 where
 \begin{align}
-I_0^\pm &= I_0^\pm[f] = \int_{-x_0}^{x_0} \frac{\sinh(k(s \pm x_0))}{\sinh(2kx_0)} f(s, \omega) ds, \\
-I_1 &= I_1[f] = \int_{-\infty}^{-x_0} e^{k(s + x_0)} f(s, \omega) ds,
+I_0^\pm &= I_0^\pm[f] = \int_{-x_0}^{x_0} \frac{\sinh(k(x_0 \pm s))}{\sinh(2kx_0)} f(s, \omega) ds, \\
+I_1 &= I_1[f] = \int_{-\infty}^{-x_0} e^{k(x_0 + s)} f(s, \omega) ds,
 \quad
 I_2 = I_2[f] = \int_{x_0}^\infty e^{k(x_0 - s)} f(s, \omega) ds.
 \end{align}
