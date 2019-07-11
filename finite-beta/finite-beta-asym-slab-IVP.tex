@@ -265,12 +265,18 @@ Solution of the inverse Laplace transform is the sum of the residues at these po
 
 As shown by \citep{all_etal17}, under the approximate symmetry simplification, the dispersion function, $D(\omega)$, becomes
 \begin{equation}
-D(\omega) = ... ,
+D(\omega) = \frac{1}{2\Lambda_1\Lambda_2} D_s(\omega)D_k(\omega),
 \end{equation}
+where
+\begin{align}
+D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh(m_0x_0), \\
+D_k(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth(m_0x_0),
+\end{align}
 which can be further simplified to the following expression for surface modes under the thin-slab approximation,
-\begin{equation}
-D(\omega) = ... .
-\end{equation}
+\begin{align}
+D_s(\omega) &\approx \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0, \\
+D_k(\omega) &\approx \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\frac{1}{m_0x_0}.
+\end{align}
 
 \begin{figure}
 	\centering
@@ -293,13 +299,15 @@ D(\omega) = ... .
 		\draw [thick,domain=90:-90] plot ({0.15*cos(\x) - 1.5}, {0.15*sin(\x)});
 		\draw [thick,domain=90:270] plot ({0.15*cos(\x) + 1.5}, {0.15*sin(\x)});
 		
-		\draw [thick,domain=-2.3:-90] plot ({4*cos(\x)}, {4*sin(\x)});
-		\draw [thick,domain=182.3:270] plot ({4*cos(\x)}, {4*sin(\x)});
+		\draw [thick,domain=-2.3:-81] plot ({4*cos(\x)}, {4*sin(\x)});
+		\draw [thick,domain=182.3:261] plot ({4*cos(\x)}, {4*sin(\x)});
 		
-		\draw [thick] (-0.65,0) -- (-0.65,-4);
+		\draw [thick,domain=265:275] plot ({4*cos(\x)}, {4*sin(\x)});
+		
+		\draw [thick] (-0.65,0) -- (-0.65,-3.95);
 		\draw [thick] (-0.35,0) -- (-0.35,-4);
 		
-		\draw [thick] (0.65,0) -- (0.65,-4);
+		\draw [thick] (0.65,0) -- (0.65,-3.95);
 		\draw [thick] (0.35,0) -- (0.35,-4);
 		
 		\draw [thick,domain=180:0] plot ({0.15*cos(\x) - 0.5}, {0.15*sin(\x)});
@@ -307,8 +315,6 @@ D(\omega) = ... .
 		
 		\node [above left] at (0,1) {$\gamma$};
 		
-		\draw[fill] (-4,0) circle [radius=0.025];
-		\draw[fill] (4,0) circle [radius=0.025];
 		\draw[fill] (0,1) circle [radius=0.025];
 		
 		\draw[fill] (3.5,0) circle [radius=0.025];
@@ -349,6 +355,22 @@ D(\omega) = ... .
 	\label{fig: brom cont incomp}
 \end{figure}
 
+\subsubsection{Residues}
+To determine the residues of the integrand for each of the poles, we much determine the order of the poles, i.e. the order of the zeros of $D(\omega)$.
+
+Starting with the slow kink surface mode, $\omega_{sks}$, it can be shown that $D_s(\omega_{sks}) \neq 0$ and
+\begin{equation}
+D_k(\omega) = - \frac{\rho_1\rho_2kR}{m_0m_1m_2}(\omega^2 - \omega_{sks}^2),
+\end{equation}
+where
+\begin{equation}
+R = \frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2} + \frac{2}{kx_0}.
+\end{equation}
+Therefore, $\pm \omega_{sks}$ are each zeros of $D(\omega)$ of order 1, from which it follows that they are poles of the integrand of order 1. Hence, the residue is
+\begin{align}
+\mathrm{Res}\left\{\frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sks} \right\} &= \mathrm{lim}_{\omega \to \omega_{sks}} \left[ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right], \\
+&= - \frac{\rho_1\rho_2kR}{m_0m_1m_2}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})}e^{-i\omega_{sks} t}
+\end{align}
 
 
 \appendix
