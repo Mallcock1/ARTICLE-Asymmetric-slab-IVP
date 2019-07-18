@@ -217,7 +217,85 @@ By the algebra of branch points, the set of branch points of a sum of functions 
 \textit{The above analysis determines that the singularities of each function $T_1(\omega)$, $T_2(\omega)$, and $D(\omega)$ are precisely the algebraic branch points at $\omega = \pm kv_{A1}$ and $\omega = \pm kv_{A2}$.}
 
 \subsection{Asymptotic solution - non-magnetic external plasma}
-If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$.
+If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$. The contour for the inverse Laplace transform can be modified as shown in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles.
+
+\begin{figure}
+	\centering
+	\scalebox{0.9}{
+		\begin{tikzpicture}[very thick,decoration={
+			markings,
+			mark=at position 0.29 with {\arrow{>}}}
+		]
+		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
+		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
+		
+		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
+		\draw [thick] (-4,1) -- (-4,0.15);
+		\draw [thick] (4,1) -- (4,0.15);
+		\draw [thick] (-4,0.15) -- (-1.5,0.15);
+		\draw [thick] (4,0.15) -- (1.5,0.15);
+		\draw [thick] (-4,-0.15) -- (-1.5,-0.15);
+		\draw [thick] (4,-0.15) -- (1.5,-0.15);
+		
+		\draw [thick,domain=90:-90] plot ({0.15*cos(\x) - 1.5}, {0.15*sin(\x)});
+		\draw [thick,domain=90:270] plot ({0.15*cos(\x) + 1.5}, {0.15*sin(\x)});
+		
+		\draw [postaction={decorate}, thick,domain=-2.3:-80.8] plot ({4*cos(\x)}, {4*sin(\x)});
+		\draw [thick,domain=-85:-95] plot ({4*cos(\x)}, {4*sin(\x)});
+		\draw [thick,domain=182.3:260.8] plot ({4*cos(\x)}, {4*sin(\x)});
+		
+		\draw [thick] (-0.35,0) -- (-0.35,-3.99);
+		\draw [thick] (0.35,0) -- (0.35,-3.99);
+		
+		\draw [thick] (-0.65,0) -- (-0.65,-3.94);
+		\draw [thick] (0.65,0) -- (0.65,-3.94);
+		
+		\draw [thick,domain=180:0] plot ({0.15*cos(\x) - 0.5}, {0.15*sin(\x)});
+		\draw [thick,domain=180:0] plot ({0.15*cos(\x) + 0.5}, {0.15*sin(\x)});
+		
+		\node [above left] at (0,1) {$\gamma$};
+		
+		\draw[fill] (-4,0) circle [radius=0.025];
+		\draw[fill] (4,0) circle [radius=0.025];
+		\draw[fill] (0,1) circle [radius=0.025];
+		
+		\draw[fill] (3.5,0) circle [radius=0.025];
+		\node [below] at (3.5,0) {$\omega_{A}$};
+		
+		\draw[fill] (-3.5,0) circle [radius=0.025];
+		\node [below] at (-3.5,0) {$-\omega_{A}$};
+		
+		\draw[fill] (2.5,0) circle [radius=0.025];
+		\node [below] at (2.5,0) {$\omega_{1}$};
+		
+		\draw[fill] (-2.5,0) circle [radius=0.025];
+		\node [below] at (-2.5,0) {$-\omega_{1}$};
+		
+		\draw[fill] (2,0) circle [radius=0.025];
+		\node [below] at (2,0) {$\omega_{2}$};
+		
+		\draw[fill] (-2,0) circle [radius=0.025];
+		\node [below] at (-2,0) {$-\omega_{2}$};
+		
+		\draw[fill] (1.5,0) circle [radius=0.025];
+		\node [below] at (1.5,0) {$\omega_{0}$};
+		
+		\draw[fill] (-1.5,0) circle [radius=0.025];
+		\node [below] at (-1.5,0) {$-\omega_{0}$};
+		
+		\draw[fill] (0.5,0) circle [radius=0.025];
+		\node [below] at (0.5,0) {$\omega_{T}$};
+		
+		\draw[fill] (-0.5,0) circle [radius=0.025];
+		\node [below] at (-0.5,0) {$-\omega_{T}$};
+		
+		\node [above] at (-1.7,1) {$C_0$};
+		\node [below right] at (2.8,-2.8) {$C_1$};
+		\end{tikzpicture} 
+	}
+	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
+	\label{fig: brom contour}
+\end{figure}
 
 
 \subsubsection{Poles (AKA eigenfrequencies)}
@@ -265,113 +343,38 @@ Solution of the inverse Laplace transform is the sum of the residues at these po
 
 As shown by \citep{all_etal17}, under the approximate symmetry simplification, the dispersion function, $D(\omega)$, becomes
 \begin{equation}
-D(\omega) = \frac{1}{2\Lambda_1\Lambda_2} D_s(\omega)D_k(\omega),
+D(\omega) = \frac{1}{2\Lambda_1\Lambda_2} D_k(\omega)D_s(\omega),
 \end{equation}
 where
 \begin{align}
-D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh(m_0x_0), \\
-D_k(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth(m_0x_0),
+D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth(m_0x_0), \\
+D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh(m_0x_0).
 \end{align}
-which can be further simplified to the following expression for surface modes under the thin-slab approximation,
+This can be further simplified for surface modes under the thin-slab approximation, to first order in $kx_0$, to
 \begin{align}
-D_s(\omega) &\approx \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0, \\
-D_k(\omega) &\approx \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\frac{1}{m_0x_0}.
+D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\frac{1}{m_0x_0}, \\
+D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0.
 \end{align}
 
-\begin{figure}
-	\centering
-	\scalebox{0.9}{
-		\begin{tikzpicture}[very thick,decoration={
-			markings,
-			mark=at position 0.29 with {\arrow{>}}}
-		]
-		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
-		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
-		
-		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
-		\draw [thick] (-4,1) -- (-4,0.15);
-		\draw [thick] (4,1) -- (4,0.15);
-		\draw [thick] (-4,0.15) -- (-1.5,0.15);
-		\draw [thick] (4,0.15) -- (1.5,0.15);
-		\draw [thick] (-4,-0.15) -- (-1.5,-0.15);
-		\draw [thick] (4,-0.15) -- (1.5,-0.15);
-
-		\draw [thick,domain=90:-90] plot ({0.15*cos(\x) - 1.5}, {0.15*sin(\x)});
-		\draw [thick,domain=90:270] plot ({0.15*cos(\x) + 1.5}, {0.15*sin(\x)});
-		
-		\draw [thick,domain=-2.3:-81] plot ({4*cos(\x)}, {4*sin(\x)});
-		\draw [thick,domain=182.3:261] plot ({4*cos(\x)}, {4*sin(\x)});
-		
-		\draw [thick,domain=265:275] plot ({4*cos(\x)}, {4*sin(\x)});
-		
-		\draw [thick] (-0.65,0) -- (-0.65,-3.95);
-		\draw [thick] (-0.35,0) -- (-0.35,-4);
-		
-		\draw [thick] (0.65,0) -- (0.65,-3.95);
-		\draw [thick] (0.35,0) -- (0.35,-4);
-		
-		\draw [thick,domain=180:0] plot ({0.15*cos(\x) - 0.5}, {0.15*sin(\x)});
-		\draw [thick,domain=180:0] plot ({0.15*cos(\x) + 0.5}, {0.15*sin(\x)});
-		
-		\node [above left] at (0,1) {$\gamma$};
-		
-		\draw[fill] (0,1) circle [radius=0.025];
-		
-		\draw[fill] (3.5,0) circle [radius=0.025];
-		\node [below] at (3.5,0) {$\omega_{A}$};
-		
-		\draw[fill] (-3.5,0) circle [radius=0.025];
-		\node [below] at (-3.5,0) {$-\omega_{A}$};
-		
-		\draw[fill] (2.5,0) circle [radius=0.025];
-		\node [below] at (2.5,0) {$\omega_{1}$};
-		
-		\draw[fill] (-2.5,0) circle [radius=0.025];
-		\node [below] at (-2.5,0) {$-\omega_{1}$};
-		
-		\draw[fill] (2,0) circle [radius=0.025];
-		\node [below] at (2,0) {$\omega_{2}$};
-		
-		\draw[fill] (-2,0) circle [radius=0.025];
-		\node [below] at (-2,0) {$-\omega_{2}$};
-		
-		\draw[fill] (1.5,0) circle [radius=0.025];
-		\node [below] at (1.5,0) {$\omega_{0}$};
-		
-		\draw[fill] (-1.5,0) circle [radius=0.025];
-		\node [below] at (-1.5,0) {$-\omega_{0}$};
-		
-		\draw[fill] (0.5,0) circle [radius=0.025];
-		\node [below] at (0.5,0) {$\omega_{T}$};
-		
-		\draw[fill] (-0.5,0) circle [radius=0.025];
-		\node [below] at (-0.5,0) {$-\omega_{T}$};
-		
-		\node [above] at (-1.7,1) {$C_0$};
-		\node [below right] at (2.8,-2.8) {$C_1$};
-		\end{tikzpicture} 
-	}
-	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
-	\label{fig: brom cont incomp}
-\end{figure}
 
 \subsubsection{Residues}
-To determine the residues of the integrand for each of the poles, we much determine the order of the poles, i.e. the order of the zeros of $D(\omega)$.
+In order to calculate the residue of each pole, we much determine their order. Firstly, we will demonstrate the calculation for the slow kink surface mode, $\omega = \omega_{sks}$, and leave the rest, which are similar, to the reader. Clearly, $D_s(\omega_{sks}) \neq 0$, and with some algebra,
+\begin{equation}
+D_k(\omega) = -\frac{\rho_1\rho_2kR}{m_0m_1m_2} (\omega^2 - \omega_{sks}^2),
+\end{equation}
+so each of $\omega = \pm \omega_{sks}$ are simple zeros of $D_k$ and hence of $D$, therefore, they are simple poles of the integrand in question.
 
-Starting with the slow kink surface mode, $\omega_{sks}$, it can be shown that $D_s(\omega_{sks}) \neq 0$ and
-\begin{equation}
-D_k(\omega) = - \frac{\rho_1\rho_2kR}{m_0m_1m_2}(\omega^2 - \omega_{sks}^2),
-\end{equation}
-where
-\begin{equation}
-R = \frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2} + \frac{2}{kx_0}.
-\end{equation}
-Therefore, $\pm \omega_{sks}$ are each zeros of $D(\omega)$ of order 1, from which it follows that they are poles of the integrand of order 1. Hence, the residue is
+Therefore, the residue of the integrand at $\omega = \omega_{sks}$ is
 \begin{align}
-\mathrm{Res}\left\{\frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sks} \right\} &= \mathrm{lim}_{\omega \to \omega_{sks}} \left[ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right], \\
-&= - \frac{\rho_1\rho_2kR}{m_0m_1m_2}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})}e^{-i\omega_{sks} t}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
+&= - \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2kR}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{i\omega_{sks}t} \\
+&= \frac{\omega_{sks}m_0}{kR} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}.
 \end{align}
-
+Similarly, the residue at $\omega = -\omega_{sks}$ is
+\begin{equation}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sks} \right\} = -\frac{\omega_{sks}m_0}{kR} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}
+\end{equation}
+since $T_1$ and $D_s$ are even functions of $\omega$.
 
 \appendix
 
