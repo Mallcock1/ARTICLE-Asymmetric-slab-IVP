@@ -341,9 +341,9 @@ The eigenmodes of an asymmetric magnetic slab under these simplifications are gi
 
 Solution of the inverse Laplace transform is the sum of the residues at these points.
 
-As shown by \citep{all_etal17}, under the approximate symmetry simplification, the dispersion function, $D(\omega)$, becomes
+As shown in Appendix~\ref{app: approx sym DR}, under the approximate symmetry simplification, the dispersion function, $D(\omega)$, becomes
 \begin{equation}
-D(\omega) = \frac{1}{2\Lambda_1\Lambda_2} D_k(\omega)D_s(\omega),
+D(\omega) = \frac{\sinh{2m_0x_0}}{4\Lambda_1\Lambda_2} D_k(\omega) D_s(\omega),
 \end{equation}
 where
 \begin{align}
@@ -358,23 +358,29 @@ D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0.
 
 
 \subsubsection{Residues}
-In order to calculate the residue of each pole, we much determine their order. Firstly, we will demonstrate the calculation for the slow kink surface mode, $\omega = \omega_{sks}$, and leave the rest, which are similar, to the reader. Clearly, $D_s(\omega_{sks}) \neq 0$, and with some algebra,
+In order to calculate the residue of each pole, we much determine their order. Firstly, we will demonstrate the calculation for the slow kink surface mode, $\omega = \omega_{sks}$, and leave the rest, which are similar, to the reader. Clearly, $D_s(\omega_{sks}) \neq 0$, and after some algebra,
 \begin{equation}
-D_k(\omega) = -\frac{\rho_1\rho_2kR}{m_0m_1m_2} (\omega^2 - \omega_{sks}^2),
+D_k(\omega) = -\frac{\rho_1\rho_2R}{m_0m_1m_2x_0} (\omega^2 - \omega_{sks}^2),
+\end{equation}
+where
+\begin{equation}
+R = 2 + \left( \frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2} \right)kx_0,
 \end{equation}
 so each of $\omega = \pm \omega_{sks}$ are simple zeros of $D_k$ and hence of $D$, therefore, they are simple poles of the integrand in question.
 
 Therefore, the residue of the integrand at $\omega = \omega_{sks}$ is
 \begin{align}
 \mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
-&= - \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2kR}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{i\omega_{sks}t} \\
-&= \frac{\omega_{sks}m_0}{kR} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}.
+&= - \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{i\omega_{sks}t} \\
+&= \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}.
 \end{align}
 Similarly, the residue at $\omega = -\omega_{sks}$ is
 \begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sks} \right\} = -\frac{\omega_{sks}m_0}{kR} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sks} \right\} = -\frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}
 \end{equation}
 since $T_1$ and $D_s$ are even functions of $\omega$.
+
+Similarly, the residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
 
 \appendix
 
@@ -395,6 +401,33 @@ Therefore, the inverse transform of the non-standard Laplace transform is
 \begin{equation}
 f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\omega)e^{-i\omega t} d\omega.
 \end{equation}
+
+
+\section{Approximately symmetric slab dispersion relation}\label{app: approx sym DR}
+Consider the product of the following functions
+\begin{align}
+D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0}, \\
+D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0}.
+\end{align}
+\begin{align}
+D_k(\omega) D_s(\omega) &= \left[ \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0} \right] \left[ \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0} \right] \\
+&= \Lambda_0^2 (\Lambda_1 + \Lambda_2)^2 + 2\Lambda_0(\Lambda_1 + \Lambda_2)\Lambda_1\Lambda_2(\tanh{m_0x_0} + \coth{m_0x_0}) + 4\Lambda_1^2\Lambda_2^2 \\
+&= \frac{4\Lambda_1\Lambda_2}{\sinh{2m_0x_0}} \left[ \Lambda_0(\Lambda_1 + \Lambda_2)\cosh{2m_0x_0} + (\Lambda_0^2F + \Lambda_1\Lambda_2)\sinh{2m_0x_0} \right],
+\end{align}
+where
+\begin{equation}
+F = \frac{(\Lambda_1 + \Lambda_2)^2}{4\Lambda_1\Lambda_2},
+\end{equation}
+which, when the conditions on each side of the slab are approximately symmetric, \textit{i.e.} $\Lambda_2 = \Lambda_1 (1 + \epsilon L)$, with $\epsilon \ll 1$ and $L \approx 1$, becomes
+\begin{equation}
+F = \frac{(2 + \epsilon L)^2}{4(1 + \epsilon L)} = 1 + \mathcal{O}(\epsilon^2).
+\end{equation}
+Therefore, 
+\begin{align}
+D(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2m_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2m_0x_0), \\
+&= \frac{\sinh{2m_0x_0}}{4\Lambda_1\Lambda_2} D_k(\omega) D_s(\omega) + \mathcal{O}(\epsilon^2).
+\end{align}
+
 
 \section{Approximately symmetric slab parameter expansions}
 For an approximately symmetric slab, that is, when $\rho_2 = \rho_1(1 + \epsilon)$ where $\epsilon \ll 1$, then the first order expansions in $\epsilon$ of other relevant parameters are given below.
