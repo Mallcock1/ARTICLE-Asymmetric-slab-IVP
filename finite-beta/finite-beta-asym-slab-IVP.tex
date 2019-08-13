@@ -20,6 +20,14 @@
 \begin{document}
 \maketitle
 
+\section{TO DO}
+\begin{itemize}
+	\item Calculate residues for fast body modes.
+	\item Check that integral around semi-circle and vertical contours go to zero as semi-circle is extended to infinity.
+	\item Calculate contributions of the contours around the branch points - corresponding to "improper modes". Including check that the integrals around the little semi-circles goes to zero.
+	\item Check that there aren't any leaky modes on other Riemann sheets (I don't think there is because we have branch points from the square roots, not from logarithmic terms, so there are only two Riemann sheets).
+	\item Try initial conditions.
+\end{itemize}
 
 \section{Basic equations}
 From \cite{and_etal07},
@@ -155,7 +163,7 @@ T_2(\omega) = T_2[f](\omega) & = -\Lambda_2(\Lambda_1 I_0^- + \Lambda_0 I_1) - (
 D(\omega) & = \Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2m_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2m_0x_0),
 \label{D}
 \end{align}
-where $\Lambda_j = \rho_j (\omega^2 - \omega_{Aj}^2) / m_j$, for $j = 0, 1, 2$, and
+where $\Lambda_j = \rho_j (\omega^2 - \omega_{Aj}^2) /  m_j$, for $j = 0, 1, 2$, and
 \begin{align}
 I_0^\pm &= I_0^\pm[f] = \int_{-x_0}^{x_0} \frac{\sinh(m_0(x_0 \pm s))}{\sinh(2m_0x_0)} f(\omega, s) ds, \\
 I_1 &= I_1[f] = \int_{-\infty}^{-x_0} e^{m_1(s + x_0)} f(\omega, s) ds,
@@ -290,7 +298,12 @@ If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, the
 		\node [below] at (-0.5,0) {$-\omega_{T}$};
 		
 		\node [above] at (-1.7,1) {$C_0$};
-		\node [below right] at (2.8,-2.8) {$C_1$};
+		\node [above] at (2,0) {$C_1$};
+		\node [below right] at (2.8,-2.8) {$C_2$};
+		
+		\node [right] at (0.5,-1) {$C_3$};
+		\node [left] at (-0.5,-1) {$C_4$};
+		\node [above] at (-2,0) {$C_5$};
 		\end{tikzpicture} 
 	}
 	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
@@ -360,7 +373,7 @@ D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0.
 \subsubsection{Residues}
 In order to calculate the residue of each pole, we much determine their order. Firstly, we will demonstrate the calculation for the slow kink surface mode, $\omega = \omega_{sks}$, and leave the rest, which are similar, to the reader. Clearly, $D_s(\omega_{sks}) \neq 0$, and after some algebra,
 \begin{equation}
-D_k(\omega) = -\frac{\rho_1\rho_2R}{m_0m_1m_2x_0} (\omega^2 - \omega_{sks}^2),
+D_k(\omega) = \frac{\rho_1\rho_2\omega^2R}{m_0m_1m_2x_0} (\omega^2 - \omega_{sks}^2),
 \end{equation}
 where
 \begin{equation}
@@ -371,16 +384,37 @@ so each of $\omega = \pm \omega_{sks}$ are simple zeros of $D_k$ and hence of $D
 Therefore, the residue of the integrand at $\omega = \omega_{sks}$ is
 \begin{align}
 \mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
-&= - \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{i\omega_{sks}t} \\
+&= \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sks}^2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{i\omega_{sks}t} \\
 &= \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}.
 \end{align}
 Similarly, the residue at $\omega = -\omega_{sks}$ is
 \begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sks} \right\} = -\frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sks} \right\} = \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}
 \end{equation}
-since $T_1$ and $D_s$ are even functions of $\omega$.
+since $T_1$ and $D_s$ are even functions of $\omega$. 
 
-Similarly, the residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
+The residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
+\begin{align}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sss} \right\} &= \lim_{\omega \to \omega_{sss}} \left\{ (\omega - \omega_{sss}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
+&= \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sss}^2m_0x_0}|_{\omega = \omega_{sss}} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)k(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{2\omega_{sss}D_k(\omega_{sss})} e^{i\omega_{sss}t} \\
+&= \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{i\omega_{sss}t}.
+\end{align}
+Similarly, the residue at $\omega = -\omega_{sss}$ is
+\begin{equation}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sss} \right\} = \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{-i\omega_{sss}t}.
+\end{equation}
+
+The residues for the fast kink body modes $\omega = \pm \omega_{fkbn}$, for $n = 1, 2, ...$ are
+\begin{align}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{fkbn} \right\} &= \lim_{\omega \to \omega_{fkbn}} \left\{ (\omega - \omega_{fkbn}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
+&= 
+\end{align}
+Similarly, the residue at $\omega = -\omega_{fkbn}$ is
+\begin{equation}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{fkbn} \right\} =
+\end{equation}
+
+The residues for the integrand of $A_2$ are the same but with subscript 2 instead of 1.
 
 \appendix
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2019.7.18)  19 JUL 2019 15:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2019.7.18)  13 AUG 2019 15:28
 entering extended mode
 **./finite-beta-asym-slab-IVP.tex
 (finite-beta-asym-slab-IVP.tex
@@ -582,19 +582,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-[1
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
+ [1
 
-{C:/Users/smp16mma/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (34.84238pt too wide) detected at line 80
+{C:/Users/smp16mma/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (34.84238pt too wide) detected at line 88
 \OML/cmm/m/it/12 G[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ; \OML/c
 mm/m/it/12 s\OT1/cmr/m/n/12 ) = [] []
  []
 
 
-LaTeX Warning: Reference `P eq inside' on page 2 undefined on input line 81.
+LaTeX Warning: Reference `P eq inside' on page 3 undefined on input line 89.
 
 
-Overfull \hbox (72.2495pt too wide) detected at line 85
+Overfull \hbox (72.2495pt too wide) detected at line 93
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = [] [] + [][] \OML/cmm/
 m/it/12 G[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ; \OML/cmm/m/it/1
 2 s\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !; s\
@@ -602,58 +608,60 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ds:
  []
 
 
-LaTeX Warning: Reference `P eq inside' on page 2 undefined on input line 86.
+LaTeX Warning: Reference `P eq inside' on page 3 undefined on input line 94.
 
-[2]
-Overfull \hbox (186.12695pt too wide) detected at line 133
+[3]
+Overfull \hbox (186.12695pt too wide) detected at line 141
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = []
  []
 
-[3]
-Overfull \hbox (62.90298pt too wide) detected at line 157
+
+Overfull \hbox (62.90298pt too wide) detected at line 165
 []
  []
 
-[4]
-Overfull \hbox (7.0798pt too wide) detected at line 196
+[4] [5]
+Overfull \hbox (7.0798pt too wide) detected at line 204
 \OML/cmm/m/it/12 A[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) = [] [
 ] [][] []\OML/cmm/m/it/12 e[]d!;  A[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cm
 r/m/n/12 ) = [] [] [][] []\OML/cmm/m/it/12 e[]d!;
  []
 
-[5]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 203.
-
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 203.
- [6]
-Overfull \hbox (10.39455pt too wide) in paragraph at lines 219--219
+[6]
+Overfull \hbox (10.39455pt too wide) in paragraph at lines 227--227
 []\OT1/cmr/bx/n/14.4 Asymptotic so-lu-tion - non-magnetic ex-ter-nal plasma 
  []
 
 [7] [8] [9] [10]
-Overfull \hbox (36.59369pt too wide) detected at line 416
+Overfull \hbox (156.4098pt too wide) detected at line 401
 []
  []
 
+
+Overfull \hbox (54.13733pt too wide) detected at line 405
+[] [] \OT1/cmr/m/n/12 = [][][]\OML/cmm/m/it/12 e[]:
+ []
+
 [11]
-Overfull \hbox (12.83182pt too wide) in paragraph at lines 439--440
+Overfull \hbox (36.59369pt too wide) detected at line 450
+[]
+ []
+
+[12]
+Overfull \hbox (12.83182pt too wide) in paragraph at lines 473--474
 []$\OT1/cmr/m/n/12 [] = [] = [] \OMS/cmsy/m/n/12  [] [] \OT1/cmr/m/n/12 = []
  []$. 
  []
 
-(finite-beta-asym-slab-IVP.bbl) [12] (finite-beta-asym-slab-IVP.aux)
+(finite-beta-asym-slab-IVP.bbl [13]) [14] (finite-beta-asym-slab-IVP.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
  13796 strings out of 492973
- 279504 string characters out of 3135923
- 317125 words of memory out of 3000000
+ 279509 string characters out of 3135923
+ 316453 words of memory out of 3000000
  17392 multiletter control sequences out of 15000+200000
  13395 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -675,9 +683,9 @@ fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 /amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti1
 2.pfb>
-Output written on finite-beta-asym-slab-IVP.pdf (12 pages, 247592 bytes).
+Output written on finite-beta-asym-slab-IVP.pdf (14 pages, 254845 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
+ 123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
