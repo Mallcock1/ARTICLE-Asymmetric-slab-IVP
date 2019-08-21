@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2019.7.18)  13 AUG 2019 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2019.7.18)  21 AUG 2019 16:38
 entering extended mode
 **./finite-beta-asym-slab-IVP.tex
 (finite-beta-asym-slab-IVP.tex
@@ -632,28 +632,28 @@ Overfull \hbox (10.39455pt too wide) in paragraph at lines 227--227
 []\OT1/cmr/bx/n/14.4 Asymptotic so-lu-tion - non-magnetic ex-ter-nal plasma 
  []
 
-[7] [8] [9] [10]
-Overfull \hbox (156.4098pt too wide) detected at line 401
+[7] [8] [9] [10] [11]
+Overfull \hbox (156.4098pt too wide) detected at line 431
 []
  []
 
 
-Overfull \hbox (54.13733pt too wide) detected at line 405
+Overfull \hbox (54.13733pt too wide) detected at line 435
 [] [] \OT1/cmr/m/n/12 = [][][]\OML/cmm/m/it/12 e[]:
  []
 
-[11]
-Overfull \hbox (36.59369pt too wide) detected at line 450
+[12] [13]
+Overfull \hbox (36.59369pt too wide) detected at line 480
 []
  []
 
-[12]
-Overfull \hbox (12.83182pt too wide) in paragraph at lines 473--474
+[14]
+Overfull \hbox (12.83182pt too wide) in paragraph at lines 503--504
 []$\OT1/cmr/m/n/12 [] = [] = [] \OMS/cmsy/m/n/12  [] [] \OT1/cmr/m/n/12 = []
  []$. 
  []
 
-(finite-beta-asym-slab-IVP.bbl [13]) [14] (finite-beta-asym-slab-IVP.aux)
+(finite-beta-asym-slab-IVP.bbl) [15] (finite-beta-asym-slab-IVP.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -661,11 +661,11 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  13796 strings out of 492973
  279509 string characters out of 3135923
- 316453 words of memory out of 3000000
+ 321288 words of memory out of 3000000
  17392 multiletter control sequences out of 15000+200000
  13395 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,65p,753b,1003s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,12n,65p,753b,1003s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/
@@ -683,9 +683,9 @@ fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 /amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti1
 2.pfb>
-Output written on finite-beta-asym-slab-IVP.pdf (14 pages, 254845 bytes).
+Output written on finite-beta-asym-slab-IVP.pdf (15 pages, 261147 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

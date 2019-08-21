@@ -80,10 +80,10 @@ G_0(x;s) = c_1\sinh(m_0(x - x_0)) + c_2\sinh(m_0(x + x_0)),
 \end{equation}
 where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\partial G_0 / \partial x$ have jumps of 0 and 1 at $x = s$, respectively, determines $c_1$ and $c_2$ so that $G_0(x;s)$ is
 \begin{equation}
-G_0(x;s) = \frac{1}{m_0\sinh(2m_0 x_0)}
+G_0(x;s) = \frac{-1}{m_0\sinh(2m_0 x_0)}
 \begin{cases}
-\sinh(m_0(s - x_0))\sinh(m_0(x + x_0)), & \text{if } -x_0<x<s, \\
-\sinh(m_0(x - x_0))\sinh(m_0(s + x_0)), & \text{if } s<x<x_0.
+\sinh(m_0(x_0 - s))\sinh(m_0(x + x_0)), & \text{if } -x_0<x<s, \\
+\sinh(m_0(x_0 - x))\sinh(m_0(s + x_0)), & \text{if } s<x<x_0.
 \end{cases}
 \end{equation}
 Then the solution of Equation~\eqref{P eq inside} is
@@ -106,10 +106,10 @@ and the boundary conditions $\hat{p}_T(-\infty) = 0$, $\hat{p}_T(-x_0) = \hat{A}
 \end{equation}
 where $m_1 > 0$ and the Green's function, $G_1$, is defined by
 \begin{equation}
-G_1(x; s) = \frac{1}{k}
+G_1(x; s) = \frac{1}{m_1}
 \begin{cases}
-e^{m_1(x + x_0)}\sinh(m_1(s + x_0)), & \text{if } x < s, \\
-e^{m_1(s + x_0)}\sinh(m_1(x + x_0)), & \text{if } s < x < -x_0.
+e^{m_1(x_0 + x)}\sinh(m_1(x_0 + s)), & \text{if } x < s, \\
+e^{m_1(x_0 + s)}\sinh(m_1(x_0 + x)), & \text{if } s < x < -x_0.
 \end{cases}
 \end{equation}
 
@@ -120,10 +120,10 @@ Similarly, for the solution outside and to the right of the slab, $x > x_0$, $\h
 \end{equation}
 where $m_2 > 0$ and the Green's function, $G_2$, is defined by
 \begin{equation}
-G_2(x; s) = -\frac{1}{k}
+G_2(x; s) = \frac{1}{m_2}
 \begin{cases}
-e^{-m_2(s - x_0)}\sinh(m_2(x - x_0)), & \text{if } x_0 < x < s, \\
-e^{-m_2(x - x_0)}\sinh(m_2(s - x_0)), & \text{if } s < x.
+e^{m_2(x_0 - s)}\sinh(m_2(x_0 - x)), & \text{if } x_0 < x < s, \\
+e^{m_2(x_0 - x)}\sinh(m_2(x_0 - s)), & \text{if } s < x.
 \end{cases}
 \end{equation}
 
@@ -225,7 +225,16 @@ By the algebra of branch points, the set of branch points of a sum of functions 
 \textit{The above analysis determines that the singularities of each function $T_1(\omega)$, $T_2(\omega)$, and $D(\omega)$ are precisely the algebraic branch points at $\omega = \pm kv_{A1}$ and $\omega = \pm kv_{A2}$.}
 
 \subsection{Asymptotic solution - non-magnetic external plasma}
-If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$. The contour for the inverse Laplace transform can be modified as shown in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles.
+If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$, where, without loss of generality, we let $\omega_1 < \omega_2$. The contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$ for the inverse Laplace transform can be modified as shown in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
+\begin{itemize}
+	\item $C_0$: the horizontal line with imaginary part $\gamma$.
+	\item $C_1$: the horizontal line from $L + \delta i$ to $\omega_0 + \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $\omega_0 - \delta i$ to $L - \delta i$.
+	\item $C_2$: the vertical lines from $\pm L + \gamma i$ to $\pm L + \delta i$ and the arcs of the large semicircle centred at the origin with radius $\Delta$.
+	\item $C_3$: the vertical line up to, around, and back down from $\omega_T$.
+	\item $C_4$: the vertical line up to, around, and back down from $-\omega_T$.
+	\item $C_5$: the horizontal line from $-L - \delta i$ to $-\omega_0 - \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $-\omega_0 + \delta i$ to $-L + \delta i$.
+\end{itemize}
+We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine the inverse Laplace transform from Equation~\eqref{A inv laplace}. In the limit of $L \to \infty$, the integral along $C_0$ is identical to the desired integral in Equation~\eqref{A inv laplace}. The integrals along each of the sub-contours $C_1 - C_5$ are calculated in the following subsections.
 
 \begin{figure}
 	\centering
@@ -263,8 +272,6 @@ If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, the
 		
 		\node [above left] at (0,1) {$\gamma$};
 		
-		\draw[fill] (-4,0) circle [radius=0.025];
-		\draw[fill] (4,0) circle [radius=0.025];
 		\draw[fill] (0,1) circle [radius=0.025];
 		
 		\draw[fill] (3.5,0) circle [radius=0.025];
@@ -274,16 +281,16 @@ If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, the
 		\node [below] at (-3.5,0) {$-\omega_{A}$};
 		
 		\draw[fill] (2.5,0) circle [radius=0.025];
-		\node [below] at (2.5,0) {$\omega_{1}$};
+		\node [below] at (2.5,0) {$\omega_{2}$};
 		
 		\draw[fill] (-2.5,0) circle [radius=0.025];
-		\node [below] at (-2.5,0) {$-\omega_{1}$};
+		\node [below] at (-2.5,0) {$-\omega_{2}$};
 		
 		\draw[fill] (2,0) circle [radius=0.025];
-		\node [below] at (2,0) {$\omega_{2}$};
+		\node [below] at (2,0) {$\omega_{1}$};
 		
 		\draw[fill] (-2,0) circle [radius=0.025];
-		\node [below] at (-2,0) {$-\omega_{2}$};
+		\node [below] at (-2,0) {$-\omega_{1}$};
 		
 		\draw[fill] (1.5,0) circle [radius=0.025];
 		\node [below] at (1.5,0) {$\omega_{0}$};
@@ -306,9 +313,32 @@ If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, the
 		\node [above] at (-2,0) {$C_5$};
 		\end{tikzpicture} 
 	}
-	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
+	\caption{The Bromwich contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$.}
 	\label{fig: brom contour}
 \end{figure}
+
+
+\subsubsection{Integral along $C_1$ and $C_5$}
+In the limit as $\delta \to 0$, the integral along the semicircular part of $C_1$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero.
+
+So the integrals along $C_1$ becomes
+\begin{align}
+	I_{C_1} &= \int_{C_1} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
+	&= \int_{\infty}^{\omega_0} \frac{T_{1,2}^+}{D^+} e^{-i\omega t} d\omega + \int_{\omega_0}^{\infty} \frac{T_{1,2}^-}{D^-} e^{-i\omega t} d\omega \\
+	&= \int_{\omega_0}^{\infty} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega
+\end{align}
+where superscripts $+$ and $-$ indicate the value of the function above and below the branch cut, respectively.
+
+For values of $\omega$ between the branch points at $\omega_0$, $\omega_1$, $\omega_2$, and $\omega_A$, the integrand is analytic, therefore we can use integration by parts in these sub-intervals. For example, the integral over the sub-interval $(\omega_0, \omega_1)$ is
+\begin{align}
+I_{C_1} &= \int_{\omega_0}^{\omega_1} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
+&= \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_0}^{\omega_1} - \int_{\omega_0}^{\omega_1} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}
+\end{align}
+
+Using the fact that $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, we find that $I_{C_1} = \mathcal{O}(t^{-1})$ as $t \to \infty$. Similarly, $I_{C_5} = \mathcal{O}(t^{-1})$ as $t \to \infty$.
+
+
+\subsubsection{Integral along $C_2$}
 
 
 \subsubsection{Poles (AKA eigenfrequencies)}
@@ -318,7 +348,7 @@ Let $v_A > c_i$ for $i = 0, 1, 2$, then there can exist, in general:
 	\item an infinite number of slow body modes,
 	\item 2 fast surface modes.
 \end{enumerate}
-1 and 2 exist for all values of $kx_0$. 3 exist only for $kx_0$ values greater than a cutoff value. Analytical expressions for the behaviour of the eigenmodes do not exist in general. It is at this point that we are forced to make two simplifications to the model:
+1 and 2 exist for all values of $kx_0$. 3 exist only for $kx_0$ values greater than a cut-off value. Analytical expressions for the behaviour of the eigenmodes do not exist in general. It is at this point that we are forced to make two simplifications to the model:
 \begin{itemize}
 	\item The thin-slab approximation, so that $kx_0 \ll 1$
 	\item The approximate symmetry simplification, so that $\rho_1 \approx \rho_2$.
