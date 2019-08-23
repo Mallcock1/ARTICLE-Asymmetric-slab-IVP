@@ -82,13 +82,13 @@ where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\part
 \begin{equation}
 G_0(x;s) = \frac{-1}{m_0\sinh(2m_0 x_0)}
 \begin{cases}
-\sinh(m_0(x_0 - s))\sinh(m_0(x + x_0)), & \text{if } -x_0<x<s, \\
-\sinh(m_0(x_0 - x))\sinh(m_0(s + x_0)), & \text{if } s<x<x_0.
+\sinh(m_0(x_0 - s))\sinh(m_0(x_0 + x)), & \text{if } -x_0<x<s, \\
+\sinh(m_0(x_0 - x))\sinh(m_0(x_0 + s)), & \text{if } s<x<x_0.
 \end{cases}
 \end{equation}
 Then the solution of Equation~\eqref{P eq inside} is
 \begin{equation}
-\hat{p}_T(x) = \frac{1}{\sinh{2m_0 x_0}} \left[ \hat{A}_1\sinh(m_0(x_0 - x)) + \hat{A}_2\sinh(m_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) f_0(\omega, s) ds.
+\hat{p}_T(x) = \frac{1}{m_0\sinh{2m_0 x_0}} \left[ \hat{A}_1\sinh(m_0(x_0 - x)) + \hat{A}_2\sinh(m_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) f_0(\omega, s) ds.
 \label{P sol 0}
 \end{equation}
 This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
@@ -165,10 +165,10 @@ D(\omega) & = \Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2m_0x_0) + (\Lambda_0^2 + \L
 \end{align}
 where $\Lambda_j = \rho_j (\omega^2 - \omega_{Aj}^2) /  m_j$, for $j = 0, 1, 2$, and
 \begin{align}
-I_0^\pm &= I_0^\pm[f] = \int_{-x_0}^{x_0} \frac{\sinh(m_0(x_0 \pm s))}{\sinh(2m_0x_0)} f(\omega, s) ds, \\
-I_1 &= I_1[f] = \int_{-\infty}^{-x_0} e^{m_1(s + x_0)} f(\omega, s) ds,
+I_0^\pm &= I_0^\pm[f] = \frac{1}{m_0} \int_{-x_0}^{x_0} \frac{\sinh(m_0(x_0 \pm s))}{\sinh(2m_0x_0)} f(\omega, s) ds, \\
+I_1 &= I_1[f] = \frac{1}{m_1} \int_{-\infty}^{-x_0} e^{m_1(s + x_0)} f(\omega, s) ds,
 \quad
-I_2 = I_2[f] = \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ds,
+I_2 = I_2[f] = \frac{1}{m_2} \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ds,
 \end{align}
 where
 \begin{equation}
@@ -311,6 +311,9 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 		\node [right] at (0.5,-1) {$C_3$};
 		\node [left] at (-0.5,-1) {$C_4$};
 		\node [above] at (-2,0) {$C_5$};
+		
+		\node [above] at (4,1) {$L$};
+		\node [above] at (-4,1) {$-L$};
 		\end{tikzpicture} 
 	}
 	\caption{The Bromwich contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$.}
@@ -321,24 +324,43 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 \subsubsection{Integral along $C_1$ and $C_5$}
 In the limit as $\delta \to 0$, the integral along the semicircular part of $C_1$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero.
 
-So the integrals along $C_1$ becomes
+As $L \to \infty$ the integrals along $C_1$ become
 \begin{align}
 	I_{C_1} &= \int_{C_1} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
 	&= \int_{\infty}^{\omega_0} \frac{T_{1,2}^+}{D^+} e^{-i\omega t} d\omega + \int_{\omega_0}^{\infty} \frac{T_{1,2}^-}{D^-} e^{-i\omega t} d\omega \\
-	&= \int_{\omega_0}^{\infty} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega
+	&= \int_{\omega_0}^{\infty} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega,
 \end{align}
-where superscripts $+$ and $-$ indicate the value of the function above and below the branch cut, respectively.
+where superscripts $+$ and $-$ indicate the value of the function above and below the horizontal branch cut $[\omega_0, \infty)$, respectively.
 
-For values of $\omega$ between the branch points at $\omega_0$, $\omega_1$, $\omega_2$, and $\omega_A$, the integrand is analytic, therefore we can use integration by parts in these sub-intervals. For example, the integral over the sub-interval $(\omega_0, \omega_1)$ is
+For values of $\omega$ between the branch points at $\omega_0$, $\omega_1$, $\omega_2$, and $\omega_A$, the integrand is analytic (except at the endpoints), therefore we can use integration by parts in these sub-intervals. For example, the integral over the sub-interval $(\omega_0, \omega_1)$ is
 \begin{align}
-I_{C_1} &= \int_{\omega_0}^{\omega_1} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
-&= \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_0}^{\omega_1} - \int_{\omega_0}^{\omega_1} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}
+I_{(\omega_0, \omega_1)} &= \int_{\omega_0}^{\omega_1} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
+&= \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_0}^{\omega_1} - \int_{\omega_0}^{\omega_1} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
 \end{align}
-
-Using the fact that $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, we find that $I_{C_1} = \mathcal{O}(t^{-1})$ as $t \to \infty$. Similarly, $I_{C_5} = \mathcal{O}(t^{-1})$ as $t \to \infty$.
+Given that $T_{1,2}^+(\omega_0)/D^\pm(\omega_0) = T_{1,2}^-(\omega_0)/D^\pm(\omega_0)$, the slowest decaying term is the first term on the right hand side evaluated at $\omega_1$, which decays like $\mathcal{O}(t^{-1})$ as $t \to \infty$. Repeating this for the other three intervals over which the integrand is analytic, and using the fact that $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, we find that the slowest decaying terms decay like $\mathcal{O}(t^{-1})$$I_{C_1} = \mathcal{O}(t^{-1})$ as $t \to \infty$. Therefore $I_{C_1} = \mathcal{O}(t^{-1})$ (and similarly $I_{C_5} = \mathcal{O}(t^{-1})$) as $t \to \infty$.
 
 
 \subsubsection{Integral along $C_2$}
+As $L \to \infty$, points that occupy the curve $C_2$ will behave like $|\omega| \to \infty$. When $|\omega| \to \infty$, $T_{1,2} = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$, therefore the integrands behave like $T_{1,2}/D = \mathcal{O}(1/|\omega|)$. Therefore the integral around $C_2$ approaches $0$ as $L \to \infty$.
+
+
+\subsubsection{Integral along $C_3$ and $C_4$}
+In the limit as $\delta \to 0$, the integral along the semicircular part of $C_3$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero. As $L \to \infty$ and $\delta \to 0$, the integrals along $C_3$ become
+\begin{align}
+I_{C_3} &= \int_{C_3} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
+&= \int_{\omega_T}^{\omega_T - \infty i} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega,
+\end{align}
+where superscripts $+$ and $-$ indicate the value of the function to the right and left of the vertical branch cut $\omega_T + [0,\infty)i$, respectively. The integrand is analytic in the integration interval (except at the endpoints), so by integration by parts
+\begin{equation}
+I_{C_3} = \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_T}^{\omega_T -\infty i} - \int_{\omega_T}^{\omega_T - \infty i} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
+\end{equation}
+the first term is zero because $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$ and $T_{1,2}^+(\omega_T)/D^\pm(\omega_T) = T_{1,2}^-(\omega_T)/D^\pm(\omega_T)$. Therefore, using integration by parts for a second time,
+\begin{align}
+I_{C_3} &= -\frac{i}{t} \int_{\omega_T}^{\omega_T - \infty i} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
+&= \frac{1}{t^2} \left\{ \left[ \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_T}^{\omega_T -\infty i} - \int_{\omega_T}^{\omega_T - \infty i} \frac{d^2}{d\omega^2} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\} \\
+&= \mathcal{O}(t^{-2}) \text{ as } t \to \infty.
+\end{align}
+Similarly, $I_{C_5} = \mathcal{O}(t^{-2})$ as $t \to \infty$.
 
 
 \subsubsection{Poles (AKA eigenfrequencies)}
