@@ -8,6 +8,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
 
 \newcommand{\solphys}{Solar Physics}
 
@@ -239,10 +240,15 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 \begin{figure}
 	\centering
 	\scalebox{0.9}{
-		\begin{tikzpicture}[very thick,decoration={
+		\begin{tikzpicture}[very thick, decoration={
 			markings,
 			mark=at position 0.29 with {\arrow{>}}}
 		]
+		
+		\tikzset{
+			branchcut/.style={decorate, decoration={snake}, draw=red}, 
+		}
+		
 		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
 		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
 		
@@ -253,6 +259,11 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 		\draw [thick] (4,0.15) -- (1.5,0.15);
 		\draw [thick] (-4,-0.15) -- (-1.5,-0.15);
 		\draw [thick] (4,-0.15) -- (1.5,-0.15);
+		
+		\draw [branchcut, thick] (0.5, 0) -- (0.5, -5);
+		\draw [branchcut, thick] (-0.5, 0) -- (-0.5, -5);
+		\draw [branchcut, thick] (1.5, 0) -- (5, 0);
+		\draw [branchcut, thick] (-1.5, 0) -- (-5, 0);
 		
 		\draw [thick,domain=90:-90] plot ({0.15*cos(\x) - 1.5}, {0.15*sin(\x)});
 		\draw [thick,domain=90:270] plot ({0.15*cos(\x) + 1.5}, {0.15*sin(\x)});
