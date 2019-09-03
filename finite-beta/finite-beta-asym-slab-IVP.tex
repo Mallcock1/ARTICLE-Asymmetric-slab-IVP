@@ -434,7 +434,7 @@ D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0.
 
 
 \subsubsection{Residues}
-In order to calculate the residue of each pole, we much determine their order. Firstly, we will demonstrate the calculation for the slow kink surface mode, $\omega = \omega_{sks}$, and leave the rest, which are similar, to the reader. Clearly, $D_s(\omega_{sks}) \neq 0$, and after some algebra,
+In order to calculate the residue of each pole, we much determine their order. Firstly, for the slow kink surface mode, $\omega = \omega_{sks}$, it can be shown that $D_s(\omega_{sks}) \neq 0$, and after some algebra,
 \begin{equation}
 D_k(\omega) = \frac{\rho_1\rho_2\omega^2R}{m_0m_1m_2x_0} (\omega^2 - \omega_{sks}^2),
 \end{equation}
@@ -456,7 +456,7 @@ Similarly, the residue at $\omega = -\omega_{sks}$ is
 \end{equation}
 since $T_1$ and $D_s$ are even functions of $\omega$. 
 
-The residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
+Similarly, the residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
 \begin{align}
 \mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sss} \right\} &= \lim_{\omega \to \omega_{sss}} \left\{ (\omega - \omega_{sss}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
 &= \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sss}^2m_0x_0}|_{\omega = \omega_{sss}} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)k(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{2\omega_{sss}D_k(\omega_{sss})} e^{i\omega_{sss}t} \\
@@ -467,17 +467,21 @@ Similarly, the residue at $\omega = -\omega_{sss}$ is
 \mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sss} \right\} = \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{-i\omega_{sss}t}.
 \end{equation}
 
-The residues for the fast kink body modes $\omega = \pm \omega_{fkbn}$, for $n = 1, 2, ...$ are
+Regarding, the fast kink body modes $\omega = \pm \omega_{fkbj}$, for $j = 1, 2, ...$, it can be shown that $D_s(\omega_{fkbn}) \neq 0$ and that by letting $\omega_{fkbj}^2 = \omega_T^2(1 + \nu (kx_0)^2)$ , we can show that
+\begin{equation}
+D_k(\omega) = A_0\cos\left(\frac{c_T}{\sqrt{\nu(c_0^2 + v_A^2)}}\right) + \mathcal{O}(kx_0),
+\end{equation}
+for some constant $A_0$, whose form is irrelevant at present. Zeros of $\cos(z)$ are of order 2, therefore zeros of $\cos(\sqrt{z})$ are simple. Therefore, letting $\nu = c_T^4 / c_0^2v_A^2\pi^2(j - \frac{1}{2})^2$ for $j \in \mathcal{N}$, $\omega_{fkbj} = \pm \omega_T\sqrt{1 + \nu(kx_0)^2}$ are simple zeros of $D_k$. Therefore, the residue at $\omega = \omega_{fkbj}$ is
 \begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{fkbn} \right\} &= \lim_{\omega \to \omega_{fkbn}} \left\{ (\omega - \omega_{fkbn}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{fkbj} \right\} &= \lim_{\omega \to \omega_{fkbj}} \left\{ (\omega - \omega_{fkbj}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
 &= 
 \end{align}
-Similarly, the residue at $\omega = -\omega_{fkbn}$ is
+Similarly, the residue at $\omega = -\omega_{fkbj}$ is
 \begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{fkbn} \right\} =
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{fkbj} \right\} =
 \end{equation}
 
-The residues for the integrand of $A_2$ are the same but with subscript 2 instead of 1.
+The residues for the integrand of $A_2$ are found by replacing subscript 2 with 1.
 
 \appendix
 
