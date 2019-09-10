@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2019.7.18)  3 SEP 2019 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2019.7.18)  10 SEP 2019 14:01
 entering extended mode
 **./finite-beta-asym-slab-IVP.tex
 (finite-beta-asym-slab-IVP.tex
@@ -595,17 +595,18 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
  [1
 
-{C:/Users/smp16mma/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-Overfull \hbox (34.84238pt too wide) detected at line 89
+{C:/Users/smp16mma/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (34.84238pt too wide) detected at line 87
 \OML/cmm/m/it/12 G[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ; \OML/c
 mm/m/it/12 s\OT1/cmr/m/n/12 ) = [] []
  []
 
+[2]
 
-LaTeX Warning: Reference `P eq inside' on page 3 undefined on input line 90.
+LaTeX Warning: Reference `P eq inside' on page 3 undefined on input line 88.
 
 
-Overfull \hbox (89.27719pt too wide) detected at line 94
+Overfull \hbox (89.27719pt too wide) detected at line 92
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = [] [] + [][] \OML/cmm/
 m/it/12 G[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ; \OML/cmm/m/it/1
 2 s\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !; s\
@@ -613,42 +614,42 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ds:
  []
 
 
-LaTeX Warning: Reference `P eq inside' on page 3 undefined on input line 95.
+LaTeX Warning: Reference `P eq inside' on page 3 undefined on input line 93.
 
-[3]
-Overfull \hbox (186.12695pt too wide) detected at line 142
+
+Overfull \hbox (186.12695pt too wide) detected at line 140
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = []
  []
 
-
-Overfull \hbox (62.90298pt too wide) detected at line 166
+[3]
+Overfull \hbox (62.90298pt too wide) detected at line 164
 []
  []
 
 [4]
-Overfull \hbox (35.9178pt too wide) detected at line 173
+Overfull \hbox (35.9178pt too wide) detected at line 171
 []
  []
 
 [5]
-Overfull \hbox (7.0798pt too wide) detected at line 205
+Overfull \hbox (7.0798pt too wide) detected at line 203
 \OML/cmm/m/it/12 A[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) = [] [
 ] [][] []\OML/cmm/m/it/12 e[]d!;  A[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cm
 r/m/n/12 ) = [] [] [][] []\OML/cmm/m/it/12 e[]d!;
  []
 
 [6]
-Overfull \hbox (10.39455pt too wide) in paragraph at lines 228--228
+Overfull \hbox (10.39455pt too wide) in paragraph at lines 226--226
 []\OT1/cmr/bx/n/14.4 Asymptotic so-lu-tion - non-magnetic ex-ter-nal plasma 
  []
 
 [7] [8] [9]
-Overfull \hbox (7.13428pt too wide) detected at line 367
+Overfull \hbox (7.13428pt too wide) detected at line 365
 \OML/cmm/m/it/12 I[] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 :
  []
 
 [10]
-Overfull \hbox (39.33664pt too wide) in paragraph at lines 367--369
+Overfull \hbox (39.33664pt too wide) in paragraph at lines 365--367
 \OT1/cmr/m/n/12 the first term is zero be-cause $\OML/cmm/m/it/12 T[]\OT1/cmr/m
 /n/12 (\OML/cmm/m/it/12 !\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 =D[]\OT1/cmr/m/n/12 
 (\OML/cmm/m/it/12 !\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ! \OT1/cmr/m/n/12 0$ as $
@@ -658,32 +659,37 @@ L/cmm/m/it/12 =D[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ![]\OT1/cmr/m/n/12 ) =
  []
 
 
-Overfull \hbox (29.62317pt too wide) detected at line 373
+Overfull \hbox (29.62317pt too wide) detected at line 371
 []
  []
 
 [11] [12]
-Overfull \hbox (156.4098pt too wide) detected at line 464
+Overfull \hbox (169.63222pt too wide) detected at line 462
 []
  []
 
 [13]
-Overfull \hbox (54.13733pt too wide) detected at line 468
+Overfull \hbox (54.13733pt too wide) detected at line 466
 [] [] \OT1/cmr/m/n/12 = [][][]\OML/cmm/m/it/12 e[]:
  []
 
-[14]
-Overfull \hbox (36.59369pt too wide) detected at line 517
+
+Overfull \hbox (57.23082pt too wide) detected at line 473
 []
  []
 
-[15]
-Overfull \hbox (12.83182pt too wide) in paragraph at lines 540--541
+[14] [15]
+Overfull \hbox (36.59369pt too wide) detected at line 529
+[]
+ []
+
+[16]
+Overfull \hbox (12.83182pt too wide) in paragraph at lines 552--553
 []$\OT1/cmr/m/n/12 [] = [] = [] \OMS/cmsy/m/n/12  [] [] \OT1/cmr/m/n/12 = []
  []$. 
  []
 
-(finite-beta-asym-slab-IVP.bbl [16]) [17] (finite-beta-asym-slab-IVP.aux)
+(finite-beta-asym-slab-IVP.bbl [17]) [18] (finite-beta-asym-slab-IVP.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -691,7 +697,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  13883 strings out of 492973
  282889 string characters out of 3135923
- 340523 words of memory out of 3000000
+ 339523 words of memory out of 3000000
  17473 multiletter control sequences out of 15000+200000
  13395 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -712,10 +718,11 @@ fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti1
-2.pfb>
-Output written on finite-beta-asym-slab-IVP.pdf (17 pages, 270047 bytes).
+2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.p
+fb>
+Output written on finite-beta-asym-slab-IVP.pdf (18 pages, 280301 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
+ 139 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

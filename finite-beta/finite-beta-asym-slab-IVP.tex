@@ -24,8 +24,6 @@
 \section{TO DO}
 \begin{itemize}
 	\item Calculate residues for fast body modes.
-	\item Check that integral around semi-circle and vertical contours go to zero as semi-circle is extended to infinity.
-	\item Calculate contributions of the contours around the branch points - corresponding to "improper modes". Including check that the integrals around the little semi-circles goes to zero.
 	\item Check that there aren't any leaky modes on other Riemann sheets (I don't think there is because we have branch points from the square roots, not from logarithmic terms, so there are only two Riemann sheets).
 	\item Try initial conditions.
 \end{itemize}
@@ -446,42 +444,56 @@ so each of $\omega = \pm \omega_{sks}$ are simple zeros of $D_k$ and hence of $D
 
 Therefore, the residue of the integrand at $\omega = \omega_{sks}$ is
 \begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
-&= \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sks}^2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{i\omega_{sks}t} \\
-&= \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}.
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
+&= \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sks}^2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{-i\omega_{sks}t} \\
+&= \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}.
 \end{align}
 Similarly, the residue at $\omega = -\omega_{sks}$ is
 \begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sks} \right\} = \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{sks} \right\} = \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}
 \end{equation}
 since $T_1$ and $D_s$ are even functions of $\omega$. 
 
 Similarly, the residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
 \begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{sss} \right\} &= \lim_{\omega \to \omega_{sss}} \left\{ (\omega - \omega_{sss}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
-&= \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sss}^2m_0x_0}|_{\omega = \omega_{sss}} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)k(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{2\omega_{sss}D_k(\omega_{sss})} e^{i\omega_{sss}t} \\
-&= \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{i\omega_{sss}t}.
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sss} \right\} &= \lim_{\omega \to \omega_{sss}} \left\{ (\omega - \omega_{sss}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
+&= \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sss}^2m_0x_0}|_{\omega = \omega_{sss}} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)k(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{2\omega_{sss}D_k(\omega_{sss})} e^{-i\omega_{sss}t} \\
+&= \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{-i\omega_{sss}t}.
 \end{align}
 Similarly, the residue at $\omega = -\omega_{sss}$ is
 \begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{sss} \right\} = \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{-i\omega_{sss}t}.
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{sss} \right\} = \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{i\omega_{sss}t}.
 \end{equation}
 
-Regarding, the fast kink body modes $\omega = \pm \omega_{fkbj}$, for $j = 1, 2, ...$, it can be shown that $D_s(\omega_{fkbn}) \neq 0$ and that by letting $\omega_{fkbj}^2 = \omega_T^2(1 + \nu (kx_0)^2)$ , we can show that
-\begin{equation}
-D_k(\omega) = A_0\cos\left(\frac{c_T}{\sqrt{\nu(c_0^2 + v_A^2)}}\right) + \mathcal{O}(kx_0),
-\end{equation}
-for some constant $A_0$, whose form is irrelevant at present. Zeros of $\cos(z)$ are of order 2, therefore zeros of $\cos(\sqrt{z})$ are simple. Therefore, letting $\nu = c_T^4 / c_0^2v_A^2\pi^2(j - \frac{1}{2})^2$ for $j \in \mathcal{N}$, $\omega_{fkbj} = \pm \omega_T\sqrt{1 + \nu(kx_0)^2}$ are simple zeros of $D_k$. Therefore, they are simple poles of $T_{1,2}/D$, so the residue at $\omega = \omega_{fkbj}$ is
+Regarding the fast kink body modes $\omega = \pm \omega_{fkbj}$, for $j = 1, 2, ...$, it can be shown that $|\cosh(m_0x_0)D_s(\omega_{fkbn})| \neq 0, \infty$. By letting $\omega_{fkbj}^2 = \omega_T^2(1 + v(kx_0)^2)$, for $v > 0$, we can show that\footnote{We consider the functions $D_s$ and $D_k$ multiplied by factors of $\cosh(m_0x_0)$ and $\sinh(m_0x_0)$, respectively, to ensure that singularities are regularised. The factors come from the $\sinh(2m_0x_0) = 2\sinh(m_0x_0)\cosh(m_0x_0)$ in the dispersion function $D$.}
 \begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = \omega_{fkbj} \right\} &= \lim_{\omega \to \omega_{fkbj}} \left\{ (\omega - \omega_{fkbj}) \frac{T_1(\omega)}{D(\omega)} e^{i\omega t} \right\} \\
-&= 
+D(\omega(v)) &= \frac{\sinh(2m_0x_0)}{4\Lambda_1\Lambda_2}D_k(\omega(v))D_s(\omega(v)) \\
+&= \frac{1}{2}\cosh(m_0x_0)D_s(\omega(v))\left[\cos\left(\frac{c_T}{\sqrt{(c_0^2 + v_A^2)v}}\right) + \mathcal{O}(kx_0)\right] \\
+&= \frac{1}{2}\cosh(m_0x_0)D_s(\omega(v))\left[\frac{\pi(j + \frac{1}{2})(-1)^{j + 1}}{2\nu_j}(v - \nu_j) + \mathcal{O}((v - \nu_j)^2) + \mathcal{O}(kx_0)\right],
+\end{align}
+where $\nu_j = c_T^4 / c_0^2v_A^2\pi^2(j - \frac{1}{2})^2$ for $j \in \mathbb{N}$ such that $\omega_{fkbj} = \pm \omega_T\sqrt{1 + \nu_j(kx_0)^2}$ are simple zeros of the dispersion function $D$. Since $T_{1,2}(\omega_{fkbj}) \neq 0$, they are also simple poles of $T_{1,2}/D$. Therefore, the residues at $\omega = \omega_{fkbj}$ are\footnote{The zero of $\cosh(m_0x_0)$ when $\omega = \omega_{fkbj}$ regularises the singularities of $D_s(\omega)$.}
+\begin{align}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{fkbj} \right\} &= \lim_{\omega \to \omega_{fkbj}} \left\{ (\omega - \omega_{fkbj}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
+&= \lim_{v \to \nu_j} \left\{ \frac{1}{2} \omega_T (kx_0)^2(v - \nu_j) \frac{T_1(\omega(v))}{D(\omega(v))} e^{-i\omega(v)t} \right\} \\
+&= \frac{2(-1)^{j+1}\omega_T\nu_j(kx_0)^2}{\pi(j-\frac{1}{2})\cosh(m_0x_0)} \frac{T_1(\omega_{fkbj})}{D_s(\omega_{fkbj})}e^{-i\omega_{fkbj}t}.
 \end{align}
 Similarly, the residue at $\omega = -\omega_{fkbj}$ is
 \begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{i\omega t}; \omega = -\omega_{fkbj} \right\} =
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{fkbj} \right\} = \frac{2(-1)^{j}\omega_T\nu_j(kx_0)^2}{\pi(j-\frac{1}{2})\cosh(m_0x_0)} \frac{T_1(\omega_{fkbj})}{D_s(\omega_{fkbj})}e^{i\omega_{fkbj}t}
+\end{equation}
+
+The residues for the fast sausage body modes, $\omega_{fsbj} = \pm \omega_T\sqrt{1 + \eta_j(kx_0)^2}$, where $\eta_j = c_T^4 / c_0^2v_A^2\pi^2j^2$ for $j \in \mathbb{N}$, are similarly given by
+\begin{equation}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{fsbj} \right\} = \frac{2i(-1)^{j}\omega_T\eta_j(kx_0)^2}{\pi j\sinh(m_0x_0)} \frac{T_1(\omega_{fsbj})}{D_k(\omega_{fsbj})}e^{-i\omega_{fsbj}t}
+\end{equation}
+and
+\begin{equation}
+\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{fsbj} \right\} = \frac{2i(-1)^{j}\omega_T\eta_j(kx_0)^2}{\pi j\sinh(m_0x_0)} \frac{T_1(\omega_{fsbj})}{D_k(\omega_{fsbj})}e^{i\omega_{fsbj}t}
 \end{equation}
 
 The residues for the integrand of $A_2$ are found by replacing subscript 2 with 1.
+
+
 
 \appendix
 
